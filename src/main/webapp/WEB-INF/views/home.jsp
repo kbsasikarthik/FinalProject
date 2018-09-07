@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <title>Home page</title>
@@ -16,7 +16,13 @@
 </head>
 <body>
 
-<input>Search</input>
+	<form method="post" action="/repbyzip">
+		<div class="form-group">
+			<label for="num1">Zipcode: </label>
+	    	<input class="form-control" id="zipcode"  name="zipcode" type="number" required >
+		</div>
+		<button action = "submit">Submit</button>
+	</form>
 
 </body>
 </html>
