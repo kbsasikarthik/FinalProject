@@ -7,18 +7,20 @@ public class SearchLocation {
 	private String city;
 	private String state;
 	private Integer zip;
+//	private Float latitude;
+//	private Float longitude;
 
-	public SearchLocation() {
-
-	}
+	public SearchLocation() {}
 
 	public SearchLocation(String streetNum, String streetName, String city, String state, Integer zip) {
 		super();
 		this.streetNum = streetNum;
-		streetName = streetName;
+		this.streetName = streetName;
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
+//		this.latitude = latitude;
+//		this.longitude = longitude;
 	}
 
 	public String getStreetNum() {
@@ -34,7 +36,7 @@ public class SearchLocation {
 	}
 
 	public void setStreetName(String streetName) {
-		streetName = streetName;
+		this.streetName = streetName;
 	}
 
 	public String getCity() {
