@@ -16,5 +16,7 @@
 </head>
 <body>
 
+<input>Search</input>
+
 </body>
 </html>
