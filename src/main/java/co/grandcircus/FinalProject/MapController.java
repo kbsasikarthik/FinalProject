@@ -10,14 +10,14 @@ import co.grandcircus.FinalProject.mapentity.SearchLocation;
 @Controller
 public class MapController {
 
-	@RequestMapping("/")
-	public ModelAndView showHomePage() {
-
-		ModelAndView mav = new ModelAndView("home");
-
-		return mav;
-
-	}
+//	@RequestMapping("/")
+//	public ModelAndView showHomePage() {
+//
+//		ModelAndView mav = new ModelAndView("home");
+//
+//		return mav;
+//
+//	}
 
 	@RequestMapping("/Map")
 	public ModelAndView showMapPage(@RequestParam(value = "streetNum", required = false) String streetNum,
