@@ -11,6 +11,7 @@ import co.grandcircus.FinalProject.mapentity.SearchLocation;
 public class MapController {
 
 	@RequestMapping("/MapResults")
+
 	public ModelAndView showMapPage(@RequestParam(value = "streetNum", required = false) String streetNum,
 			@RequestParam(value = "streetName", required = false) String streetName,
 			@RequestParam(value = "city", required = false) String city,
@@ -26,10 +27,6 @@ public class MapController {
 		return mav;
 	}
 
-	@RequestMapping("/incident")
-	public ModelAndView showIncident() {
-		return new ModelAndView("home");
-	}
 //	@RequestMapping("/takeAddress")
 //	public ModelAndView findLatLong(String streetNum, String streetName, String city, String state) {
 //			ModelAndView mav = new ModelAndView(redirect:/MapResults");
