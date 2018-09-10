@@ -59,7 +59,7 @@ $(function() {
 
 <c:forEach var="incident" items="${incidents }">
 	<tr>
-	<td><a href = "/incident/{incident.incidentId}" class="btn btn-secondary">Details</td>
+	<td><a href = "/incident/${incident.incidentId}" class="btn btn-secondary">Details</a></td>
 	<td>${incident.date}</td>
 	<td>${incident.address}</td>
 	<td style="text-align:center">${incident.n_killed}</td>

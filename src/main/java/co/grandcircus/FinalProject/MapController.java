@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.grandcircus.FinalProject.mapentity.SearchLocation;
-
 @Controller
 public class MapController {
 
@@ -17,7 +15,7 @@ public class MapController {
 			@RequestParam(value = "city", required = false) String city,
 			@RequestParam(value = "state", required = false) String state,
 			@RequestParam(value = "zip", required = false) Integer zip) {
-		SearchLocation location = new SearchLocation(streetNum, streetName, city, state, zip);
+//		SearchLocation location = new SearchLocation(streetNum, streetName, city, state, zip);
 		ModelAndView mav = new ModelAndView("Map");
 		mav.addObject("city", city);
 		mav.addObject("state", state);

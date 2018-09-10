@@ -1,7 +1,5 @@
 package co.grandcircus.FinalProject.dao;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -17,12 +15,11 @@ public class IncidentDetailsDao {
 	@PersistenceContext
 	private EntityManager em;
 
-	public List<Incident> byDate(String date) {
-		System.out.println(date + " in DAO");
-		List<Incident> dates = em.createQuery("FROM Incident WHERE incident_date = :date", Incident.class)
-				.setParameter("date", date).getResultList();
-		System.out.println("In Dao" + dates);
-		return dates;
+	public Incident byID(Integer incidentId) {
+		System.out.println(incidentId + " in DAO");
+		return em.createQuery("FROM Incident WHERE incidentId = :id", Incident.class).setParameter("id", incidentId)
+				.getSingleResult();
+
 	}
 
 }

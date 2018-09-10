@@ -12,19 +12,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>${date}</h1>
-<h1>${n_killed}</h1>
-<h1>${n_injured}</h1>
-<h1>${notes}</h1>
-<h1>${source_url}</h1>
-<h1>${ sources}</h1>
-<h1>${name}</h1>
-<h1>${age}</h1>
-<h1>${gender}</h1>
-<h1>${status}</h1>
+
+<h1>Incident Details</h1>
+<div>
+<table>
+<thead>
+<tr>
+<th>Date: ${incident.date} </th>
+<th>Number Killed: ${incident.n_killed} </th>
+<th>Number injured: ${incident.n_injured}</th>
+</tr>
+</thead>
+</table>
+</div>
+<p>${incident.notes}</p>
+<p>${incident.sources}</p>
+<p>${incident.source_url}</p>
 
 
-
+<p>${incident.participant_name}</p>
+<p>${incident.participant_age}</p>
+<p>${incident.participant_gender}</p>
+<p>${incident.participant_status}</p>
+<p>${incident.participant_type}</p> 
 
 </body>
 </html>
