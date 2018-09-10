@@ -1,5 +1,7 @@
 package co.grandcircus.FinalProject;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.FinalProject.dao.IncidentDao;
+import co.grandcircus.FinalProject.entity.Incident;
 
 @Controller
 public class DatabaseController {
@@ -49,9 +52,14 @@ public class DatabaseController {
 		@RequestParam("firstName") String firstName,
 		@RequestParam("lastName") String lastName) {
 		System.out.println(firstName);
+		String name = firstName+" "+lastName;
 
 		ModelAndView mav = new ModelAndView("listresultsbyname");
-		mav.addObject("matchingnames", incidentDao.byName(firstName, lastName));
+		List<Incident> matchingNames = incidentDao.byName(name);
+		mav.addObject("name", name);
+		mav.addObject("number", matchingNames.size());
+		mav.addObject("matchingNames",matchingNames );
+		System.out.println(incidentDao.byName(name));
 		return mav;
 	}
 	

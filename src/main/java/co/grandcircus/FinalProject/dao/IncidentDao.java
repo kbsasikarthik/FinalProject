@@ -45,9 +45,9 @@ public class IncidentDao {
 		return incidents;
 	}
 	
-	public List<Incident> byName(String firstName, String lastName){
-		System.out.println(firstName+" in DAO"+lastName);
-		List<Incident> people= em.createQuery("FROM Incident WHERE participant_name = :first AND participant_name = :last", Incident.class).setParameter("first", firstName).setParameter("last", lastName).getResultList();		
+	public List<Incident> byName(String name){
+		System.out.println(name+ " in DAO");
+		List<Incident> people= em.createQuery("FROM Incident WHERE participant_name Like :name", Incident.class).setParameter("name", "%"+name+"%").getResultList();		
 		System.out.println("In Dao"+people);
 		return people;
 	}
