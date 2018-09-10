@@ -30,5 +30,12 @@ public class IncidentDao {
 		System.out.println("In Dao"+incidents);
 		return incidents;
 	}
+	
+	public Set<String> getCities(String state){
+		System.out.println(state+" in DAO");
+		List<String> cities= em.createQuery("SELECT DISTINCT city_or_county FROM Incident WHERE state = :stat", String.class).setParameter("stat", state).getResultList();		
+		System.out.println("In Dao"+cities);
+		return new TreeSet<>(cities);
+	}
 
 }

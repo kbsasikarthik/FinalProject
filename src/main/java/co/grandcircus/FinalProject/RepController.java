@@ -31,6 +31,14 @@ public class RepController {
 		mav.addObject("states", incidentDao.getStates());
 		return mav;
 	}
+	
+	@RequestMapping("/selectCity")
+	public ModelAndView showCities(
+			@RequestParam("state") String state) {
+		ModelAndView mav = new ModelAndView("redirect:/");
+		mav.addObject("cities", incidentDao.getCities(state));
+		return mav;
+	}
 
 	
 	@RequestMapping("/repbyzip")

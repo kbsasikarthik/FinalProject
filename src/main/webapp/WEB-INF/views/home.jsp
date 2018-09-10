@@ -27,11 +27,11 @@
 				"An armed man is a citizen. A disarmed man is a subject.")
 		.get(new Random().nextInt(5))
 	%></p>
-	<form method="post" action="/repbyzip">
-		<div class="form-group">
+	<form method="post" action="/selectCity">
+		<!--  <div class="form-group">
 			<label for="num1">Zipcode: </label>
 	    	<input class="form-control" id="zipcode"  name="zipcode" type="number" required >
-		</div>
+		</div> -->
 		<div class="form-group">
 		  	<label class="sr-only" for="state">State</label>
 			<select class="form-control mb-2 mr-sm-2" id="state" name="state">
@@ -41,7 +41,20 @@
 		  	</c:forEach>
 		  	</select>
 		 </div>
+		 <button action = "submit">Submit</button>
+	</form>
+	<form method ="post" action="/listresults">
+		 <div class="form-group">
+		  	<label class="sr-only" for="city">City</label>
+			<select class="form-control mb-2 mr-sm-2" id="city" name="city">
+			<option value="">City</option>
+		  	<c:forEach items="${ cities }" var="city">
+		  		<option <c:if test="${ city eq param.city_or_county }">selected</c:if>>${ city }</option>
+		  	</c:forEach>
+		  	</select>
+		 </div>
 		<button action = "submit">Submit</button>
+	</form>
 =======
 <h1>Welcome to the Gun Violence Awareness Project</h1>
 <br>
