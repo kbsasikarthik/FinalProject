@@ -14,7 +14,7 @@
  height="450"
  frameborder="0" style="border:0"
  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDsys0GZf3YUkzCQt1n-qVwIjzI3ga3e5Y
-   &q=${number}+${name},${city}+${state}" allowfullscreen>
+   &q=${city}+${state}" allowfullscreen>
 </iframe>
 </body>
 </html>

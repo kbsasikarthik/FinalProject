@@ -1,28 +1,17 @@
 package co.grandcircus.FinalProject;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.FinalProject.mapentity.SearchLocation;
 
 @Controller
 public class MapController {
-//<<<<<<< HEAD
-//
 
-
-//	@RequestMapping("/Map")
-//	public ModelAndView showMapPage(@RequestParam(value = "streetNum", required = false) String streetNum,
-//=======
-	
 	@RequestMapping("/MapResults")
-	public ModelAndView showMapPage(
-			@RequestParam(value = "streetNum", required = false) String streetNum,
-//>>>>>>> 21a0775518e2b099935a2f95a022b8684b8e29c0
+	public ModelAndView showMapPage(@RequestParam(value = "streetNum", required = false) String streetNum,
 			@RequestParam(value = "streetName", required = false) String streetName,
 			@RequestParam(value = "city", required = false) String city,
 			@RequestParam(value = "state", required = false) String state,
@@ -36,6 +25,7 @@ public class MapController {
 		mav.addObject("zip", zip);
 		return mav;
 	}
+
 	@RequestMapping("/incident")
 	public ModelAndView showIncident() {
 		return new ModelAndView("home");
