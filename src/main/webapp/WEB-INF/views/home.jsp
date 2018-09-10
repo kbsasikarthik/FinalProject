@@ -18,33 +18,29 @@
 
 </head>
 <body>
-<<<<<<< HEAD
-	<p class="Quotes"><%=
-		Arrays.asList("How many have to die before we will give up these dangerous toys?",
-				"Not everybody needs a gun , to get things done.",
-				"Know guns, know peace, know safety. No guns, no peace, no safety.",
-				"You don’t spread democracy with a barrel of a gun.",
-				"An armed man is a citizen. A disarmed man is a subject.")
-		.get(new Random().nextInt(5))
-	%></p>
-	<form method="post" action="/selectCity">
-		<!--  <div class="form-group">
-			<label for="num1">Zipcode: </label>
-	    	<input class="form-control" id="zipcode"  name="zipcode" type="number" required >
-		</div> -->
-		<div class="form-group">
+<h1>Welcome to the Gun Violence Awareness Project</h1>
+<br>
+<h2>Search for Gun Violence by Address</h2>
+${test }
+
+	<form method="post" action="/selectCity" id="state_form">
+		<div class="form-group" >
 		  	<label class="sr-only" for="state">State</label>
-			<select class="form-control mb-2 mr-sm-2" id="state" name="state">
+			<select class="form-control mb-2 mr-sm-2" id="state" name="state" >
+			<!--  onchange="document.getElementByID('state_form').submit()">-->
 			<option value="">State</option>
 		  	<c:forEach items="${ states }" var="state">
 		  		<option <c:if test="${ state eq param.state }">selected</c:if>>${ state }</option>
 		  	</c:forEach>
 		  	</select>
-		 </div>
-		 <button action = "submit">Submit</button>
+		 </div>	
+				<button action = "submit">Submit</button>
+		 	 
 	</form>
-	<form method ="post" action="/listresults">
+	
+<form method ="post"  id="city_form" action="/listresults/${state}" >
 		 <div class="form-group">
+		 ${state }
 		  	<label class="sr-only" for="city">City</label>
 			<select class="form-control mb-2 mr-sm-2" id="city" name="city">
 			<option value="">City</option>
@@ -53,13 +49,14 @@
 		  	</c:forEach>
 		  	</select>
 		 </div>
-		<button action = "submit">Submit</button>
+		<!-- <a href="/listresults/${state}" class="btn btn-primary">results</a> -->
+		 
+		 <button action = "submit">Submit</button>
 	</form>
-=======
-<h1>Welcome to the Gun Violence Awareness Project</h1>
-<br>
-<h2>Search for Gun Violence by Address</h2>
-<br>
+	
+	
+
+<!-- <br>
 	<form method="post" action="/MapResults">
 	<div class="form-group row">
 			<label for="streetNum" class="col-sm-2 col-form-label">Street Number:</label>
@@ -92,7 +89,15 @@
 			</div>
 		</div>
 		<button type="submit">SEARCH</button>
->>>>>>> 21a0775518e2b099935a2f95a022b8684b8e29c0
-	</form>
+	</form>-->
+	
+		<p class="Quotes"><%=
+		Arrays.asList("How many have to die before we will give up these dangerous toys?",
+				"Not everybody needs a gun , to get things done.",
+				"Know guns, know peace, know safety. No guns, no peace, no safety.",
+				"You don’t spread democracy with a barrel of a gun.",
+				"An armed man is a citizen. A disarmed man is a subject.")
+		.get(new Random().nextInt(5))
+	%></p>
 </body>
 </html>
