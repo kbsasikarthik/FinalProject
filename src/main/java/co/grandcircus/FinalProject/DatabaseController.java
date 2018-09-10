@@ -20,7 +20,6 @@ public class DatabaseController {
 	public ModelAndView showhome() {
 		ModelAndView mav = new ModelAndView("home");
 		mav.addObject("states", incidentDao.getStates());
-//		mav.addObject("test", incidentDao.byStateAndCity("Michigan", "Detroit"));
 		return mav;
 	}
 	
@@ -37,13 +36,25 @@ public class DatabaseController {
 	}
 
 	@RequestMapping("/listresults/{state}")
-	public ModelAndView showResults(@PathVariable("state") String state, @RequestParam("city") String city) {
-//	(@RequestParam("state") String state, @RequestParam("city") String city) {
+	public ModelAndView showResults(
+			@PathVariable("state") String state, 
+			@RequestParam("city") String city) {
 		System.out.println("State - "+state+"City- " +city);
 		ModelAndView mav = new ModelAndView("listresults");
 		mav.addObject("incidents", incidentDao.byStateAndCity(state, city));
 		return mav;
 	}
+	@RequestMapping("/nameSearch")
+	public ModelAndView searchNames(
+		@RequestParam("firstName") String firstName,
+		@RequestParam("lastName") String lastName) {
+		System.out.println(firstName);
+
+		ModelAndView mav = new ModelAndView("listresultsbyname");
+		mav.addObject("matchingnames", incidentDao.byName(firstName, lastName));
+		return mav;
+	}
+	
 	
 	@RequestMapping("/listresultsbyname")
 	public ModelAndView showResultsByName() {

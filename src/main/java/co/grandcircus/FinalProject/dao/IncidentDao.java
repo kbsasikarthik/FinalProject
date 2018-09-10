@@ -45,7 +45,18 @@ public class IncidentDao {
 		return incidents;
 	}
 	
+	public List<Incident> byName(String firstName, String lastName){
+		System.out.println(firstName+" in DAO"+lastName);
+		List<Incident> people= em.createQuery("FROM Incident WHERE participant_name = :first AND participant_name = :last", Incident.class).setParameter("first", firstName).setParameter("last", lastName).getResultList();		
+		System.out.println("In Dao"+people);
+		return people;
+	}
 	
-	
+	public List<Incident> byDateRange(String firstName, String lastName){
+		System.out.println(firstName+" in DAO"+lastName);
+		List<Incident> people= em.createQuery("FROM Incident WHERE participant_name = :first AND participant_name = :last", Incident.class).setParameter("first", firstName).setParameter("last", lastName).getResultList();		
+		System.out.println("In Dao"+people);
+		return people;
+	}
 
 }

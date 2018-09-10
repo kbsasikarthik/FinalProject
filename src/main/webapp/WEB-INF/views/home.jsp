@@ -20,9 +20,8 @@
 <body>
 <h1>Welcome to the Gun Violence Awareness Project</h1>
 <br>
-<h2>Search for Gun Violence by Address</h2>
-${test }
-
+<h2>Search for Gun Violence by Location</h2>
+<h3>Select a State to Get Started</h3>
 	<form method="post" action="/selectCity" id="state_form">
 		<div class="form-group" >
 		  	<label class="sr-only" for="state">State</label>
@@ -34,11 +33,10 @@ ${test }
 		  	</c:forEach>
 		  	</select>
 		 </div>	
-				<button action = "submit">Submit</button>
-		 	 
+				<button action = "submit">Submit</button> 	 
 	</form>
 	
-<form method ="post"  id="city_form" action="/listresults/${state}" >
+	<form method ="post"  id="city_form" action="/listresults/${state}" >
 		 <div class="form-group">
 		 ${state }
 		  	<label class="sr-only" for="city">City</label>
@@ -49,8 +47,6 @@ ${test }
 		  	</c:forEach>
 		  	</select>
 		 </div>
-		<!-- <a href="/listresults/${state}" class="btn btn-primary">results</a> -->
-		 
 		 <button action = "submit">Submit</button>
 	</form>
 	
