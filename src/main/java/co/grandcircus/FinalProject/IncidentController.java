@@ -30,7 +30,9 @@ public class IncidentController {
 		List<String> gender = incident.getGender();
 		List<String> status = incident.getStatus();
 		List<String> details = new ArrayList<>();
+
 		int maxLength = 0;
+
 		
         if ((ages.size() > gender.size()) && (ages.size() > status.size())) {
             maxLength = ages.size();
@@ -48,6 +50,26 @@ public class IncidentController {
 //		for(int i=0; i<gender.size(); i++) {
 //			details.add(gender.get(i)+" , "+ages.get(i)+" - "+status.get(i));
 //		}
+
+
+		if ((ages.size() > gender.size()) && (ages.size() > status.size())) {
+
+			maxLength = ages.size();
+
+		} else if ((gender.size() > ages.size()) && (gender.size() > status.size())) {
+
+			maxLength = gender.size();
+
+		} else {
+
+			maxLength = status.size();
+
+		}
+
+		for (int i = 0; i < maxLength; i++) {
+			details.add(gender.get(i) + " , " + ages.get(i) + " - " + status.get(i));
+		}
+
 		mav.addObject("details", details);
 		System.out.println(incidentDetailsDao.byID(incidentId));
 		return mav;
