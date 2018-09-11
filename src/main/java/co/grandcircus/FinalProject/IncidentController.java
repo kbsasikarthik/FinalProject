@@ -31,11 +31,12 @@ public class IncidentController {
 		List<String> status = incident.getStatus();
 		List<String> details = new ArrayList<>();
 		int maxLength = 0;
+		
         if ((ages.size() > gender.size()) && (ages.size() > status.size())) {
             maxLength = ages.size();
         } else if ((gender.size() > ages.size()) && (gender.size() > status.size())) {
             maxLength = gender.size();
-        } else if ((status.size() > ages.size()) && (status.size() > gender.size())) {
+        } else  {
             maxLength = status.size();
         }
         System.out.println(maxLength);
