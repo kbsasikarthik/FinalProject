@@ -1,5 +1,7 @@
 package co.grandcircus.FinalProject.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,7 +16,7 @@ public class Incident {
 	@Id
 	private Integer incidentId;
 	@Column(name="incident_date")
-	private String date;
+	private Date date;
 	private String state;
 	private String city_or_county;
 	private String address;
@@ -47,10 +49,10 @@ public class Incident {
 	public void setIncidentId(Integer incidentId) {
 		this.incidentId = incidentId;
 	}
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	public String getState() {
@@ -242,7 +244,7 @@ public class Incident {
 	 * @param state_house_district
 	 * @param state_senate_district
 	 */
-	public Incident(Integer incidentId, String date, String state, String city_or_county, String address,
+	public Incident(Integer incidentId, Date date, String state, String city_or_county, String address,
 			Integer n_killed, Integer n_injured, String incident_url, String source_url,
 //			String incident_url_fields_missing, 
 			Integer congressional_district, String gun_stolen, String gun_type,
