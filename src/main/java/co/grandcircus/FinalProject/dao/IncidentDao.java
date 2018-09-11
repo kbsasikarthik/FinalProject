@@ -60,4 +60,10 @@ public class IncidentDao {
 		return people;
 	}
 
+	public List<Incident> byDateAndLocation(LocalDate fromDate, LocalDate toDate, String state, String city){
+		System.out.println(fromDate+" in DAO"+toDate);
+		List<Incident> people= em.createQuery("FROM Incident WHERE incident_date >= from AND incident_date <= to AND state = :stat AND city_or_county= :city", Incident.class).setParameter("from", fromDate).setParameter("to", toDate).setParameter("stat", state).setParameter("city", city).getResultList();		
+		System.out.println("In Dao"+people);
+		return people;
+	}
 }
