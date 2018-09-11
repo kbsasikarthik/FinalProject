@@ -15,43 +15,29 @@
 </head>
 <body>
 
-<h1>Here is your representative for zipcode ${ zipcode }</h1>
+<h1></h1>
 
 <table>
 <thead>
 <tr>
-<strong><td>Incident Date</td><td>Location</td><td>Losses</td><td>Source</td>
+<strong><td>Name</td><td>District</td><td>State</td><td>Party</td>
 </strong>
 </tr>
 </thead>
-<c:forEach var="inc" items="${ incidents}">
+<c:forEach var="rep" items="${ reps}">
 	<tr>
-	<td>${inc.date}</td>
-	<td >${inc.address}</td>
-	<td>${inc.n_killed}</td>
-	<td>${inc.source_url }</td>
-	
-	</tr>
-</c:forEach>
-
-</table>
-<table>
-<thead>
-<tr>
-<strong><td>Name</td><td>Party</td><td>State</td>
-</strong>
-</tr>
-</thead>
-
-<c:forEach var="rep" items="${ represult}">
-	<tr>
-	<td><a href="/details/${rep.name }">${rep.name}</a></td>
-	<td >${rep.party}</td>
+	<td>${rep.full_name}</td>
+	<td >${rep.district}</td>
 	<td>${rep.state}</td>
-	
+	<td>${rep.party }</td>
+	<td>${rep.chamber}</td>
+	<td >${rep.email}</td>
+	<td><img src=url("${rep.photo_url}")/></td>
+	<td>${rep.url }</td>
 	</tr>
 </c:forEach>
 
 </table>
+
 </body>
 </html>

@@ -39,6 +39,6 @@
 <p>${detail }</p>
 </c:forEach>
  
-
+<a href="/repbyzip/${incident.latitude}/${incident.longitude}">Representatives</a>
 </body>
 </html>

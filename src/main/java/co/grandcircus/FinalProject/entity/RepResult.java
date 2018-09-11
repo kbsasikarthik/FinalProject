@@ -7,13 +7,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RepResult {
 	
 	@JsonProperty("results")
-	private List<Representative> results;
+	private List<OldRepresentative> results;
 
-	public List<Representative> getResults() {
+	public List<OldRepresentative> getResults() {
 		return results;
 	}
 
-	public void setResults(List<Representative> results) {
+	public void setResults(List<OldRepresentative> results) {
 		this.results = results;
 	}
 

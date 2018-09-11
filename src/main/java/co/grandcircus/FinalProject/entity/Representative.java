@@ -2,32 +2,20 @@ package co.grandcircus.FinalProject.entity;
 
 public class Representative {
 	
-	private String name;
-	private String party;
-	private String state;
+	private String full_name;
 	private String district;
-	private String phone;
-	private String office;
-	private String link;
+	private String chamber;
+	private String state;
+	private String email;
+	private String party;
+	private String photo_url;
+	private String url;
 	
-	
-	public String getName() {
-		return name;
+	public String getFull_name() {
+		return full_name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getParty() {
-		return party;
-	}
-	public void setParty(String party) {
-		this.party = party;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
+	public void setFull_name(String full_name) {
+		this.full_name = full_name;
 	}
 	public String getDistrict() {
 		return district;
@@ -35,31 +23,47 @@ public class Representative {
 	public void setDistrict(String district) {
 		this.district = district;
 	}
-	public String getPhone() {
-		return phone;
+	public String getChamber() {
+		return chamber;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setChamber(String chamber) {
+		this.chamber = chamber;
 	}
-	public String getOffice() {
-		return office;
+	public String getState() {
+		return state;
 	}
-	public void setOffice(String office) {
-		this.office = office;
+	public void setState(String state) {
+		this.state = state;
 	}
-	public String getLink() {
-		return link;
+	public String getEmail() {
+		return email;
 	}
-	public void setLink(String link) {
-		this.link = link;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getParty() {
+		return party;
+	}
+	public void setParty(String party) {
+		this.party = party;
+	}
+	public String getPhoto_url() {
+		return photo_url;
+	}
+	public void setPhoto_url(String photo_url) {
+		this.photo_url = photo_url;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	@Override
 	public String toString() {
-		return "Representative [name=" + name + ", party=" + party + ", state=" + state + ", district=" + district
-				+ ", phone=" + phone + ", office=" + office + ", link=" + link + "]";
+		return "Representative [full_name=" + full_name + ", district=" + district + ", chamber=" + chamber + ", state="
+				+ state + ", email=" + email + ", party=" + party + ", photo_url=" + photo_url + ", url=" + url + "]";
 	}
-
-
 
 	
 
