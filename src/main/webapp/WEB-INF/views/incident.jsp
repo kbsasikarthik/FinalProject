@@ -35,7 +35,6 @@
 <c:forEach var="name" items="${incident.names}">
 <p>${name }<a href="/participant/${name }" class="btn btn-secondary">Add Connection</a></p>
 </c:forEach>
-${details }
 <c:forEach var="detail" items="${details}"> 
 <p>${detail }</p>
 </c:forEach>
