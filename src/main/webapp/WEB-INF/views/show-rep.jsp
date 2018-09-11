@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -28,12 +30,12 @@
 	<tr>
 	<td>${rep.full_name}</td>
 	<td >${rep.district}</td>
-	<td>${rep.state}</td>
+	<td>${fn:toUpperCase(rep.state)}</td>
 	<td>${rep.party }</td>
 	<td>${rep.chamber}</td>
 	<td >${rep.email}</td>
 	<td><img src=url("${rep.photo_url}")/></td>
-	<td>${rep.url }</td>
+	<td><a href ="${rep.url}">${rep.url}</a></td>
 	</tr>
 </c:forEach>
 
