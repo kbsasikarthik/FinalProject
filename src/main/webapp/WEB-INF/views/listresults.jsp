@@ -29,7 +29,7 @@
 		<div class="form-group row">
 			<label for="firstName" class="col-sm-2 col-form-label">First Name:</label>
     		<div class="col-sm-10">
-			<input class="form-control" name="firstName" required minlength="2" maxlength="10"/>
+			<input class="form-control" name="firstName" minlength="2" maxlength="10"/>
 			</div>
 		</div>
 		<div class="form-group row">
@@ -42,12 +42,39 @@
 </form>
 <h3>Filter by Date Range</h3>
 <p>Database starts Jan. 1, 2013</p>
-<input type="text" name="daterange" value="01/01/2013 - 03/31/2018" />
-<script type="text/javascript">
-$(function() {
-    $('input[name="daterange"]').daterangepicker();
+<input type="text" name="fromDate" value="01/01/2013" />
+   <script type="text/javascript">
+$('#datepicker').on('changeDate', (function() {
+	$('#fromDate').val(
+	        $('#datepicker').datepicker('getFormattedDate');
 });
 </script>
+<!-- $('.datepicker').datepicker('searchbyDate', fromDate, toDate);
+<div class="input-group input-daterange">
+    <input type="text" class="form-control" value="2012-04-05">
+    <div class="input-group-addon">to</div>
+    <input type="text" class="form-control" value="2012-04-19">
+</div>
+<script type="text/javascript">
+<div id="datepicker1" data-date="01/01/2013"></div>
+<input type="hidden" id="fromDate">
+$('#datepicker').datepicker();
+$('#datepicker').on('changeDate', function() {
+    $('#fromDate').val(
+        $('#datepicker').datepicker('getFormattedDate')
+    );
+});
+</script>
+<script type="text/javascript">
+<div id="datepicker2" data-date="01/01/2013"></div>
+<input type="hidden" id="toDate">
+$('#datepicker').datepicker();
+$('#datepicker').on('changeDate', function() {
+    $('#toDate').val(
+        $('#datepicker').datepicker('getFormattedDate')
+    );
+});
+</script> -->
 <br>
 <table>
 <thead>

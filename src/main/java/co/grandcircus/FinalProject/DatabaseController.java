@@ -66,17 +66,17 @@ public class DatabaseController {
 	}
 	
 	@RequestMapping("/dateSearch")
-	public ModelAndView searchByDate(@RequestParam("daterange") String daterange) {
-//		@RequestParam("fromDate") LocalDate fromDate,
-//		@RequestParam("toDate") LocalDate toDate) {
-//		System.out.println(fromDate +" "+toDate);
-System.out.println(daterange);
+	public ModelAndView searchByDate(	
+		@RequestParam("fromDate") LocalDate fromDate,
+		@RequestParam("toDate") LocalDate toDate) {
+		System.out.println(fromDate +" "+toDate);
 		ModelAndView mav = new ModelAndView("listresultsbyname");
-//		List<Incident> matchingDates = incidentDao.byDateRange(fromDate, toDate);
-//		mav.addObject("name", name);
-//		mav.addObject("number", matchingNames.size());
-//		mav.addObject("matchingDates",matchingDates );
-//		System.out.println(matchingDates);
+		List<Incident> matchingDates = incidentDao.byDateRange(fromDate, toDate);
+		mav.addObject("fromDate", fromDate);
+		mav.addObject("toDate", toDate);
+		mav.addObject("number", matchingDates.size());
+		mav.addObject("matchingDates", matchingDates );
+		System.out.println(matchingDates);
 		return mav;
 	}
 	
