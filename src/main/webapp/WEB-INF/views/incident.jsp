@@ -10,6 +10,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/journal/bootstrap.min.css" />
+<link rel="stylesheet" href="/style.css" />
+
 </head>
 <body>
 
@@ -28,13 +32,14 @@
 <p>${incident.notes}</p>
 <p>${incident.sources}</p>
 <p>${incident.source_url}</p>
+<c:forEach var="name" items="${incident.names}">
+<p>${name }<a href="/participant/${name }" class="btn btn-secondary">Add Connection</a></p>
+</c:forEach>
 
-
-<p>${incident.participant_name}</p>
-<p>${incident.participant_age}</p>
-<p>${incident.participant_gender}</p>
-<p>${incident.participant_status}</p>
-<p>${incident.participant_type}</p> 
+<c:forEach var="detail" items="${details}"> 
+<p>${detail }</p>
+</c:forEach>
+ 
 
 </body>
 </html>

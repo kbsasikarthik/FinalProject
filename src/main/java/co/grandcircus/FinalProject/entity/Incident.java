@@ -1,22 +1,28 @@
 package co.grandcircus.FinalProject.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 //@Table(name="gun-violence-data_01-2013_03-2018")
-@Table(name="incident_report")
+@Table(name="incidents")
 public class Incident {
 //incident_id	date	state	city_or_county	address	n_killed	n_injured	gun_stolen	gun_type	incident_characteristics	latitude	n_guns_involved	notes	participant_age	participant_age_group	participant_gender	participant_name	participant_relationship	participant_status	participant_type	sources	state_house_district	state_senate_district	
 // `state_house_district` text, `state_senate_district` text)
 	@Id
 	private Integer incidentId;
 	@Column(name="incident_date")
-	private Date date;
+//	private Date date;
+//	private SimpleDateFormat date;
+	private LocalDate date;
 	private String state;
 	private String city_or_county;
 	private String address;
@@ -43,16 +49,19 @@ public class Incident {
 	private String sources;
 	private String state_house_district;
 	private String state_senate_district;
+	
+//	private String[] namesAsList;
+	
 	public Integer getIncidentId() {
 		return incidentId;
 	}
 	public void setIncidentId(Integer incidentId) {
 		this.incidentId = incidentId;
 	}
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 	public String getState() {
@@ -212,6 +221,103 @@ public class Incident {
 		this.state_senate_district = state_senate_district;
 	}
 	
+//	@Transient
+//	public String getParticipantDetails() {
+////		List<String> names = getNamesAsList();
+//		List<String> ages = getAges();
+//		List<String> gender = getGender();
+//		String retString="";
+////		if(ages.size() >1){
+//			
+//			for(int i=0; i<ages.size() ; i++)
+//			{
+//				retString += gender.get(i)+"  -  "+ages.get(i);
+//				System.out.println(retString);
+//			}
+////		} else
+////			retString = ages +" - "+gender.get(0);
+//		return retString;
+//		
+//		
+//	}
+	
+////	@Transient
+////	public List<String> com
+//	@Transient
+//	public String getNamesAsList() {
+//		String name = getParticipant_name();
+//		String retName = ""; 
+//		String[] parsedName = getParticipant_name().split("\\|\\|");
+//
+//		if(parsedName.length >1){
+//			
+//			for(int i=0; i<parsedName.length ; i++)
+//			{
+////			if(!(parsedName[i].charAt(0) >=0) && (parsedName[i].charAt(0) <=9))
+//				retName+=(parsedName[i].substring(3)+", ");
+//			}
+//		} else
+//			retName = parsedName[0].substring(3);
+////		List<String> test = null;
+////		for(int i=0; i<parsedName.length; i++) {
+////			 test.add(parsedName[i]);
+////			 System.out.println(parsedName[i]);
+////		}
+//		return retName;
+//	}
+	
+	@Transient
+	public List<String> getNames() {
+		String name = getParticipant_name();
+		List<String> parsedName = parseString(name);
+		return parsedName;
+	}
+	
+	@Transient
+	public List<String> getAges() {
+		String age = getParticipant_age();
+		List<String> parsedAge = parseString(age);
+		return parsedAge;
+	}
+	
+	@Transient
+	public List<String> getStatus() {
+		String status = getParticipant_status();
+		List<String> parsedStatus = parseString(status);
+		return parsedStatus;
+	}
+	
+	@Transient
+	public List<String> getType() {
+		String type = getParticipant_type();
+		List<String> parsedType = parseString(type);
+		return parsedType;
+	}
+	
+	
+	@Transient
+	public List<String> getGender() {
+		String gender = getParticipant_gender();
+		List<String> parsedGender = parseString(gender);
+		return parsedGender;
+	}
+	
+	@Transient
+	public List<String> parseString(String tobeParsed){
+		String[]  parsedName;
+		List<String> listOfNames = new ArrayList<>() ;
+		if(!tobeParsed.isEmpty()) {
+			parsedName = tobeParsed.split("\\|\\|");
+				for(int i=0; i<parsedName.length ; i++)
+				{
+					listOfNames.add(parsedName[i].substring(3));
+				}
+
+		} else
+			listOfNames.add("No Info found!");
+		return listOfNames;
+	}
+	
 	
 	public Incident() {}
 	/**
@@ -244,7 +350,7 @@ public class Incident {
 	 * @param state_house_district
 	 * @param state_senate_district
 	 */
-	public Incident(Integer incidentId, Date date, String state, String city_or_county, String address,
+	public Incident(Integer incidentId, LocalDate date, String state, String city_or_county, String address,
 			Integer n_killed, Integer n_injured, String incident_url, String source_url,
 //			String incident_url_fields_missing, 
 			Integer congressional_district, String gun_stolen, String gun_type,
