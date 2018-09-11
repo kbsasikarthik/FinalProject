@@ -19,7 +19,9 @@
 
 <c:forEach var="incident" items="${matchingNames }">
 	<tr>
-	<td>${incident.participant_name}</td>
+	<td><c:forEach var="name" items="${incident.names }">
+	${name }
+	</c:forEach></td>
 	<td>${incident.date}</td>
 	<td>${incident.address}</td>
 	<td style="text-align:center">${incident.n_killed}</td>

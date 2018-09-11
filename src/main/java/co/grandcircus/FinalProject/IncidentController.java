@@ -30,9 +30,23 @@ public class IncidentController {
 		List<String> gender = incident.getGender();
 		List<String> status = incident.getStatus();
 		List<String> details = new ArrayList<>();
-		for(int i=0; i<ages.size(); i++) {
-			details.add(gender.get(i)+" , "+ages.get(i)+" - "+status.get(i));
-		}
+		int maxLength = 0;
+        if ((ages.size() > gender.size()) && (ages.size() > status.size())) {
+            maxLength = ages.size();
+        } else if ((gender.size() > ages.size()) && (gender.size() > status.size())) {
+            maxLength = gender.size();
+        } else if ((status.size() > ages.size()) && (status.size() > gender.size())) {
+            maxLength = status.size();
+        }
+        System.out.println(maxLength);
+        for (int i = 0; i < maxLength; i++) {
+            details.add(gender.get(i) + " , " + ages.get(i) + " - " + status.get(i));
+        }
+
+
+//		for(int i=0; i<gender.size(); i++) {
+//			details.add(gender.get(i)+" , "+ages.get(i)+" - "+status.get(i));
+//		}
 		mav.addObject("details", details);
 		System.out.println(incidentDetailsDao.byID(incidentId));
 		return mav;

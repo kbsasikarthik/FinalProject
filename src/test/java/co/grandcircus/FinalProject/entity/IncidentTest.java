@@ -15,7 +15,7 @@ public class IncidentTest {
 		String test = "";
 		Incident in = new Incident();
 		in.setParticipant_name(test);
-		List<String> actual = in.getNamesAsList();
+		List<String> actual = in.getNames();
 		List<String> expected = null;
 		assertEquals(expected,actual);	
 	}
@@ -26,7 +26,7 @@ public class IncidentTest {
 		String test = "0::Name1";
 		Incident in = new Incident();
 		in.setParticipant_name(test);
-		List<String> actual = in.getNamesAsList();
+		List<String> actual = in.getNames();
 		List<String> expected = Arrays.asList("0::Name1");
 
 		assertEquals(expected,actual);	
@@ -39,7 +39,7 @@ public class IncidentTest {
 		String test = "0::Name1||1::Name2";
 		Incident in = new Incident();
 		in.setParticipant_name(test);
-		List<String> actual = in.getNamesAsList();
+		List<String> actual = in.getNames();
 		List<String> expected = Arrays.asList("0::Name1","1::Name2");
 
 		assertEquals(expected,actual);	
