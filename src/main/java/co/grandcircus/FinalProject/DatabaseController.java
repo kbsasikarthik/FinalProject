@@ -1,16 +1,18 @@
 package co.grandcircus.FinalProject;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.FinalProject.dao.IncidentDao;
@@ -28,6 +30,19 @@ public class DatabaseController {
 		mav.addObject("states", incidentDao.getStates());
 		return mav;
 	}
+	
+//	@RequestMapping("/selectCity")
+//	@ResponseBody
+//	public Set<String> showCities(@RequestParam String state) {
+//		System.out.println(state);
+//
+////		ModelAndView mav = new ModelAndView("home");
+////		mav.addObject("states", incidentDao.getStates());
+////		mav.addObject("state", state);
+//		Set<String> cities = incidentDao.getCities(state);
+//		System.out.println(cities);
+//		return cities;
+//	}
 
 	@RequestMapping("/selectCity")
 	public ModelAndView showCities(@RequestParam("state") String state) {
