@@ -20,23 +20,34 @@
 <h1></h1>
 
 <table>
-<thead>
-<tr>
-<strong><td>Name</td><td>District</td><td>State</td><td>Party</td>
-</strong>
-</tr>
-</thead>
-<c:forEach var="rep" items="${ reps}">
+	<thead>
+		<tr><strong><td>Name</td><td>Chamber</td><td>Party</td><td>Email</td></strong>
+		</tr>
+	</thead>
+<c:forEach var="rep" items="${reps}">
 	<tr>
-	<td>${rep.full_name}</td>
-	<td >${rep.district}</td>
-	<td>${fn:toUpperCase(rep.state)}</td>
-	<td>${rep.party }</td>
-	<td>${rep.chamber}</td>
-	<td >${rep.email}</td>
-	<td><img src=url("${rep.photo_url}")/></td>
-	<td><a href ="${rep.url}">${rep.url}</a></td>
-	</tr>
+		<td>${rep.full_name}</td>
+		<td >${rep.chamber}</td>
+		<td>${rep.party }</td>
+		<td >${rep.email}</td>
+	<td>
+		<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+			<a>Click to Open Email Client and Contact Rep</a>
+			<a class="a2a_button_email"></a>
+			<a class="a2a_button_google_gmail"></a>
+			<a class="a2a_button_yahoo_mail"></a>
+		</div></td></tr>
+		<script>
+			var a2a_config = a2a_config || {};
+			a2a_config.templates = a2a_config.templates || {};
+			
+			a2a_config.templates.email = {
+			    address: "${rep.email}"
+				subject: "I was impacted by gun violence on ${incident.date}",
+			    body: "Dear Representative, I knew someone who was involved in an incident"
+			};
+		</script>
+	<script async src="https://static.addtoany.com/menu/page.js"></script>
 </c:forEach>
 
 </table>
