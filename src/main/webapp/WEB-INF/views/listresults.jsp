@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!-- Include Required Prerequisites -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -42,48 +43,20 @@
 </form>
 <h3>Filter by Date Range</h3>
 <p>Database starts Jan. 1, 2013</p>
-<input type="text" name="fromDate" value="01/01/2013" />
-   <script type="text/javascript">
-$('#datepicker').on('changeDate', (function() {
-	$('#fromDate').val(
-	        $('#datepicker').datepicker('getFormattedDate');
-});
-</script>
-<!-- $('.datepicker').datepicker('searchbyDate', fromDate, toDate);
-<div class="input-group input-daterange">
-    <input type="text" class="form-control" value="2012-04-05">
-    <div class="input-group-addon">to</div>
-    <input type="text" class="form-control" value="2012-04-19">
-</div>
-<script type="text/javascript">
-<div id="datepicker1" data-date="01/01/2013"></div>
-<input type="hidden" id="fromDate">
-$('#datepicker').datepicker();
-$('#datepicker').on('changeDate', function() {
-    $('#fromDate').val(
-        $('#datepicker').datepicker('getFormattedDate')
-    );
-});
-</script>
-<script type="text/javascript">
-<div id="datepicker2" data-date="01/01/2013"></div>
-<input type="hidden" id="toDate">
-$('#datepicker').datepicker();
-$('#datepicker').on('changeDate', function() {
-    $('#toDate').val(
-        $('#datepicker').datepicker('getFormattedDate')
-    );
-});
-</script> -->
+<form action="/dateSearch">
+<table>
+	<thead><strong><tr><td>FROM DATE</td><td>TO DATE</td></tr></strong></thead>
+		<tr><td><input type="date" name="fromDate" /></td>
+		<td><input type="date" name="toDate" /></td></tr>
+</table>
+<button>SUBMIT</button>
+</form>
 <br>
 <table>
-<thead>
-<tr>
-<strong><td></td><td>Incident Date</td><td>Address</td><td>Number Killed</td><td>Number Injured</td>
-</strong>
-</tr>
-</thead>
-
+	<thead>
+		<tr><strong><td></td><td>Incident Date</td><td>Address</td><td>Number Killed</td><td>Number Injured</td></strong>
+		</tr>
+	</thead>
 <c:forEach var="incident" items="${incidents }">
 	<tr>
 	<td><a href = "/incident/${incident.incidentId}" class="btn btn-secondary">Details</a></td>

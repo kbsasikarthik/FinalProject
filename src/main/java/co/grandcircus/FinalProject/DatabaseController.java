@@ -1,6 +1,9 @@
 package co.grandcircus.FinalProject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,16 +70,24 @@ public class DatabaseController {
 	
 	@RequestMapping("/dateSearch")
 	public ModelAndView searchByDate(	
-		@RequestParam("fromDate") LocalDate fromDate,
-		@RequestParam("toDate") LocalDate toDate) {
-		System.out.println(fromDate +" "+toDate);
-		ModelAndView mav = new ModelAndView("listresultsbyname");
+		@RequestParam("fromDate") String startDate,
+		@RequestParam("toDate") String endDate) throws Exception {
+		ModelAndView mav = new ModelAndView("listresults");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date fromDate = sdf.parse(startDate);
+		Date toDate = sdf.parse(endDate);
+//		Date fromDate=new SimpleDateFormat("yyyy-MM-dd").parse(startDate); 
+//		Date toDate=new SimpleDateFormat("yyyy-MM-dd").parse(endDate); 
+		System.out.println("From Date - "+fromDate);
+		System.out.println("To Date - "+toDate);
+//		Date fromDate = java.sql.Date.valueOf( fromLocalDate );
+//		Date toDate = java.sql.Date.valueOf( toLocalDate );
 		List<Incident> matchingDates = incidentDao.byDateRange(fromDate, toDate);
 		mav.addObject("fromDate", fromDate);
-		mav.addObject("toDate", toDate);
-		mav.addObject("number", matchingDates.size());
+//		mav.addObject("toDate", toDate);
+//		mav.addObject("number", matchingDates.size());
 		mav.addObject("matchingDates", matchingDates );
-		System.out.println(matchingDates);
+		//System.out.println(matchingDates);
 		return mav;
 	}
 	
