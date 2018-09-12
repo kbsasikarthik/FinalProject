@@ -64,7 +64,6 @@ public class DatabaseController {
 		System.out.println(incidentDao.byName(name));
 		return mav;
 	}
-<<<<<<< HEAD
 
 	@RequestMapping("/dateSearch")
 	public ModelAndView searchByDate(@RequestParam("fromDate") LocalDate fromDate,
@@ -77,7 +76,8 @@ public class DatabaseController {
 		mav.addObject("number", matchingDates.size());
 		mav.addObject("matchingDates", matchingDates);
 		System.out.println(matchingDates);
-=======
+		return mav;
+	}
 	
 	@RequestMapping("/dateSearch/{state}/{city}")
 	public ModelAndView searchByDate(	
@@ -101,7 +101,6 @@ public class DatabaseController {
 //		mav.addObject("number", matchingDates.size());
 		mav.addObject("incidents", matchingDates );
 		//System.out.println(matchingDates);
->>>>>>> b8f4ba90da9a5f5f7fd25f9b520daf3b5ebb1114
 		return mav;
 	}
 

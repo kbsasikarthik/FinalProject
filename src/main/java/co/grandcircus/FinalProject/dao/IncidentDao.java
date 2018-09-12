@@ -59,7 +59,6 @@ public class IncidentDao {
 		System.out.println("In Dao" + people);
 		return people;
 	}
-<<<<<<< HEAD
 
 	public List<Incident> byDateRange(LocalDate fromDate, LocalDate toDate) {
 		System.out.println(fromDate + " in DAO" + toDate);
@@ -77,7 +76,8 @@ public class IncidentDao {
 				Incident.class).setParameter("from", fromDate).setParameter("to", toDate).setParameter("stat", state)
 				.setParameter("city", city).getResultList();
 		System.out.println("In Dao" + people);
-=======
+		return people;
+	}
 	
 	public List<Incident> byDateRange(Date fromDate, Date toDate){
 		System.out.println(fromDate+" in DAO"+toDate);
@@ -90,7 +90,6 @@ public class IncidentDao {
 		System.out.println(fromDate+" in DAO"+toDate);
 		List<Incident> people= em.createQuery("FROM Incident WHERE incident_date BETWEEN :from AND :to AND state = :stat AND city_or_county= :city", Incident.class).setParameter("from", fromDate).setParameter("to", toDate).setParameter("stat", state).setParameter("city", city).getResultList();		
 		System.out.println("In Dao"+people);
->>>>>>> b8f4ba90da9a5f5f7fd25f9b520daf3b5ebb1114
 		return people;
 	}
 }
