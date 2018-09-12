@@ -1,20 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<h1>Test</h1>
-<iframe
- width="600"
- height="450"
- frameborder="0" style="border:0"
- src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDsys0GZf3YUkzCQt1n-qVwIjzI3ga3e5Y
-   &q=${city}+${state}" allowfullscreen>
-</iframe>
-</body>
-</html>
+
+
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 400px;
+        width: 650px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>   
+    var locationsArray = new Array();
+    <c:forEach items="incidents" var="location">
+    c = new Object();
+  //lat property 
+    c.latitude= '${location.latitude}'; 
+    //long property 
+    c.longitude= '${location.longitude}'; 
+    
+    locationsArray.push(c);
+    </c:forEach> 
+    
+    </script>
+     <script src="map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsys0GZf3YUkzCQt1n-qVwIjzI3ga3e5Y&callback=initMap"
+    async defer></script>
+   
+  </body>

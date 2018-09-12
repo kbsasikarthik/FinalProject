@@ -2,7 +2,6 @@ package co.grandcircus.FinalProject.entity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,13 +12,13 @@ import javax.persistence.Transient;
 
 @Entity
 //@Table(name="gun-violence-data_01-2013_03-2018")
-@Table(name="incidents")
+@Table(name = "incidents")
 public class Incident {
 //incident_id	date	state	city_or_county	address	n_killed	n_injured	gun_stolen	gun_type	incident_characteristics	latitude	n_guns_involved	notes	participant_age	participant_age_group	participant_gender	participant_name	participant_relationship	participant_status	participant_type	sources	state_house_district	state_senate_district	
 // `state_house_district` text, `state_senate_district` text)
 	@Id
 	private Integer incidentId;
-	@Column(name="incident_date")
+	@Column(name = "incident_date")
 //	private Date date;
 //	private SimpleDateFormat date;
 	private LocalDate date;
@@ -30,7 +29,7 @@ public class Incident {
 	private Integer n_injured;
 	private String incident_url;
 	private String source_url;
-	//private String incident_url_fields_missing;
+	// private String incident_url_fields_missing;
 	private Integer congressional_district;
 	private String gun_stolen;
 	private String gun_type;
@@ -49,63 +48,81 @@ public class Incident {
 	private String sources;
 	private String state_house_district;
 	private String state_senate_district;
-	
+
 //	private String[] namesAsList;
-	
+
 	public Integer getIncidentId() {
 		return incidentId;
 	}
+
 	public void setIncidentId(Integer incidentId) {
 		this.incidentId = incidentId;
 	}
+
 	public LocalDate getDate() {
 		return date;
 	}
+
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
+
 	public String getState() {
 		return state;
 	}
+
 	public void setState(String state) {
 		this.state = state;
 	}
+
 	public String getCity_or_county() {
 		return city_or_county;
 	}
+
 	public void setCity_or_county(String city_or_county) {
 		this.city_or_county = city_or_county;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	public Integer getN_killed() {
 		return n_killed;
 	}
+
 	public void setN_killed(Integer n_killed) {
 		this.n_killed = n_killed;
 	}
+
 	public Integer getN_injured() {
 		return n_injured;
 	}
+
 	public void setN_injured(Integer n_injured) {
 		this.n_injured = n_injured;
 	}
+
 	public String getIncident_url() {
 		return incident_url;
 	}
+
 	public void setIncident_url(String incident_url) {
 		this.incident_url = incident_url;
 	}
+
 	public String getSource_url() {
 		return source_url;
 	}
+
 	public void setSource_url(String source_url) {
 		this.source_url = source_url;
 	}
+
 //	public String getIncident_url_fields_missing() {
 //		return incident_url_fields_missing;
 //	}
@@ -115,211 +132,200 @@ public class Incident {
 	public Integer getCongressional_district() {
 		return congressional_district;
 	}
+
 	public void setCongressional_district(Integer congressional_district) {
 		this.congressional_district = congressional_district;
 	}
+
 	public String getGun_stolen() {
 		return gun_stolen;
 	}
+
 	public void setGun_stolen(String gun_stolen) {
 		this.gun_stolen = gun_stolen;
 	}
+
 	public String getGun_type() {
 		return gun_type;
 	}
+
 	public void setGun_type(String gun_type) {
 		this.gun_type = gun_type;
 	}
+
 	public String getIncident_characteristics() {
 		return incident_characteristics;
 	}
+
 	public void setIncident_characteristics(String incident_characteristics) {
 		this.incident_characteristics = incident_characteristics;
 	}
+
 	public Double getLatitude() {
 		return latitude;
 	}
+
 	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
+
 	public Double getLongitude() {
 		return longitude;
 	}
+
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
+
 	public String getN_guns_involved() {
 		return n_guns_involved;
 	}
+
 	public void setN_guns_involved(String n_guns_involved) {
 		this.n_guns_involved = n_guns_involved;
 	}
+
 	public String getNotes() {
 		return notes;
 	}
+
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
+
 	public String getParticipant_age() {
 		return participant_age;
 	}
+
 	public void setParticipant_age(String participant_age) {
 		this.participant_age = participant_age;
 	}
+
 	public String getParticipant_age_group() {
 		return participant_age_group;
 	}
+
 	public void setParticipant_age_group(String participant_age_group) {
 		this.participant_age_group = participant_age_group;
 	}
+
 	public String getParticipant_gender() {
 		return participant_gender;
 	}
+
 	public void setParticipant_gender(String participant_gender) {
 		this.participant_gender = participant_gender;
 	}
+
 	public String getParticipant_name() {
 		return participant_name;
 	}
+
 	public void setParticipant_name(String participant_name) {
 		this.participant_name = participant_name;
 	}
+
 	public String getParticipant_relationship() {
 		return participant_relationship;
 	}
+
 	public void setParticipant_relationship(String participant_relationship) {
 		this.participant_relationship = participant_relationship;
 	}
+
 	public String getParticipant_status() {
 		return participant_status;
 	}
+
 	public void setParticipant_status(String participant_status) {
 		this.participant_status = participant_status;
 	}
+
 	public String getParticipant_type() {
 		return participant_type;
 	}
+
 	public void setParticipant_type(String participant_type) {
 		this.participant_type = participant_type;
 	}
+
 	public String getSources() {
 		return sources;
 	}
+
 	public void setSources(String sources) {
 		this.sources = sources;
 	}
+
 	public String getState_house_district() {
 		return state_house_district;
 	}
+
 	public void setState_house_district(String state_house_district) {
 		this.state_house_district = state_house_district;
 	}
+
 	public String getState_senate_district() {
 		return state_senate_district;
 	}
+
 	public void setState_senate_district(String state_senate_district) {
 		this.state_senate_district = state_senate_district;
 	}
-	
-//	@Transient
-//	public String getParticipantDetails() {
-////		List<String> names = getNamesAsList();
-//		List<String> ages = getAges();
-//		List<String> gender = getGender();
-//		String retString="";
-////		if(ages.size() >1){
-//			
-//			for(int i=0; i<ages.size() ; i++)
-//			{
-//				retString += gender.get(i)+"  -  "+ages.get(i);
-//				System.out.println(retString);
-//			}
-////		} else
-////			retString = ages +" - "+gender.get(0);
-//		return retString;
-//		
-//		
-//	}
-	
-////	@Transient
-////	public List<String> com
-//	@Transient
-//	public String getNamesAsList() {
-//		String name = getParticipant_name();
-//		String retName = ""; 
-//		String[] parsedName = getParticipant_name().split("\\|\\|");
-//
-//		if(parsedName.length >1){
-//			
-//			for(int i=0; i<parsedName.length ; i++)
-//			{
-////			if(!(parsedName[i].charAt(0) >=0) && (parsedName[i].charAt(0) <=9))
-//				retName+=(parsedName[i].substring(3)+", ");
-//			}
-//		} else
-//			retName = parsedName[0].substring(3);
-////		List<String> test = null;
-////		for(int i=0; i<parsedName.length; i++) {
-////			 test.add(parsedName[i]);
-////			 System.out.println(parsedName[i]);
-////		}
-//		return retName;
-//	}
-	
+
 	@Transient
 	public List<String> getNames() {
 		String name = getParticipant_name();
 		List<String> parsedName = parseString(name);
 		return parsedName;
 	}
-	
+
 	@Transient
 	public List<String> getAges() {
 		String age = getParticipant_age();
 		List<String> parsedAge = parseString(age);
 		return parsedAge;
 	}
-	
+
 	@Transient
 	public List<String> getStatus() {
 		String status = getParticipant_status();
 		List<String> parsedStatus = parseString(status);
 		return parsedStatus;
 	}
-	
+
 	@Transient
 	public List<String> getType() {
 		String type = getParticipant_type();
 		List<String> parsedType = parseString(type);
 		return parsedType;
 	}
-	
-	
+
 	@Transient
 	public List<String> getGender() {
 		String gender = getParticipant_gender();
 		List<String> parsedGender = parseString(gender);
 		return parsedGender;
 	}
-	
+
 	@Transient
-	public List<String> parseString(String tobeParsed){
-		String[]  parsedName;
-		List<String> listOfNames = new ArrayList<>() ;
-		if(!tobeParsed.isEmpty()) {
+	public List<String> parseString(String tobeParsed) {
+		String[] parsedName;
+		List<String> listOfNames = new ArrayList<>();
+		if (!tobeParsed.isEmpty()) {
 			parsedName = tobeParsed.split("\\|\\|");
-				for(int i=0; i<parsedName.length ; i++)
-				{
-					listOfNames.add(parsedName[i].substring(3));
-				}
+			for (int i = 0; i < parsedName.length; i++) {
+				listOfNames.add(parsedName[i].substring(3));
+			}
 
 		} else
 			listOfNames.add("No Info found!");
 		return listOfNames;
 	}
-	
-	
-	public Incident() {}
+
+	public Incident() {
+	}
+
 	/**
 	 * @param incidentId
 	 * @param date
@@ -353,9 +359,9 @@ public class Incident {
 	public Incident(Integer incidentId, LocalDate date, String state, String city_or_county, String address,
 			Integer n_killed, Integer n_injured, String incident_url, String source_url,
 //			String incident_url_fields_missing, 
-			Integer congressional_district, String gun_stolen, String gun_type,
-			String incident_characteristics, Double latitude, Double longitude, String n_guns_involved, String notes,
-			String participant_age, String participant_age_group, String participant_gender, String participant_name,
+			Integer congressional_district, String gun_stolen, String gun_type, String incident_characteristics,
+			Double latitude, Double longitude, String n_guns_involved, String notes, String participant_age,
+			String participant_age_group, String participant_gender, String participant_name,
 			String participant_relationship, String participant_status, String participant_type, String sources,
 			String state_house_district, String state_senate_district) {
 		super();
@@ -388,16 +394,5 @@ public class Incident {
 		this.state_house_district = state_house_district;
 		this.state_senate_district = state_senate_district;
 	}
-	
-	
-
-
-
-
-	
-
-
-	
-	
 
 }
