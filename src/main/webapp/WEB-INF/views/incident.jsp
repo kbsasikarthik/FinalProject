@@ -16,9 +16,15 @@
 
 </head>
 <body>
-
-<h1>Incident Details</h1>
 <div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8">
+     <div>
+<h1>Incident Details</h1>
 <table>
 <thead>
 <tr>
@@ -38,7 +44,28 @@
 <c:forEach var="detail" items="${details}"> 
 <p>${detail }</p>
 </c:forEach>
+<<<<<<< Updated upstream
  
 <a href="/repbyzip/${incident.latitude}/${incident.longitude}">Representatives</a>
+=======
+    </div>
+    <div class="col"><img src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg" alt="" height="200" width="200">
+    </div>
+  </div>
+  
+  <div class="row">
+  <div class="col-6"><img src="http://www.dwreview.com/Data_mining/Images/Data_Mine_Table.GIF" alt="" height="300" width="400"> </div>
+  <div class="col-6">Rep Data<div class="row">
+      <div class="col-8 col-sm-6">
+       <img src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg" alt="" height="200" width="200">
+      </div>
+      <div class="col-4 col-sm-6">
+        <img src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg" alt="" height="200" width="200">
+      </div></div>
+</div>
+
+
+
+>>>>>>> Stashed changes
 </body>
 </html>
