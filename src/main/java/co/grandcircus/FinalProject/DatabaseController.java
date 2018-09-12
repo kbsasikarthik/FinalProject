@@ -49,6 +49,8 @@ public class DatabaseController {
 		System.out.println("State - "+state+"City- " +city);
 		
 		ModelAndView mav = new ModelAndView("listresults");
+		mav.addObject("state", state);
+		mav.addObject("city", city);
 		mav.addObject("incidents", incidentDao.byStateAndCity(state, city));
 		return mav;
 	}
@@ -68,10 +70,10 @@ public class DatabaseController {
 		return mav;
 	}
 	
-	@RequestMapping("/dateSearch")
+	@RequestMapping("/dateSearch/{state}/{city}")
 	public ModelAndView searchByDate(	
 		@RequestParam("fromDate") String startDate,
-		@RequestParam("toDate") String endDate) throws Exception {
+		@RequestParam("toDate") String endDate, @PathVariable ("state") String state, @PathVariable("city") String city) throws Exception {
 		ModelAndView mav = new ModelAndView("listresults");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date fromDate = sdf.parse(startDate);
@@ -82,11 +84,13 @@ public class DatabaseController {
 		System.out.println("To Date - "+toDate);
 //		Date fromDate = java.sql.Date.valueOf( fromLocalDate );
 //		Date toDate = java.sql.Date.valueOf( toLocalDate );
-		List<Incident> matchingDates = incidentDao.byDateRange(fromDate, toDate);
+//		List<Incident> matchingDates = incidentDao.byDateRange(fromDate, toDate);
+		List<Incident> matchingDates = incidentDao.byDateAndLocation(fromDate, toDate, state, city);
+
 		mav.addObject("fromDate", fromDate);
 //		mav.addObject("toDate", toDate);
 //		mav.addObject("number", matchingDates.size());
-		mav.addObject("matchingDates", matchingDates );
+		mav.addObject("incidents", matchingDates );
 		//System.out.println(matchingDates);
 		return mav;
 	}

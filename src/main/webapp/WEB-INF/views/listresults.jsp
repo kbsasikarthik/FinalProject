@@ -23,7 +23,7 @@
 
 </head>
 <body>
-<h2>Results for City and State Search</h2>
+<h2>Results for ${city} in ${state} Search</h2>
 <h3>Filter by Name</h3>
 <br>
 <form action="/nameSearch" method="post" class="form">
@@ -43,7 +43,7 @@
 </form>
 <h3>Filter by Date Range</h3>
 <p>Database starts Jan. 1, 2013</p>
-<form action="/dateSearch">
+<form action="/dateSearch/${state }/${city}">
 <table>
 	<thead><strong><tr><td>FROM DATE</td><td>TO DATE</td></tr></strong></thead>
 		<tr><td><input type="date" name="fromDate" /></td>
