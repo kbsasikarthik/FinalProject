@@ -1,6 +1,9 @@
 package co.grandcircus.FinalProject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +44,8 @@ public class DatabaseController {
 	public ModelAndView showResults(@PathVariable("state") String state, @RequestParam("city") String city) {
 		System.out.println("State - " + state + "City- " + city);
 		ModelAndView mav = new ModelAndView("listresults");
+		mav.addObject("state", state);
+		mav.addObject("city", city);
 		mav.addObject("incidents", incidentDao.byStateAndCity(state, city));
 		return mav;
 	}
@@ -59,6 +64,7 @@ public class DatabaseController {
 		System.out.println(incidentDao.byName(name));
 		return mav;
 	}
+<<<<<<< HEAD
 
 	@RequestMapping("/dateSearch")
 	public ModelAndView searchByDate(@RequestParam("fromDate") LocalDate fromDate,
@@ -71,6 +77,31 @@ public class DatabaseController {
 		mav.addObject("number", matchingDates.size());
 		mav.addObject("matchingDates", matchingDates);
 		System.out.println(matchingDates);
+=======
+	
+	@RequestMapping("/dateSearch/{state}/{city}")
+	public ModelAndView searchByDate(	
+		@RequestParam("fromDate") String startDate,
+		@RequestParam("toDate") String endDate, @PathVariable ("state") String state, @PathVariable("city") String city) throws Exception {
+		ModelAndView mav = new ModelAndView("listresults");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date fromDate = sdf.parse(startDate);
+		Date toDate = sdf.parse(endDate);
+//		Date fromDate=new SimpleDateFormat("yyyy-MM-dd").parse(startDate); 
+//		Date toDate=new SimpleDateFormat("yyyy-MM-dd").parse(endDate); 
+		System.out.println("From Date - "+fromDate);
+		System.out.println("To Date - "+toDate);
+//		Date fromDate = java.sql.Date.valueOf( fromLocalDate );
+//		Date toDate = java.sql.Date.valueOf( toLocalDate );
+//		List<Incident> matchingDates = incidentDao.byDateRange(fromDate, toDate);
+		List<Incident> matchingDates = incidentDao.byDateAndLocation(fromDate, toDate, state, city);
+
+		mav.addObject("fromDate", fromDate);
+//		mav.addObject("toDate", toDate);
+//		mav.addObject("number", matchingDates.size());
+		mav.addObject("incidents", matchingDates );
+		//System.out.println(matchingDates);
+>>>>>>> b8f4ba90da9a5f5f7fd25f9b520daf3b5ebb1114
 		return mav;
 	}
 

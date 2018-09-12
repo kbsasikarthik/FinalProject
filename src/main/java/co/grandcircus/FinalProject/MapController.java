@@ -28,6 +28,21 @@ public class MapController {
 
 		return mav;
 	}
+	
+	@RequestMapping("/participant")
+	public ModelAndView showMapPage(@RequestParam(value = "firstName", required = false) String firstName,
+			@RequestParam(value = "lastName", required = false) String lastName,
+			@RequestParam(value = "age", required = false) String age, @RequestParam(value = "gender", required = false) String gender, 
+			@RequestParam(value = "status", required = false) String status) {
+			
+		    ModelAndView mav = new ModelAndView("participant");
+		    mav.addObject("firstName", firstName);
+		    mav.addObject("lastName", lastName);
+		    mav.addObject("age", age);
+		    mav.addObject("gender", gender);
+		    mav.addObject("status", status);
+		    return mav;
+	}
 
 //	@RequestMapping("/takeAddress")
 //	public ModelAndView findLatLong(String streetNum, String streetName, String city, String state) {
