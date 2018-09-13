@@ -21,24 +21,36 @@
 <h1>Welcome to the Gun Violence Awareness Project</h1>
 <br>
 <h2>Search for Gun Violence by Location</h2>
-<h3>Select a State to Get Started</h3>
-	<form method="post" action="/selectCity" id="state_form">
+
+
+<form action="/nameSearch" method="post" class="form">
+		<div class="form-group row">
+			<label for="firstName" class="col-sm-2 col-form-label">First Name:</label>
+    		<div class="col-sm-10">
+			<input class="form-control" name="firstName" minlength="2" maxlength="10"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="lastName" class="col-sm-2 col-form-label">Last Name:</label>
+			<div class="col-sm-10">
+			<input class="form-control" name="lastName" pattern="[A-Z][a-z]*"/>
+			</div>
+		</div>
+		<button>Search</button>
+</form>
+ <h3>Select a State to Get Started</h3>
+	<form method="post" action="/listresults" id="state_form">
 		<div class="form-group" >
 		  	<label class="sr-only" for="state">State</label>
 			<select class="form-control mb-2 mr-sm-2" id="state" name="state" >
-			<!--  onchange="document.getElementByID('state_form').submit()">-->
+			 <!--  onchange="document.getElementByID('state_form').submit()">-->
 			<option value="">State</option>
 		  	<c:forEach items="${ states }" var="state">
 		  		<option <c:if test="${ state eq param.state }">selected</c:if>>${ state }</option>
 		  	</c:forEach>
 		  	</select>
 		 </div>	
-				<button action = "submit">Submit</button> 	 
-	</form>
-	
-	<form method ="post"  id="city_form" action="/listresults/${state}" >
-		 <div class="form-group">
-		 ${state }
+
 		  	<label class="sr-only" for="city">City</label>
 			<select class="form-control mb-2 mr-sm-2" id="city" name="city">
 			 <option value="">City</option>
@@ -61,9 +73,8 @@
 				"An armed man is a citizen. A disarmed man is a subject.")
 		.get(new Random().nextInt(5))
 	%></p>
-	
-</body>
-<!-- <script>
+
+ <script>
 
 var statesdropdown = document.getElementById("state");
 var citiesdropdown = document.getElementById("city");
@@ -91,10 +102,13 @@ citiesdropdown.addEventListener("change", function(){
 	console.log(statesdropdown.value);
 	console.log(citiesdropdown.value);
 	var request = new XMLHttpRequest();
-	request.open("POST", "/listresults?state="+statesdropdown.value+"&city="+citiesdropdown.value);
+	request.open("GET","/listresults?state="+statesdropdown.value+"&city="+citiesdropdown.value);
+	request.send(citiesdropdown.value);
+	
 });
 	
 
 
-</script> -->
+</script>
+</body>
 </html>

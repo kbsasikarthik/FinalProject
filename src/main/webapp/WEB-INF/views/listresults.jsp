@@ -36,24 +36,9 @@
     </style>
 </head>
 <body>
-<h2>Results for ${city} in ${state} Search</h2>
-<h3>Filter by Name</h3>
+<h2>Results for ${city} in ${mState} Search</h2>
 <br>
-<form action="/nameSearch" method="post" class="form">
-		<div class="form-group row">
-			<label for="firstName" class="col-sm-2 col-form-label">First Name:</label>
-    		<div class="col-sm-10">
-			<input class="form-control" name="firstName" minlength="2" maxlength="10"/>
-			</div>
-		</div>
-		<div class="form-group row">
-			<label for="lastName" class="col-sm-2 col-form-label">Last Name:</label>
-			<div class="col-sm-10">
-			<input class="form-control" name="lastName" pattern="[A-Z][a-z]*"/>
-			</div>
-		</div>
-		<button>Search</button>
-</form>
+
 <h3>Filter by Date Range</h3>
 <p>Database starts Jan. 1, 2013</p>
 <form action="/dateSearch/${state }/${city}">
@@ -109,7 +94,7 @@
     </div>
 <table>
 	<thead>
-		<tr><strong><td></td><td>Incident Date</td><td>Address</td><td>Number Killed</td><td>Number Injured</td></strong>
+		<tr><td></td><td>Incident Date</td><td>Address</td><td>Number Killed</td><td>Number Injured</td>
 		</tr>
 	</thead>
 <c:forEach var="incident" items="${incidents }">
