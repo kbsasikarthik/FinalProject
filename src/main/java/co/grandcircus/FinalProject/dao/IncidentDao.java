@@ -78,18 +78,23 @@ public class IncidentDao {
 		System.out.println("In Dao" + people);
 		return people;
 	}
-	
-	public List<Incident> byDateRange(Date fromDate, Date toDate){
-		System.out.println(fromDate+" in DAO"+toDate);
-		List<Incident> people= em.createQuery("FROM Incident WHERE incident_date BETWEEN :from AND :to", Incident.class).setParameter("from", fromDate).setParameter("to", toDate).getResultList();		
-		System.out.println("In Dao"+people);
+
+	public List<Incident> byDateRange(Date fromDate, Date toDate) {
+		System.out.println(fromDate + " in DAO" + toDate);
+		List<Incident> people = em
+				.createQuery("FROM Incident WHERE incident_date BETWEEN :from AND :to", Incident.class)
+				.setParameter("from", fromDate).setParameter("to", toDate).getResultList();
+		System.out.println("In Dao" + people);
 		return people;
 	}
 
-	public List<Incident> byDateAndLocation(Date fromDate, Date toDate, String state, String city){
-		System.out.println(fromDate+" in DAO"+toDate);
-		List<Incident> people= em.createQuery("FROM Incident WHERE incident_date BETWEEN :from AND :to AND state = :stat AND city_or_county= :city", Incident.class).setParameter("from", fromDate).setParameter("to", toDate).setParameter("stat", state).setParameter("city", city).getResultList();		
-		System.out.println("In Dao"+people);
+	public List<Incident> byDateAndLocation(Date fromDate, Date toDate, String state, String city) {
+		System.out.println(fromDate + " in DAO" + toDate);
+		List<Incident> people = em.createQuery(
+				"FROM Incident WHERE incident_date BETWEEN :from AND :to AND state = :stat AND city_or_county= :city",
+				Incident.class).setParameter("from", fromDate).setParameter("to", toDate).setParameter("stat", state)
+				.setParameter("city", city).getResultList();
+		System.out.println("In Dao" + people);
 		return people;
 	}
 }
