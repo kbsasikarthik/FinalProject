@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<%@include file="navbar.jsp"%>
 </head>
 <body>
 <h1>Found ${number} matching results for Name: ${name }</h1>

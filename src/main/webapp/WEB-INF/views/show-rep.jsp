@@ -30,13 +30,13 @@
 		<td >${rep.chamber}</td>
 		<td>${rep.party }</td>
 		<td >${rep.email}</td>
-	<td>
-		<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+	</tr><br>
+	<tr><div class="a2a_kit a2a_kit_size_32 a2a_default_style">
 			<a>Click to Open Email Client and Contact Rep</a>
 			<a class="a2a_button_email"></a>
 			<a class="a2a_button_google_gmail"></a>
 			<a class="a2a_button_yahoo_mail"></a>
-		</div></td></tr>
+	</div></tr>
 		<script>
 			var a2a_config = a2a_config || {};
 			a2a_config.templates = a2a_config.templates || {};
