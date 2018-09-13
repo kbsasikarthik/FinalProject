@@ -28,41 +28,29 @@
 
 <div align="center"  >
 <br>
-<h2>Results for ${city} in ${mState} Search</h2>
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
-<link rel="stylesheet" href="/style.css" />
-<%@include file="navbar.jsp"%>
-</head>
-<body>
-<h2>Results for ${city} in ${state} Search</h2>
+<h2>Search results for ${city} in ${state}</h2>
 
 <br>
 
-<h3>Filter by Date Range</h3>
-<p>Database starts Jan. 1, 2013</p>
+
+<br>    
+</div>
+
+<div align="center"  >
+<%@include file="locations-map.jsp"%>
+   </div>
+
+<h4>Filter by Date Range(Database starts Jan. 1, 2013)</h4>
+<p></p>
 <form action="/dateSearch/${state }/${city}">
 <table>
 	<thead><strong><tr><td>FROM DATE</td><td>TO DATE</td></tr></strong></thead>
-		<tr><td><input type="date" name="fromDate" /></td>
-		<td><input type="date" name="toDate" /></td></tr>
+		<tr><td><input type="date" name="fromDate" min="2013-01-01" max="2018-03-31" /></td>
+		<td><input type="date" name="toDate" min="2013-01-01" max="2018-03-31"  /></td></tr>
 </table>
 <button>SUBMIT</button>
 </form>
 
-
- 	 <%@include file="locations-map.jsp"%>
-<br>    
-</div>
-<table>
-	<thead>
-		<tr><td></td><td>Incident Date</td><td>Address</td><td>Number Killed</td><td>Number Injured</td>
-		</tr>
-	</thead>
-
-<br>
-<%@include file="locations-map.jsp"%>
-   
 <table class="table table-hover">
   <thead>
     <tr>

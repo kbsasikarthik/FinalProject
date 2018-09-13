@@ -78,7 +78,7 @@
 			</script>		
 	</div>
 	</div>	
-		    <div class="col">
+		    <div align="right"  class="col">
 		    	<iframe width="300" height="300" frameborder="0" style="border:0"
 			 	src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDsys0GZf3YUkzCQt1n-qVwIjzI3ga3e5Y
 			   	&q=${incident.latitude}+${incident.longitude}">

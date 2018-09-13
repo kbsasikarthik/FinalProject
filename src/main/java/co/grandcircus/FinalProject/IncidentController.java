@@ -89,6 +89,8 @@ public class IncidentController {
 
 		mav.addObject("details", details);
 		System.out.println(incidentDetailsDao.byID(incidentId));
+		mav.addObject("back", "/listresults?state="+incident.getState()+"&city="+incident.getCity_or_county());
+
 		return mav;
 
 	}
