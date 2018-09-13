@@ -21,7 +21,7 @@
     	
     	 var locations = new Array(); 
     	 
-    	    <c:forEach items="${incidents}" var="location">
+    	    <c:forEach items="${matchingNames}" var="location">
     	    //Temp array
     	    var tempArray = new Array();
     	  //lat property 
@@ -31,7 +31,7 @@
     	    //number killed and date
     	    var htmlContent = `
     	    <p>
-    	    	Address: ${location.address}
+    	    	Name: ${location.names[0]}
     	    </p>
     	    <p>
     	     	Killed: ${location.n_killed}
@@ -59,7 +59,7 @@
         	  
         	  map = new google.maps.Map(document.getElementById('map'), {
                   center: {lat: locations[0][0], lng: locations[0][1]},
-                  zoom: 10
+                  zoom: 3
                 });
         	  
         	 for (count = 0; count < locations.length; count++) {
