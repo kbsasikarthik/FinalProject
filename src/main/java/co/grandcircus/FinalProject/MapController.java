@@ -17,11 +17,15 @@ public class MapController {
 			@RequestParam(value = "zip", required = false) Integer zip) {
 //		SearchLocation location = new SearchLocation(streetNum, streetName, city, state, zip);
 		ModelAndView mav = new ModelAndView("Map");
+		city = "Detroit";
+		state = "Michigan";
+
 		mav.addObject("city", city);
 		mav.addObject("state", state);
 		mav.addObject("number", streetNum);
 		mav.addObject("name", streetName);
 		mav.addObject("zip", zip);
+
 		return mav;
 	}
 	
