@@ -38,7 +38,7 @@
 <button>SUBMIT</button>
 </form>
 <br>
- 	 <%@include file="locations-map.jsp"%>
+<%@include file="locations-map.jsp"%>
    
 <table class="table table-hover">
   <thead>
