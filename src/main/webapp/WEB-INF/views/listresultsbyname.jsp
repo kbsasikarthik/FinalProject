@@ -30,5 +30,6 @@
 </c:forEach>
 
 </table>
+<a href="${back }" class ="btn btn-secondary">Back</a>
 </body>
 </html>

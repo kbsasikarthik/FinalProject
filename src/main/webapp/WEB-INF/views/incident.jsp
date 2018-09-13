@@ -17,8 +17,66 @@
 </head>
 <body>
 <div>
+	<div class="container">
+	  	<div class="row">
+		    <div class="col-12 col-md-8">
+			    <div>
+					<h1>Incident Details</h1>
+					<table>
+						<thead>
+							<strong><tr>
+							<td>Date: ${incident.date} </td>
+							<td>Number Killed: ${incident.n_killed} </td>
+							<td>Number injured: ${incident.n_injured}</td>
+							</tr></strong>
+						</thead>
+					</table>
+				</div>
+				<p>${incident.incident_characteristics}</p>
+				<p>${incident.sources}</p>
+				<p>${incident.source_url}</p>
+				<c:forEach var="name" items="${incident.names}">
+				<p>${name }<a href="/participant/${name }" class="btn btn-secondary">Add Connection</a></p>
+				</c:forEach>
+				<c:forEach var="detail" items="${details}"> 
+				<p>${detail }</p>
+				</c:forEach>
+			</div>
+			<p>Share your connection to this incident via Social Media</p>
+			<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+				<a class="a2a_button_facebook"></a>
+				<a class="a2a_button_twitter"></a>
+			</div>
+			<script>
+var a2a_config = a2a_config || {};
+a2a_config.templates = a2a_config.templates || {};
 
+a2a_config.templates.facebook = {
+    app_id: "5303202981",
+    redirect_uri: "https://static.addtoany.com/menu/thanks.html"
+};
 
+a2a_config.templates.twitter = {
+    text: "I was impacted by gun violence on ${incident.date}.",
+    related: "I've been impacted by gun violence. Learn more Project A.I.M"
+};
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+		</div>
+		    <div class="col">
+		    	<iframe width="300" height="300" frameborder="0" style="border:0"
+			 	src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDsys0GZf3YUkzCQt1n-qVwIjzI3ga3e5Y
+			   	&q=${incident.latitude}+${incident.longitude}">
+				</iframe>
+		    </div>
+	</div>
+  
+  	<div class="row">
+  		<div class="col-6">Rep Data<div class="row">
+      		<div class="col-8 col-sm-6">
+       			<%@include file="show-rep.jsp"%>
+      		</div>
+      	</div>
+	</div>
 
 <div class="container">
   <div class="row">
@@ -44,9 +102,11 @@
 <c:forEach var="detail" items="${details}"> 
 <p>${detail }</p>
 </c:forEach>
+<<<<<<< HEAD
 
  
 <a href="/repbyzip/${incident.latitude}/${incident.longitude}">Representatives</a>
+
 
     </div>
     <div class="col"><img src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg" alt="" height="200" width="200">
@@ -63,9 +123,6 @@
         <img src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg" alt="" height="200" width="200">
       </div></div>
 </div>
-
-
-
 
 </body>
 </html>
