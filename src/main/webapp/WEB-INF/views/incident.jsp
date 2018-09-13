@@ -45,7 +45,7 @@
 				<c:forEach var="detail" items="${details}"> 
 				<p>${detail }</p>
 				</c:forEach>
-			</div>
+			</div><br>
 			<p>Share your connection to this incident via Social Media</p>
 			<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
 				<a class="a2a_button_facebook"></a>
@@ -56,8 +56,8 @@
 				a2a_config.templates = a2a_config.templates || {};
 				
 				a2a_config.templates.facebook = {
-				    app_id: "5303202981",
-				    redirect_uri: "https://static.addtoany.com/menu/thanks.html"
+				    app_id: "1173731342792067",
+				    redirect_uri: "http://localhost:8080"
 				};
 				
 				a2a_config.templates.twitter = {
@@ -66,9 +66,19 @@
 				};
 			</script>
 			<script async src="https://static.addtoany.com/menu/page.js"></script>
-		</div>
-		</div>
-		
+			
+		<div id="shareBtn" class="btn btn-success clearfix">Share</div>
+			<script>
+				document.getElementById('shareBtn').onclick = function() {
+				  FB.ui({
+				    method: 'share',
+				    display: 'popup',
+				    href: 'https://developers.facebook.com/docs/',
+				  }, function(response){});
+				}
+			</script>		
+	</div>
+	</div>	
 		    <div class="col">
 		    	<iframe width="300" height="300" frameborder="0" style="border:0"
 			 	src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDsys0GZf3YUkzCQt1n-qVwIjzI3ga3e5Y
@@ -85,3 +95,5 @@
       	</div>
 	</div>
 	</div>
+</body>
+</html>

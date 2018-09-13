@@ -19,6 +19,7 @@
 
 <title>Home page</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/journal/bootstrap.min.css" />
 <!-- <link rel="stylesheet" href="/style.css" /> -->
 <%@include file="navbar.jsp"%>
@@ -28,6 +29,14 @@
 <div align="center"  >
 <br>
 <h2>Results for ${city} in ${mState} Search</h2>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
+<link rel="stylesheet" href="/style.css" />
+<%@include file="navbar.jsp"%>
+</head>
+<body>
+<h2>Results for ${city} in ${state} Search</h2>
+
 <br>
 
 <h3>Filter by Date Range</h3>
@@ -41,6 +50,7 @@
 <button>SUBMIT</button>
 </form>
 
+
  	 <%@include file="locations-map.jsp"%>
 <br>    
 </div>
@@ -49,13 +59,30 @@
 		<tr><td></td><td>Incident Date</td><td>Address</td><td>Number Killed</td><td>Number Injured</td>
 		</tr>
 	</thead>
+
+<br>
+<%@include file="locations-map.jsp"%>
+   
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Details</th>
+      <th scope="col">Incident Date</th>
+      <th scope="col">Address</th>
+      <th scope="col">Number Killed</th>
+      <th scope="col">Number Injured</th>
+    </tr>
+  </thead>
+  <tbody> 
+
+
 <c:forEach var="incident" items="${incidents }">
-	<tr>
-	<td><a href = "/incident/${incident.incidentId}" class="btn btn-secondary">Details</a></td>
-	<td>${incident.date}</td>
-	<td>${incident.address}</td>
-	<td style="text-align:center">${incident.n_killed}</td>
-	<td style="text-align:center">${incident.n_injured}</td>	
+	<tr class="table-warning">
+	<td scope="row"><a href = "/incident/${incident.incidentId}" class="btn btn-outline-primary">Details</a></td>
+	<td scope="row">${incident.date}</td>
+	<td scope="row">${incident.address}</td>
+	<td scope="row" style="text-align:center">${incident.n_killed}</td>
+	<td scope="row" style="text-align:center">${incident.n_injured}</td>	
 	</tr>
 </c:forEach>
 
