@@ -26,7 +26,7 @@ public class DatabaseController {
 
 	@RequestMapping("/")
 	public ModelAndView showhome() {
-		ModelAndView mav = new ModelAndView("home");
+		ModelAndView mav = new ModelAndView("index");
 		mav.addObject("states", incidentDao.getStates());
 		return mav;
 	}
