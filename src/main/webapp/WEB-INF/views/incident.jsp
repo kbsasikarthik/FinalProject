@@ -44,10 +44,10 @@
 <c:forEach var="detail" items="${details}"> 
 <p>${detail }</p>
 </c:forEach>
-<<<<<<< Updated upstream
+
  
 <a href="/repbyzip/${incident.latitude}/${incident.longitude}">Representatives</a>
-=======
+
     </div>
     <div class="col"><img src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg" alt="" height="200" width="200">
     </div>
@@ -66,6 +66,6 @@
 
 
 
->>>>>>> Stashed changes
+
 </body>
 </html>
