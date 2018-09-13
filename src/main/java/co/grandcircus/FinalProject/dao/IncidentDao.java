@@ -44,7 +44,7 @@ public class IncidentDao {
 	}
 
 	public List<Incident> byStateAndCity(String state, String city) {
-		System.out.println(" In DAO State - "+state +" and City -"  + city);
+		System.out.println(" In DAO State - " + state + " and City -" + city);
 		List<Incident> incidents = em
 				.createQuery("FROM Incident WHERE state = :stat AND city_or_county= :city", Incident.class)
 				.setMaxResults(25).setParameter("stat", state).setParameter("city", city).getResultList();
