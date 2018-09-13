@@ -42,6 +42,25 @@
 				<p>${detail }</p>
 				</c:forEach>
 			</div>
+			<p>Share your connection to this incident via Social Media</p>
+			<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+				<a class="a2a_button_facebook"></a>
+				<a class="a2a_button_twitter"></a>
+			</div>
+			<script>
+var a2a_config = a2a_config || {};
+a2a_config.templates = a2a_config.templates || {};
+
+a2a_config.templates.facebook = {
+    app_id: "5303202981",
+    redirect_uri: "https://static.addtoany.com/menu/thanks.html"
+};
+
+a2a_config.templates.twitter = {
+    text: "I was impacted by gun violence on ${incident.date}.",
+    related: "I've been impacted by gun violence. Learn more Project A.I.M"
+};
+<script async src="https://static.addtoany.com/menu/page.js"></script>
 		</div>
 		    <div class="col">
 		    	<iframe width="300" height="300" frameborder="0" style="border:0"
