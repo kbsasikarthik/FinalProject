@@ -5,7 +5,7 @@
 <!-- Include Required Prerequisites -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+<!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" /> -->
  
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
@@ -19,12 +19,24 @@
 
 <title>Home page</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
+<!-- <link rel="stylesheet" href="/style.css" /> -->
+<%@include file="navbar.jsp"%>
+</head>
+<body>
+
+<div align="center"  >
+<br>
+<h2>Results for ${city} in ${mState} Search</h2>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
 <link rel="stylesheet" href="/style.css" />
 <%@include file="navbar.jsp"%>
 </head>
 <body>
 <h2>Results for ${city} in ${state} Search</h2>
+
 <br>
 
 <h3>Filter by Date Range</h3>
@@ -37,8 +49,19 @@
 </table>
 <button>SUBMIT</button>
 </form>
-<br>
+
+
  	 <%@include file="locations-map.jsp"%>
+<br>    
+</div>
+<table>
+	<thead>
+		<tr><td></td><td>Incident Date</td><td>Address</td><td>Number Killed</td><td>Number Injured</td>
+		</tr>
+	</thead>
+
+<br>
+<%@include file="locations-map.jsp"%>
    
 <table class="table table-hover">
   <thead>
@@ -51,6 +74,7 @@
     </tr>
   </thead>
   <tbody> 
+
 
 <c:forEach var="incident" items="${incidents }">
 	<tr class="table-warning">
