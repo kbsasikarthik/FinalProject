@@ -42,14 +42,15 @@ public class DatabaseController {
 	}
 	
 	@RequestMapping("/listresults")
-	public ModelAndView showResults(@RequestParam("state") String mState, @RequestParam("city") String city) {
-		System.out.println("In controller - received - State - " + mState + "City- " + city);
+	public ModelAndView showResults(@RequestParam("state") String state, @RequestParam("city") String city) {
+		System.out.println("In controller - received - State - " + state + "City- " + city);
 		ModelAndView mav = new ModelAndView("listresults");
-		mav.addObject("mState", mState);
+		mav.addObject("state", state);
 		mav.addObject("city", city);
-		List<Incident> incidents = incidentDao.byStateAndCity(mState, city);
+		List<Incident> incidents = incidentDao.byStateAndCity(state, city);
 		System.out.println("Result set IN controller - "+incidents);
 		mav.addObject("incidents", incidents);
+		mav.addObject("back", "/");
 		return mav;
 	}
 	
@@ -89,7 +90,7 @@ public class DatabaseController {
 		mav.addObject("number", matchingNames.size());
 		mav.addObject("matchingNames", matchingNames);
 		System.out.println(incidentDao.byName(name));
-//		mav.addObject("back", "/");
+		mav.addObject("back", "/");
 
 		return mav;
 	}
@@ -124,6 +125,7 @@ public class DatabaseController {
 		mav.addObject("toDate", toDate);
 		mav.addObject("number", matchingDates.size());
 		mav.addObject("incidents", matchingDates );
+		mav.addObject("back", "/listresults?state="+state+"&city="+city);
 		//System.out.println(matchingDates);
 		return mav;
 	}
@@ -131,7 +133,7 @@ public class DatabaseController {
 	@RequestMapping("/listresultsbyname")
 	public ModelAndView showResultsByName() {
 		ModelAndView mav = new ModelAndView("listresultsbyname");
-//		mav.addObject("back", "/listresults");
+		mav.addObject("back", "/");
 		return mav;
 
 	}
