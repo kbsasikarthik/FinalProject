@@ -13,7 +13,10 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/journal/bootstrap.min.css" />
 <link rel="stylesheet" href="/style.css" />
-
+<meta property="og:title" content="Take A.I.M. at Gun Violence">
+<meta property="og:image" content="http://media.graytvinc.com/images/810*455/Gun+violence+awareness2.jpg">
+<meta property="og:description" content="Summary of a gun violence incident.">
+<meta property="og:url" content="http://localhost:8080/incident.jsp">
 </head>
 <body>
 <div>
@@ -48,19 +51,20 @@
 				<a class="a2a_button_twitter"></a>
 			</div>
 			<script>
-var a2a_config = a2a_config || {};
-a2a_config.templates = a2a_config.templates || {};
-
-a2a_config.templates.facebook = {
-    app_id: "5303202981",
-    redirect_uri: "https://static.addtoany.com/menu/thanks.html"
-};
-
-a2a_config.templates.twitter = {
-    text: "I was impacted by gun violence on ${incident.date}.",
-    related: "I've been impacted by gun violence. Learn more Project A.I.M"
-};
-<script async src="https://static.addtoany.com/menu/page.js"></script>
+				var a2a_config = a2a_config || {};
+				a2a_config.templates = a2a_config.templates || {};
+				
+				a2a_config.templates.facebook = {
+				    app_id: "5303202981",
+				    redirect_uri: "https://static.addtoany.com/menu/thanks.html"
+				};
+				
+				a2a_config.templates.twitter = {
+				    text: "I was impacted by gun violence on ${incident.date}.",
+				    related: "I've been impacted by gun violence. Learn more Project A.I.M"
+				};
+			</script>
+			<script async src="https://static.addtoany.com/menu/page.js"></script>
 		</div>
 		    <div class="col">
 		    	<iframe width="300" height="300" frameborder="0" style="border:0"
@@ -78,46 +82,3 @@ a2a_config.templates.twitter = {
       	</div>
 	</div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-md-8">
-     <div>
-<h1>Incident Details</h1>
-<table>
-<thead>
-<tr>
-<th>Date: ${incident.date} </th>
-<th>Number Killed: ${incident.n_killed} </th>
-<th>Number injured: ${incident.n_injured}</th>
-</tr>
-</thead>
-</table>
-</div>
-<p>${incident.notes}</p>
-<p>${incident.sources}</p>
-<p>${incident.source_url}</p>
-<c:forEach var="name" items="${incident.names}">
-<p>${name }<a href="/participant/${name }" class="btn btn-secondary">Add Connection</a></p>
-</c:forEach>
-<c:forEach var="detail" items="${details}"> 
-<p>${detail }</p>
-</c:forEach>
- 
-<a href="/repbyzip/${incident.latitude}/${incident.longitude}">Representatives</a>
-    </div>
-    <div class="col"><img src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg" alt="" height="200" width="200">
-    </div>
-  </div>
-  
-  <div class="row">
-  <div class="col-6"><img src="http://www.dwreview.com/Data_mining/Images/Data_Mine_Table.GIF" alt="" height="300" width="400"> </div>
-  <div class="col-6">Rep Data<div class="row">
-      <div class="col-8 col-sm-6">
-       <img src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg" alt="" height="200" width="200">
-      </div>
-      <div class="col-4 col-sm-6">
-        <img src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg" alt="" height="200" width="200">
-      </div></div>
-</div>
-</body>
-</html>
