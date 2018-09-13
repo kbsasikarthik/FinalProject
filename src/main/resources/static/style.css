@@ -1,24 +1,9 @@
-thead{
-	font-style :italic;
-	font-weight: bold;
-	text-decoration: underline;
-	text-align: center;
-	color: #11BF3E;
-	
-}
+
 h1{
 	text-align: center;
-	color: #BB11B4;	
+	
 }
-table, td{
-	border-collapse: collapse;
-	border: 1px broken black;
-	color: #BB11B4;		
-}
-th{
-	font-size: 150%;
-	color: #E51272;
-}
+
 
 .paging-nav {
   text-align: right;

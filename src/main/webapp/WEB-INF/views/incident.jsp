@@ -12,7 +12,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
-<link rel="stylesheet" href="/style.css" />
 <meta property="og:title" content="Take A.I.M. at Gun Violence">
 <meta property="og:image" content="http://media.graytvinc.com/images/810*455/Gun+violence+awareness2.jpg">
 <meta property="og:description" content="Summary of a gun violence incident.">
