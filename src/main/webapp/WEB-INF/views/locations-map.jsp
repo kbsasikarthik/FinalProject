@@ -31,16 +31,19 @@
     	    //number killed and date
     	    var htmlContent = `
     	    <p>
+    	    	Address: ${location.address}
+    	    </p>
+    	    <p>
     	     	Killed: ${location.n_killed}
     	    </p>
     	    <p>
     	    	Injured: ${location.n_injured}
     	    </p>
     	    <p>
-    	    	Year: ${location.date}
+    	    	Date: ${location.date}
     	    </p>
     	    <p>
-    	    	Details:<a href=/incident/${location.incidentId}>Link<a/>
+    	    	<a href=/incident/${location.incidentId}>Details<a/>
     	    </p>
     	    `
     	    //temp array.push
