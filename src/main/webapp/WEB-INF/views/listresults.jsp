@@ -28,11 +28,7 @@
 
 <div align="center"  >
 <br>
-<h2>Results for ${city} in ${mState} Search</h2>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
-<link rel="stylesheet" href="/style.css" />
-<%@include file="navbar.jsp"%>
 </head>
 <body>
 <h2>Results for ${city} in ${state} Search</h2>
@@ -60,9 +56,7 @@
 		</tr>
 	</thead>
 
-<br>
-<%@include file="locations-map.jsp"%>
-   
+
 <table class="table table-hover">
   <thead>
     <tr>
