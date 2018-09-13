@@ -42,8 +42,9 @@
 			a2a_config.templates = a2a_config.templates || {};
 			
 			a2a_config.templates.email = {
+			    to:"${rep.email}",
 				subject: "I was impacted by gun violence on ${incident.date}",
-			    body: "PASTE EMAIL: ${rep.email} Dear Representative, I knew someone who was involved in an incident (tell your story)"
+			    body: "Dear ${rep.full_name}, I knew someone who was involved in an incident"
 			};
 		</script>
 	<script async src="https://static.addtoany.com/menu/page.js"></script>
