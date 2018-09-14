@@ -24,9 +24,10 @@
   </style>
 </head>
 <body>
-<h1>Welcome to the Gun Violence Awareness Project</h1>
+<h1 align="center">Welcome to Team A.I.M !</h1>
+<h2 align="center">(<u>A</u>wareness <u>I</u>n <u>M</u>ovement!)</h2>
 <br>
-<h2>Search for Gun Violence by Location</h2>
+<h2></h2>
 
 <form action="/nameSearch" method="post">
 <div class="side-by-side">
