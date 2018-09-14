@@ -24,6 +24,13 @@
   </style>
 </head>
 <body>
+<<<<<<< HEAD
+=======
+<h1 align="center">Welcome to Team A.I.M !</h1>
+<h2 align="center">(<u>A</u>wareness <u>I</u>n <u>M</u>ovement!)</h2>
+<br>
+<h2></h2>
+>>>>>>> 52f7e970afab4be6926823d73403cfa18678a975
 
 <<<<<<< Updated upstream:src/main/webapp/WEB-INF/views/index.jsp
 <form action="/nameSearch" method="post">

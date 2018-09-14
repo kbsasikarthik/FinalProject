@@ -15,7 +15,6 @@ public class MapController {
 			@RequestParam(value = "city", required = false) String city,
 			@RequestParam(value = "state", required = false) String state,
 			@RequestParam(value = "zip", required = false) Integer zip) {
-//		SearchLocation location = new SearchLocation(streetNum, streetName, city, state, zip);
 		ModelAndView mav = new ModelAndView("Map");
 		city = "Detroit";
 		state = "Michigan";
