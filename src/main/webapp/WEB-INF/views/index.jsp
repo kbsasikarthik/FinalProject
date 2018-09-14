@@ -24,6 +24,7 @@
   </style>
 </head>
 <body>
+
 <h1 align="center">Welcome to Team A.I.M !</h1>
 <h2 align="center">(<u>A</u>wareness <u>I</u>n <u>M</u>ovement!)</h2>
 <br>
@@ -32,6 +33,24 @@
 <form action="/nameSearch" method="post">
 <div class="side-by-side">
 <h3>Enter name to Get Started </h3>
+
+<div class="jumbotron">
+<center>  <h1 class="display-3">PROJECT A.I.M.</h1>
+  <p class="lead">Awareness Into Movement</p>
+  <p class="lead">
+  </p>
+  </center>
+  <br>
+ <div class="container">
+	  	<div class="row">
+		    <div class="col-12 col-md-">
+		
+ <div class="card text-white bg-primary mb-3" style="max-width: 35rem;">
+  <div class="card-header">Search By Name</div>
+  <div class="card-body">
+    <h4 class="card-title">Enter First and Last Name</h4>
+    <form action="/nameSearch" method="post" class="form">
+
 		<div class="form-group row">
 			<!--  <label for="firstName" class="col-sm-2 col-form-label">First Name:</label>-->
     		<input class="form-control mr-sm-2" name= "firstName" type="text" placeholder="First Name">
@@ -41,6 +60,7 @@
 			<!-- <label for="lastName" class="col-sm-2 col-form-label">Last Name:</label>-->
 			<input class="form-control mr-sm-2" name= "lastName" type="text" placeholder="Last Name">
 		</div>
+
 		<button>Search</button>
 		
 </div>
@@ -48,6 +68,23 @@
 
  <div class="side-by-side">
  <h3>Select a State to Get Started</h3>
+
+		<a class="btn btn-warning btn-lg" href="#" role="button">Search</a>
+		 <button action= "submit">Submit</button>
+		 </form>
+     </div>
+      </div>
+    </div>
+		 </div>	 
+		 </div>
+		 
+		 <div class="card text-white bg-primary mb-3" style="max-width: 35rem;">
+  <div class="card-header">Search By Name</div>
+  <div class="card-body">
+    <h4 class="card-title">Enter First and Last Name</h4>
+    
+    <h3>Select a State to Get Started</h3>
+
 	<form method="post" action="/listresults" id="state_form">
 		<div class="form-group" >
 		  	<label class="sr-only" for="state">State</label>
@@ -67,13 +104,21 @@
 		  		<option <c:if test="${ city eq param.city_or_county }">selected</c:if>>${ city }</option>
 		  	</c:forEach>
 		  	</select>
-		 </div>
+		  	<a class="btn btn-warning btn-lg" href="#" role="button">Search</a>
 		 <button action = "submit">Submit</button>
 	</form>
 </div>
 
+</div>
+
 <div class="jumbotron">
-  <h4 class="alert-heading"><%=
+  <h4 class="alert-heading">
+
+	
+	
+		
+	
+		<p class="Quotes"><%=
 		Arrays.asList("How many have to die before we will give up these dangerous toys?",
 				"Not everybody needs a gun , to get things done.",
 				"Know guns, know peace, know safety. No guns, no peace, no safety.",
@@ -82,7 +127,8 @@
 		.get(new Random().nextInt(5))
 	%></h4>
 
-</div>
+
+	%></p>
 
 
  <script>
