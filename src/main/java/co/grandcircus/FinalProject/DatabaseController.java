@@ -137,4 +137,12 @@ public class DatabaseController {
 		return mav;
 
 	}
+	
+	@RequestMapping("/about")
+	public ModelAndView showAbout() {
+		ModelAndView mav = new ModelAndView("about");
+		mav.addObject("back", "/");
+		return mav;
+
+	}
 }

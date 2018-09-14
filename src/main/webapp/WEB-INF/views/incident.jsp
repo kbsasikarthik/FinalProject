@@ -18,6 +18,13 @@
 <meta property="og:url" content="http://localhost:8080/incident.jsp">
 <%@include file="navbar.jsp"%>
 </head>
+<style>
+    .side-by-side
+    {
+      float:left;
+      padding:0px 20px;
+    }
+  </style>
 <body>
 <div>
 	<div class="container">
@@ -36,7 +43,7 @@
 					</table>
 				</div>
 				<p>${incident.incident_characteristics}</p>
-				<p>${incident.sources}</p>
+				<p>${incident.incident_url}</p>
 				<p>${incident.source_url}</p>
 				<c:forEach var="name" items="${incident.names}">
 				<p>${name }<a href="/participant/${name }" class="btn btn-secondary">Add Connection</a></p>
@@ -78,6 +85,7 @@
 			</script>		
 	</div>
 	</div>	
+	<div class="side-by-side">
 		    <div align="right"  class="col">
 		    	<iframe width="300" height="300" frameborder="0" style="border:0"
 			 	src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDsys0GZf3YUkzCQt1n-qVwIjzI3ga3e5Y
@@ -85,7 +93,8 @@
 				</iframe>
 		    </div>
 	</div>
-  
+	</div>
+ <div class="side-by-side"> 
   	<div class="row">
   		<div class="col-6">Rep Data<div class="row">
       		<div class="col-8 col-sm-6">
@@ -94,5 +103,6 @@
       	</div>
 	</div>
 	</div>
+</div>
 </body>
 </html>

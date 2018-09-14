@@ -45,8 +45,8 @@
 <form action="/dateSearch/${state }/${city}">
 <table>
 	<thead><strong><tr><td>FROM DATE</td><td>TO DATE</td></tr></strong></thead>
-		<tr><td><input type="date" name="fromDate" min="2013-01-01" max="2018-03-31" /></td>
-		<td><input type="date" name="toDate" min="2013-01-01" max="2018-03-31"  /></td></tr>
+		<tr><td><input type="date" name="fromDate" min="2013-01-01" max="2018-03-31" value="2013-01-01"/></td>
+		<td><input type="date" name="toDate" min="2013-01-01" max="2018-03-31" value="2018-03-31" /></td></tr>
 </table>
 <button>SUBMIT</button>
 </form>
