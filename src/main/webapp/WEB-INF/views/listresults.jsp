@@ -46,7 +46,6 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Details</th>
       <th scope="col">Incident Date</th>
       <th scope="col">Address</th>
       <th scope="col">Number Killed</th>
@@ -56,11 +55,10 @@
   <tbody> 
 <c:forEach var="incident" items="${incidents }">
     <tr class="table-warning">
-    <td scope="row"><a href = "/incident/${incident.incidentId}" class="btn btn-outline-primary">Details</a></td>
-    <td scope="row">${incident.date}</td>
+    <td scope="row" title="Click to see more details"><a href = "/incident/${incident.incidentId}">${incident.date}</a></td>
     <td scope="row">${incident.address}</td>
     <td scope="row" style="text-align:center">${incident.n_killed}</td>
-    <td scope="row" style="text-align:center">${incident.n_injured}</td>    
+    <td scope="row" style="text-align:center">${incident.n_injured}</td>        
     </tr>
 </c:forEach>
 </table>
