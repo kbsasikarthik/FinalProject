@@ -118,8 +118,6 @@ citiesdropdown.addEventListener("change", function(){
 	
 });
 	
-
-
 </script>
 </body>
 </html>
