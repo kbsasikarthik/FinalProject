@@ -19,6 +19,7 @@
 <div align="center" class="w3-container" >
 <br>
 <h1>Found ${number} matching results for Name: ${name }</h1>
+
 <table>
 <thead>
 <tr>

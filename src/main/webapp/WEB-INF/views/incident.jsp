@@ -32,25 +32,33 @@
 		    <div class="col-12 col-md-8">
 			    <div>
 					<h1>Incident Details</h1>
-					<table>
-						<thead>
-							<strong><tr>
-							<td>Date: ${incident.date} </td>
-							<td>Number Killed: ${incident.n_killed} </td>
-							<td>Number injured: ${incident.n_injured}</td>
-							</tr></strong>
-						</thead>
-					</table>
+					<p>Date: <u>${incident.date}</u> </p>
+							<p>Number Killed: <u>${incident.n_killed}</u>, Number injured: <u>${incident.n_injured}</u></p>
+		
 				</div>
-				<p>${incident.incident_characteristics}</p>
-				<p>${incident.incident_url}</p>
-				<p>${incident.source_url}</p>
+				<u>Notes:</u>
+				<ol>
+				<c:forEach var="chr" items="${incident.chars}"> 
+					<p>${chr }</p>
+				</c:forEach>
+				</ol>
+				<u>Data source:</u>
+				<ol>
+				<p><a href="${incident.incident_url}">${incident.incident_url}</a></p>
+				<p><a href="${incident.source_url}">${incident.source_url}</a></p>
+				</ol>
+				<u>Names of persons involved:</u>
+				<ol>
 				<c:forEach var="name" items="${incident.names}">
 				<p>${name }<a href="/participant/${name }" class="btn btn-secondary">Add Connection</a></p>
 				</c:forEach>
+				</ol>
+				<u>More details:</u>
+				<ol>
 				<c:forEach var="detail" items="${details}"> 
 				<p>${detail }</p>
 				</c:forEach>
+				</ol>
 			</div><br>
 			<p>Share your connection to this incident via Social Media</p>
 			<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
@@ -96,7 +104,7 @@
 	</div>
  <div class="side-by-side"> 
   	<div class="row">
-  		<div class="col-6">Rep Data<div class="row">
+  		<div class="col-6">Representative information<div class="row">
       		<div class="col-8 col-sm-6">
        			<%@include file="show-rep.jsp"%>
       		</div>

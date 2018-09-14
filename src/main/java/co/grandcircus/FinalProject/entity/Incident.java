@@ -272,7 +272,23 @@ public class Incident {
 	public void setState_senate_district(String state_senate_district) {
 		this.state_senate_district = state_senate_district;
 	}
-
+	
+//	@Transient
+//	public String[] getUrl() {
+//		String url = getSource_url();
+//		
+//		return parsedUrl;
+//	}
+	
+	
+	@Transient
+	public String[] getChars() {
+		String chars = getIncident_characteristics();
+		String[] parsedChar = chars.split("\\|\\|") ;
+//		List<String> parsedName = parseString(name);
+		return parsedChar;
+	}
+	
 	@Transient
 	public List<String> getNames() {
 		String name = getParticipant_name();
