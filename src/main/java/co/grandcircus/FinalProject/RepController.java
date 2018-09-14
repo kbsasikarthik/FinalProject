@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,12 +24,15 @@ import co.grandcircus.FinalProject.entity.RepresentativeResult;
 @Controller
 public class RepController {
 	
+	@Value("${repdata.apikey}")
+	private String apikey;
+	
 	@RequestMapping("/repbyzip/{latitude}/{longitude}")
 	public ModelAndView showreps(@PathVariable("latitude") Double lat, @PathVariable("longitude") Double lon) {
 		ModelAndView mav = new ModelAndView("show-rep");
 		RestTemplate restTemplate = new RestTemplate();	
 
-		String url = "https://openstates.org/api/v1/legislators/geo/?lat="+lat+"&long="+lon+"&apikey=239038b3-30a9-4f08-a887-90bae55dd133";
+		String url = "https://openstates.org/api/v1/legislators/geo/?lat="+lat+"&long="+lon+"&apikey=" + apikey;
 //		opnstates.org apikey - 239038b3-30a9-4f08-a887-90bae55dd133
 
 		ResponseEntity<Representative[]> response = restTemplate.exchange(url, HttpMethod.GET, null, Representative[].class);
