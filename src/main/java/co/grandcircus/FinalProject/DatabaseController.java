@@ -66,24 +66,24 @@ public class DatabaseController {
 //		return mav;
 //	}
 
-	@RequestMapping("/listresults")
-	public String list(Model model, Integer offset, Integer maxResults){
-		model.addAttribute("incidents", incidentDao.byStateAndCity(offset, maxResults));
-		model.addAttribute("count", incidentDao.count());
-		model.addAttribute("offset", offset);
-		return "/listresults";
-	}
-//
 //	@RequestMapping("/listresults")
-//	public ModelAndView showResults(@RequestParam("page") Integer page,@RequestParam("state") String state, @RequestParam("city") String city) {
-//		System.out.println("State - " + state + "City- " + city);
-//		ModelAndView mav = new ModelAndView("listresults");
-//		mav.addObject("state", state);
-//		mav.addObject("city", city);
-//		mav.addObject("incidents", incidentDao.byStateAndCity(page,state, city));
-//		mav.addObject("back", "/");
-//		return mav;
+//	public String list(Model model, Integer offset, Integer maxResults){
+//		model.addAttribute("incidents", incidentDao.byStateAndCity(offset, maxResults));
+//		model.addAttribute("count", incidentDao.count());
+//		model.addAttribute("offset", offset);
+//		return "/listresults";
 //	}
+//
+	@RequestMapping("/listresults")
+	public ModelAndView showResults(@RequestParam("state") String state, @RequestParam("city") String city) {
+		System.out.println("State - " + state + "City- " + city);
+		ModelAndView mav = new ModelAndView("listresults");
+		mav.addObject("state", state);
+		mav.addObject("city", city);
+		mav.addObject("incidents", incidentDao.byStateAndCity(state, city));
+		mav.addObject("back", "/");
+		return mav;
+	}
 
 	@RequestMapping("/nameSearch")
 	public ModelAndView searchNames(@RequestParam("firstName") String firstName,

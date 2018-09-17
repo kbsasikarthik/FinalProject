@@ -48,7 +48,12 @@
 				</table>
 				<u>Data source:</u>
 				<ol>
-				<p><a target="_blank" href="${incident.source_url}">${incident.source_url}</a></p>
+				<a target="_blank" href="${incident.source_url}"><img id="p2i_demo" src="http://api.page2images.com/directlink?p2i_url=${incident.source_url}&p2i_device=6&p2i_screen=1024x768&p2i_size=200x200&p2i_imageformat=jpg&p2i_key=4dfa1ec826f4f930" /></a>
+				<script src="http://www.page2images.com/js/p2i.js"></script><script type="text/javascript" >
+					var p2i=new page2images();
+					p2i.thumbnail('p2i_demo');
+				</script>
+				<script> var p2i=new page2images(); p2i.thumbnail('demo', true); </script>
 				</ol>
 				<u>Names of persons involved:</u>
 				<ol>
