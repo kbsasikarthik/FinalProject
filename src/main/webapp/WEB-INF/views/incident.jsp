@@ -32,8 +32,13 @@
 		    <div class="col-12 col-md-8">
 			    <div>
 					<h1>Incident Details</h1>
-					<p>Date: <u>${incident.date}</u> </p>
-							<p>Number Killed: <u>${incident.n_killed}</u>, Number injured: <u>${incident.n_injured}</u></p>
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+						<p>Share</p>
+					</div>
+				<p>Date: <u>${incident.date}</u> </p>
+				<p>Number Killed: <u>${incident.n_killed}</u>, Number injured: <u>${incident.n_injured}</u></p>
 		
 				</div>
 				<u>Notes:</u>
@@ -44,13 +49,12 @@
 				</ol>
 				<u>Data source:</u>
 				<ol>
-				<p><a href="${incident.incident_url}">${incident.incident_url}</a></p>
-				<p><a href="${incident.source_url}">${incident.source_url}</a></p>
+				<p><a target="_blank" href="${incident.source_url}">${incident.source_url}</a></p>
 				</ol>
 				<u>Names of persons involved:</u>
 				<ol>
 				<c:forEach var="name" items="${incident.names}">
-				<p>${name }<a href="/participant/${name }" class="btn btn-secondary">Add Connection</a></p>
+				<p><a href="/participant/${name }" class="btn btn-secondary btn-sm">Add Connection</a>&nbsp${name }</p>
 				</c:forEach>
 				</ol>
 				<u>More details:</u>
@@ -60,38 +64,21 @@
 				</c:forEach>
 				</ol>
 			</div><br>
-			<p>Share your connection to this incident via Social Media</p>
-			<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-				<a class="a2a_button_facebook"></a>
-				<a class="a2a_button_twitter"></a>
-			</div>
 			<script>
 				var a2a_config = a2a_config || {};
 				a2a_config.templates = a2a_config.templates || {};
 				
 				a2a_config.templates.facebook = {
 				    app_id: "1173731342792067",
-				    redirect_uri: "http://localhost:8080"
+				    redirect_uri: "http:www.projectaim.org"
 				};
 				
 				a2a_config.templates.twitter = {
-				    text: "I was impacted by gun violence on ${incident.date}.",
-				    related: "I've been impacted by gun violence. Learn more Project A.I.M"
+				    text: "I was impacted by gun violence on ${incident.date}. Learn more www.projectaim.org #endgunviolence #gunviolence",
+				    related: "I've been impacted by gun violence. "
 				};
 			</script>
 			<script async src="https://static.addtoany.com/menu/page.js"></script>
-			
-		<div id="shareBtn" class="btn btn-success clearfix">Share</div>
-			<script>
-				document.getElementById('shareBtn').onclick = function() {
-				  FB.ui({
-				    method: 'share',
-				    display: 'popup',
-				    href: 'https://developers.facebook.com/docs/',
-				  }, function(response){});
-				}
-			</script>		
-	</div>
 	</div>	
 	<div class="side-by-side">
 		    <div align="right"  class="col">
