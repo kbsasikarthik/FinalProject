@@ -12,12 +12,11 @@
         padding: 0;
       }
 </style>
-
-
 <script>
    function initMap() {
 	   
 	   var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+	   var image1 = 'if_FlagYellow_728939.png';
     	
     	 var locations = new Array(); 
     	 
@@ -29,15 +28,20 @@
     	    //long property 
     	    var longitude= ${location.longitude}; 
     	    //number killed and date
+    	    var killed =  ${location.n_killed}
+    	    
+    	    var injured = ${location.n_injured}
+    	    //Additional content in view window 
+    	    
     	    var htmlContent = `
     	    <p>
     	    	Address: ${location.address}
     	    </p>
     	    <p>
-    	     	Killed: ${location.n_killed}
+    	    	Injured: ${location.n_injured}
     	    </p>
     	    <p>
-    	    	Injured: ${location.n_injured}
+    	    	Killed: ${location.n_killed}
     	    </p>
     	    <p>
     	    	Date: ${location.date}
@@ -47,7 +51,8 @@
     	    </p>
     	    `
     	    //temp array.push
-    	    tempArray.push(latitude,longitude,htmlContent);
+    	    tempArray.push(latitude,longitude,htmlContent,killed,injured);
+    	    
     	    //Array push
     	    locations.push(tempArray);
     	    </c:forEach> 
@@ -63,14 +68,32 @@
                 });
         	  
         	 for (count = 0; count < locations.length; count++) {
-        		    marker = new google.maps.Marker({
-        		    	animation: google.maps.Animation.DROP,
-        		      position: new google.maps.LatLng(locations[count][0], locations[count][1]),
-        		      map: map,
-        		     /*  icon:image */
-        		      
-        		    }); 
-        		    
+        		 
+        		 
+        		 if(locations[count][3] > 0){
+        			 
+        			  marker = new google.maps.Marker({
+          		    	animation: google.maps.Animation.DROP,
+          		      position: new google.maps.LatLng(locations[count][0], locations[count][1]),
+          		      map: map,
+          		        icon:image 
+          		      
+          		    });  
+        			 
+        		 } else {
+        			 
+        			  marker = new google.maps.Marker({
+          		    	animation: google.maps.Animation.DROP,
+          		      position: new google.maps.LatLng(locations[count][0], locations[count][1]),
+          		      map: map,
+          	
+          		        icon:image1,
+          		      
+          		      
+          		    }); 
+          		    
+        		 }
+        		 
         		    google.maps.event.addListener(marker,'click', (function (marker, count) {
         		    	
         		        return function () {
