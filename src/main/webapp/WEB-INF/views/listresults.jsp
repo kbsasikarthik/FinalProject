@@ -42,36 +42,7 @@
 		<td><input type="submit" value="Search"></tr>
 	</table>
 </form>
-<!--  
-<div id="pagination">
 
-    <c:url value="/stateandcity/listresults" var="prev">
-        <c:param name="page" value="${page-1}"/>
-    </c:url>
-    <c:if test="${page > 1}">
-        <a href="<c:out value="${prev}" />" class="pn prev">Prev</a>
-    </c:if>
-
-    <c:forEach begin="1" end="${maxPages}" step="1" varStatus="i">
-        <c:choose>
-            <c:when test="${page == i.index}">
-                <span>${i.index}</span>
-            </c:when>
-            <c:otherwise>
-                <c:url value="/stateandcity/listresults" var="url">
-                    <c:param name="page" value="${i.index}"/>
-                </c:url>
-                <a href='<c:out value="${url}" />'>${i.index}</a>
-            </c:otherwise>
-        </c:choose>
-    </c:forEach>
-    <c:url value="/stateandcity/listresults" var="next">
-        <c:param name="page" value="${page + 1}"/>
-    </c:url>
-    <c:if test="${page + 1 <= maxPages}">
-        <a href='<c:out value="${next}" />' class="pn next">Next</a>
-    </c:if>
-</div>-->
 <div align="center" class="w3-container" style="padding-left: 15px;padding-right: 15px;"><br>
 
 <table class="table table-hover">
@@ -93,12 +64,7 @@
     	</tr>
 	</c:forEach>
 </table>
-<form action="/listresults?state="+${state}+"&city="+${city}+"&pageNo=${i }">
-	<c:forEach var="i" begin="0" end="${lastPageNo-1 }" >
-		
-		<input type="submit" value="${i+1 }" >&nbsp;&nbsp;&nbsp;&nbsp;	<!-- Displaying Page No -->
-	</c:forEach>
-</form>
+
 </div>
 </body>
 </html>

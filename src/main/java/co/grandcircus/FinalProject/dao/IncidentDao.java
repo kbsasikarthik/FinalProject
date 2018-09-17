@@ -47,16 +47,16 @@ public class IncidentDao {
 		return new TreeSet<>(cities);
 	}
 
-	public List<Incident> byStateAndCity(Pageable page, String state, String city) {
-//	public List<Incident> byStateAndCity(String state, String city) {
+//	public List<Incident> byStateAndCity(Integer page, String state, String city) {
+	public List<Incident> byStateAndCity(String state, String city) {
 //		int pageNumber = 5;
-//		int pageSize = 20;
+		int pageSize = 20;
 
 
 		System.out.println(" In DAO State - " + state + " and City -" + city);
 //		List<Incident> incidents = em
 //				.createQuery("FROM Incident WHERE state = :stat AND city_or_county= :city", Incident.class)
-//				.setFirstResult((pageNumber - 1) * pageSize).setMaxResults(pageSize).setParameter("stat", state).setParameter("city", city).getResultList();
+//				.setFirstResult((page) * pageSize).setMaxResults(pageSize).setParameter("stat", state).setParameter("city", city).getResultList();
 //		
 		List<Incident> incidents = em
 				.createQuery("FROM Incident WHERE state = :stat AND city_or_county= :city", Incident.class)
