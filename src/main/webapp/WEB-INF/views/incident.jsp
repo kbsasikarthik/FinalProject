@@ -37,16 +37,15 @@
 						<a class="a2a_button_twitter"></a>
 						<p>Share</p>
 					</div>
-				<p>Date: <u>${incident.date}</u> </p>
-				<p>Number Killed: <u>${incident.n_killed}</u>, Number injured: <u>${incident.n_injured}</u></p>
-		
+				<table>
+					<tr><td>Date: </td><td>${incident.date}</td></tr>
+					<tr><td>Number Killed: </td><td>${incident.n_killed}</td></tr>
+					<tr><td>Number injured: </td><td>${incident.n_injured}</td></tr>
+					<c:forEach var="chr" items="${incident.chars}">
+					<tr><td>Type of Incident: </td><td>${chr}</td></tr>
+					</c:forEach>
 				</div>
-				<u>Notes:</u>
-				<ol>
-				<c:forEach var="chr" items="${incident.chars}"> 
-					<p>${chr }</p>
-				</c:forEach>
-				</ol>
+				</table>
 				<u>Data source:</u>
 				<ol>
 				<p><a target="_blank" href="${incident.source_url}">${incident.source_url}</a></p>
@@ -54,7 +53,7 @@
 				<u>Names of persons involved:</u>
 				<ol>
 				<c:forEach var="name" items="${incident.names}">
-				<p><a href="/participant/${name }" class="btn btn-secondary btn-sm">Add Connection</a>&nbsp${name }</p>
+				<p><a href="/participant/${name }" class="btn btn-secondary btn-sm" action="/showConnection/${name }/${incidentID}" id="incidentID">Add Connection</a>&nbsp${name }</p>
 				</c:forEach>
 				</ol>
 				<u>More details:</u>
@@ -64,21 +63,7 @@
 				</c:forEach>
 				</ol>
 			</div><br>
-			<script>
-				var a2a_config = a2a_config || {};
-				a2a_config.templates = a2a_config.templates || {};
-				
-				a2a_config.templates.facebook = {
-				    app_id: "1173731342792067",
-				    redirect_uri: "http:www.projectaim.org"
-				};
-				
-				a2a_config.templates.twitter = {
-				    text: "I was impacted by gun violence on ${incident.date}. Learn more www.projectaim.org #endgunviolence #gunviolence",
-				    related: "I've been impacted by gun violence. "
-				};
-			</script>
-			<script async src="https://static.addtoany.com/menu/page.js"></script>
+			
 	</div>	
 	<div class="side-by-side">
 		    <div align="right"  class="col">
@@ -99,5 +84,20 @@
 	</div>
 	</div>
 </div>
+<script>
+				var a2a_config = a2a_config || {};
+				a2a_config.templates = a2a_config.templates || {};
+				
+				a2a_config.templates.facebook = {
+				    app_id: "1173731342792067",
+				    redirect_uri: "http:www.projectaim.org"
+				};
+				
+				a2a_config.templates.twitter = {
+				    text: "I was impacted by gun violence on ${incident.date}. Learn more www.projectaim.org #endgunviolence #gunviolence",
+				    related: "I've been impacted by gun violence. "
+				};
+			</script>
+			<script async src="https://static.addtoany.com/menu/page.js"></script>
 </body>
 </html>

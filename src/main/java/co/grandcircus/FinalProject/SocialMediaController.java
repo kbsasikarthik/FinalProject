@@ -21,7 +21,7 @@ public class SocialMediaController {
 		ModelAndView mav = new ModelAndView("show-rep");
 		RestTemplate restTemplate = new RestTemplate();
 
-		String url = "https://openstates.org/api/v1/legislators/geo/?lat=" + lat + "&long=" + lon + "&apikey=" + apikey;
+		String url = null;// TODO "https://openstates.org/api/v1/legislators/geo/?lat=" + lat + "&long=" + lon + "&apikey=" + apikey;
 //        opnstates.org apikey - 239038b3-30a9-4f08-a887-90bae55dd133
 
 		ResponseEntity<Representative[]> response = restTemplate.exchange(url, HttpMethod.GET, null,

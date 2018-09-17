@@ -12,14 +12,14 @@
 </head>
 <body>
 <h1>Add Your Connection</h1>
-<h3>Person</h3> 
+<h3>${participant}</h3> 
 <p>Existing connections, if any</p>
 <table>
 <th><td>Name</td><td>Relationship</td><td>Facebook</td><td>Twitter</td><th>
 	<c:forEach var="connection" items="${ connections }">
 		 <tr>
 		    <td>${connection.name}</td>
-			<td>${connection.type}</td>
+			<td>${connection.connectionType}</td>
 			<td>${connection.facebook}</td>
 			<td>${connection.twitter}</td>
 		 </tr>  
@@ -27,11 +27,11 @@
 	 </table>
 <p>Add Your Own Connection</p>
 	
-	 <form action="/addConnection" method="post" class="form">
+	 <form action="/addConnection/${participant}/${incidentID}" method="post" class="form">
 		<div class="form-group row">
 			<label for="name" class="col-sm-2 col-form-label">Your Name:</label>
     		<div class="col-sm-10">
-			<input class="form-control" name="name" required minlength="2" maxlength="10"/>
+			<input class="form-control" name="name" required minlength="2" maxlength="30"/>
 			</div>
 		</div>
 		<div class="form-group row">
@@ -52,13 +52,13 @@
 		<div class="form-group row">
 			<label for="facebook" class="col-sm-2 col-form-label">Facebook Account:</label>
 				<div class="col-sm-10">
-				<input class="form-control" name="facebook"/>
+				<input class="form-control" name="facebook" placeholder="https://www.facebook.com/yourusername"/>
 				</div>
 		</div>
 		<div class="form-group row">
 			<label for="twitter" class="col-sm-2 col-form-label">Twitter Account:</label>
 				<div class="col-sm-10">
-				<input class="form-control" name="twitter"/>
+				<input class="form-control" name="twitter" placeholder="@username"/>
 				</div>
 		</div>
 		<button class="btn btn-secondary btn-sm>Submit</button>

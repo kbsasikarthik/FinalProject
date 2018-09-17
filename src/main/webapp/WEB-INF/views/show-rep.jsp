@@ -47,8 +47,8 @@
 			a2a_config.templates = a2a_config.templates || {};
 			a2a_config.templates.email = {
 			    to:"${rep.email}",
-				subject: "I was impacted by gun violence on ${incident.date}",
-			    body: "Dear ${rep.full_name}, I knew someone who was involved in an incident"
+				subject: "I was impacted by gun violence on ${incident.date} in your district",
+			    body: "Dear ${rep.full_name}, I knew someone who was involved in an incident in your district. I urge you to stand up to the gun lobby and take action to reverse the trend. "
 			};
 			</script>
 			<script async src="https://static.addtoany.com/menu/page.js"></script>

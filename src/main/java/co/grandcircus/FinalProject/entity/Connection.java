@@ -2,54 +2,80 @@ package co.grandcircus.FinalProject.entity;
 
 public class Connection {
 	
-	private String firstName;
-	private String lastName; 
-	private String connectionType; 
-	private String socialMediaAccount;
-	
-	
-	public Connection(String firstName, String lastName, String connectionType, String socialMediaAccount) {
+	private String name;
+	private String facebook;
+	private String twitter;
+	private String connectionType;
+	private String participant;
+	private Integer incidentID;
+
+	public Connection() {}
+
+	public Connection(String name, String facebook, String twitter, String connectionType, String participant,
+			 Integer incidentID) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.name = name;
+		this.facebook = facebook;
+		this.twitter = twitter;
 		this.connectionType = connectionType;
-		this.socialMediaAccount = socialMediaAccount;
+		this.participant = participant;
+		this.incidentID = incidentID;
 	}
-	
-	public Connection() {
-		
+
+	public String getName() {
+		return name;
 	}
-	public String getFirstName() {
-		return firstName;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+
+	public String getFacebook() {
+		return facebook;
 	}
-	public String getLastName() {
-		return lastName;
+
+	public void setFacebook(String facebook) {
+		this.facebook = facebook;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+
+	public String getTwitter() {
+		return twitter;
 	}
+
+	public void setTwitter(String twitter) {
+		this.twitter = twitter;
+	}
+
 	public String getConnectionType() {
 		return connectionType;
 	}
+
 	public void setConnectionType(String connectionType) {
 		this.connectionType = connectionType;
 	}
-	public String getSocialMediaAccount() {
-		return socialMediaAccount;
+
+	public String getParticipant() {
+		return participant;
 	}
-	public void setSocialMediaAccount(String socialMediaAccount) {
-		this.socialMediaAccount = socialMediaAccount;
+
+	public void setParticipant(String participant) {
+		this.participant = participant;
 	}
+
+	public Integer getIncidentID() {
+		return incidentID;
+	}
+
+	public void setIncidentID(Integer incidentID) {
+		this.incidentID = incidentID;
+	}
+
 	@Override
 	public String toString() {
-		return "Connection [firstName=" + firstName + ", lastName=" + lastName + ", connectionType=" + connectionType
-				+ ", socialMediaAccount=" + socialMediaAccount + "]";
-	} 
+		return "Connection [name=" + name + ", facebook=" + facebook + ", twitter=" + twitter + ", connectionType="
+				+ connectionType + ", participant=" + participant + ", incidentID=" + incidentID + "]";
+	}
 
-	
 }
 
 
