@@ -64,7 +64,31 @@
     	</tr>
 	</c:forEach>
 </table>
-
+<div name="page">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link" href="#">&laquo;</a>
+    </li>
+    <li class="page-item active">
+      <a class="page-link"  href="/listresults?state="+${state}+"?city="+${city}+"?page="+1">1</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="/listresults?state="+${state}+"?city="+${city}+"?page="+2">2</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="/listresults?state="+${state}+"?city="+${city}+"?page="+3">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="/listresults?state="+${state}+"?city="+${city}+"?page="+4">4</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="/listresults?state="+${state}+"?city="+${city}+"?page="+5">5</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">&raquo;</a>
+    </li>
+  </ul>
+</div>
 </div>
 </body>
 </html>
