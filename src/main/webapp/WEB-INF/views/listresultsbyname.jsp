@@ -12,37 +12,67 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
 <%@include file="navbar.jsp"%>
 </head>
+
+
 <body>
+
 <div align="center" class="w3-container" >
 <br>
-<h1>Found ${number} matching results for Name: ${name }</h1>
-<table>
-<thead>
-<tr>
-<strong><td>Name</td><td>Incident Date</td><td>Address</td><td>Number Killed</td><td>Number Injured</td>
-</strong>
-</tr>
-</thead>
-<br>
- <%@include file="locations-map-byname.jsp"%>
-<br>
-<br>
-
-<c:forEach var="incident" items="${matchingNames }">
-	<tr>
-	<td><c:forEach var="name" items="${incident.names }">
-	<a href=/incident/${incident.incidentId}>${name }<a/>
-	</c:forEach></td>
-	<td>${incident.date}</td>
-	<td>${incident.address}</td>
-	<td style="text-align:center">${incident.n_killed}</td>
-	<td style="text-align:center">${incident.n_injured}</td>	
-	</tr>
-</c:forEach>
-
-</table>
-
+<c:if test="${number eq 0}">
+	<h1>Sorry, No match found for ${name}!</h1>
+</c:if>
 </div>
-<a href="/" class ="btn btn-secondary">Back</a>
+
+
+<c:if test="${number gt 0}">
+	<h1>Found ${number} matching results for Name: ${name }</h1>
+		<div align="center" class="w3-container" style="padding-left: 15px;padding-right: 15px;"><br>
+			<%@include file="locations-map-byname.jsp"%>
+		</div>
+
+	
+	<div class="w3-container" style="padding-left: 15px;padding-right: 15px;"><br>
+		<h4>Filter by Date Range<small>(Database starts Jan. 1, 2013)</small></h4>
+		<form action="/dateSearch/${name}" method=POST>
+		<table>
+			<thead>
+			<tr>
+				<td>FROM DATE</td>
+				<td>TO DATE</td>
+			</tr>
+			</thead>
+			<tr><td><input type="date" name="fromDate" min="2013-01-01" max="2018-03-31" value="2013-01-01"/></td>
+			<td><input type="date" name="toDate" min="2013-01-01" max="2018-03-31" value="2018-03-31" /></td>
+			<td><input type="submit" value="Search"></tr>
+		</table>
+		</form>
+	</div>
+	<div align="center" class="w3-container" style="padding-left: 15px;padding-right: 15px;"><br>
+		<table class="table table-hover" >
+			<thead>
+			<tr style="font-size:150%;">
+			<td scope="col">Name</td>
+			<td scope="col">Incident Date</td>
+			<td scope="col">Address</td>
+			<td scope="col">Number Killed</td>
+			<td scope="col">Number Injured</td>
+			</tr>
+			</thead>
+		<c:forEach var="incident" items="${matchingNames }">
+			<tr class="table-warning">
+			<td><c:forEach var="name" items="${incident.names }">
+					<a href=/incident/${incident.incidentId}>${name }</a>
+				</c:forEach></td>
+			<td>${incident.date}</td>
+			<td>${incident.address}</td>
+			<td style="text-align:center">${incident.n_killed}</td>
+			<td style="text-align:center">${incident.n_injured}</td>	
+			</tr>
+		</c:forEach>
+
+		</table>
+	</div>
+</c:if>
+
 </body>
 </html>

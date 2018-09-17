@@ -32,7 +32,7 @@ public class RepController {
 				Representative[].class);
 		List<Representative> result = Arrays.asList(response.getBody());
 //        List<Representative> listOfReps = result.getRepresentatives();
-		System.out.println(result);
+//		System.out.println(result);
 		mav.addObject("reps", result);
 		return mav;
 

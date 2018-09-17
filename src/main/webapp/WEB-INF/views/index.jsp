@@ -34,12 +34,12 @@
 <h3>Enter name to Get Started </h3>
 		<div class="form-group row">
 			<!--  <label for="firstName" class="col-sm-2 col-form-label">First Name:</label>-->
-    		<input class="form-control mr-sm-2" name= "firstName" type="text" placeholder="First Name">
+    		<input class="form-control mr-sm-2" name= "firstName" type="text" placeholder="First Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!">
 		</div>
 		<div class="form-group row">
 		
 			<!-- <label for="lastName" class="col-sm-2 col-form-label">Last Name:</label>-->
-			<input class="form-control mr-sm-2" name= "lastName" type="text" placeholder="Last Name">
+			<input class="form-control mr-sm-2" name= "lastName" type="text" placeholder="Last Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!">
 		</div>
 		<button>Search</button>
 		
@@ -48,7 +48,7 @@
 
  <div class="side-by-side">
  <h3>Select a State to Get Started</h3>
-	<form method="post" action="/listresults" id="state_form">
+	<form method="post" action="/stateandcity" id="state_form" method=POST>
 		<div class="form-group" >
 		  	<label class="sr-only" for="state">State</label>
 			<select class="form-control mb-2 mr-sm-2" id="state" name="state" >
