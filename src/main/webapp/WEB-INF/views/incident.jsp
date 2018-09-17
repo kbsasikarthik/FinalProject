@@ -26,11 +26,8 @@
     }
   </style>
 <body>
-<div>
-	<div class="container">
-	  	<div class="row">
-		    <div class="col-12 col-md-8">
-			    <div>
+<div class="row">
+				<div class="col-6 col-md-4">
 					<h1>Incident Details</h1>
 					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
 						<a class="a2a_button_facebook"></a>
@@ -44,41 +41,41 @@
 					<c:forEach var="chr" items="${incident.chars}">
 					<tr><td>Type of Incident: </td><td>${chr}</td></tr>
 					</c:forEach>
-				</div>
 				</table>
-				<u>Data source:</u>
-				<ol>
-				<a target="_blank" href="${incident.source_url}"><img id="p2i_demo" src="http://api.page2images.com/directlink?p2i_url=${incident.source_url}&p2i_device=6&p2i_screen=1024x768&p2i_size=200x200&p2i_imageformat=jpg&p2i_key=4dfa1ec826f4f930" /></a>
-				<script src="http://www.page2images.com/js/p2i.js"></script><script type="text/javascript" >
-					var p2i=new page2images();
-					p2i.thumbnail('p2i_demo');
-				</script>
-				<script> var p2i=new page2images(); p2i.thumbnail('demo', true); </script>
-				</ol>
 				<u>Names of persons involved:</u>
 				<ol>
 				<c:forEach var="name" items="${incident.names}">
-				<p><a href="/addConnection/{participant}/{incidentID}" class="btn btn-secondary btn-sm" action="/showConnection/${name }/${incidentID}" id="incidentID">Add Connection</a>&nbsp${name }</p>
+					<p><a href="/addConnection/{participant}/{incidentID}" class="btn btn-secondary btn-sm" action="/showConnection/${name }/${incidentID}" id="incidentID">Add Connection</a>&nbsp${name }</p>
 				</c:forEach>
 				</ol>
 				<u>More details:</u>
 				<ol>
-				<c:forEach var="detail" items="${details}"> 
-				<p>${detail }</p>
+					<c:forEach var="detail" items="${details}"> 
+					<p>${detail }</p>
 				</c:forEach>
 				</ol>
-			</div><br>
+				</div><br>
+		
+				<div class="col-6 col-md-4">
+					<u>Data source:</u>
+					<a target="_blank" href="${incident.source_url}"><img id="p2i_demo" src="http://api.page2images.com/directlink?p2i_url=${incident.source_url}&p2i_device=6&p2i_screen=1024x768&p2i_size=400x400&p2i_imageformat=jpg&p2i_key=4dfa1ec826f4f930" /></a>
+					<script src="http://www.page2images.com/js/p2i.js"></script><script type="text/javascript" >
+						var p2i=new page2images();
+						p2i.thumbnail('p2i_demo');
+					</script>
+				</div>
+				<div class="col-6 col-md-4">
+				<u>Location Map:</u>
+				
+		    		<iframe width="300" height="300" frameborder="0" style="border:0"
+			 			src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDsys0GZf3YUkzCQt1n-qVwIjzI3ga3e5Y
+			 		  	&q=${incident.latitude}+${incident.longitude}">
+					</iframe>
+		   	 	</div>
+
 			
 	</div>	
-	<div class="side-by-side">
-		    <div align="right"  class="col">
-		    	<iframe width="300" height="300" frameborder="0" style="border:0"
-			 	src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDsys0GZf3YUkzCQt1n-qVwIjzI3ga3e5Y
-			   	&q=${incident.latitude}+${incident.longitude}">
-				</iframe>
-		    </div>
-	</div>
-	</div>
+</div>
  <div class="side-by-side"> 
   	<div class="row">
   		<div class="col-6">Representative information<div class="row">

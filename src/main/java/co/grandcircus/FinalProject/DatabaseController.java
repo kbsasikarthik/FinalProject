@@ -28,6 +28,14 @@ public class DatabaseController {
 
 	@Autowired
 	IncidentDao incidentDao;
+	
+	@RequestMapping("/privacy")
+	public ModelAndView showPrivacy() {
+		ModelAndView mav = new ModelAndView("privacy");
+		mav.addObject("back", "/");
+		return mav;
+	}
+		
 
 	@RequestMapping("/")
 	public ModelAndView showhome() {

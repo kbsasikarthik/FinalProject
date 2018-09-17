@@ -13,6 +13,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="/about">About</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/privacy">Privacy Policy</a>
+      </li>
 	</ul>
 	<ul class="navbar-nav mr-right">
       <li class="nav-item active">
