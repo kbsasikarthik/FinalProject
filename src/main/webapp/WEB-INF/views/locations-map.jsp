@@ -2,8 +2,8 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 400px;
-        width: 650px;
+        height: 500px;
+        width: 800px;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -15,8 +15,9 @@
 <script>
    function initMap() {
 	   
-	   var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-	   var image1 = 'if_FlagYellow_728939.png';
+	   var image = 'yellow.png';
+	   var image1 = 'redpin.png';
+	   var image2 = 'orangepin.png';
     	
     	 var locations = new Array(); 
     	 
@@ -64,7 +65,9 @@
         	  
         	  map = new google.maps.Map(document.getElementById('map'), {
                   center: {lat: locations[0][0], lng: locations[0][1]},
-                  zoom: 10
+                  zoom: 10,
+       
+                 
                 });
         	  
         	 for (count = 0; count < locations.length; count++) {
@@ -76,9 +79,21 @@
           		    	animation: google.maps.Animation.DROP,
           		      position: new google.maps.LatLng(locations[count][0], locations[count][1]),
           		      map: map,
-          		        icon:image 
+          		        icon:image1
           		      
           		    });  
+        			  
+        			  
+        		 }else if (locations[count][4] == 0 && locations[count][3] == 0 ){	 
+        			 
+        			 marker = new google.maps.Marker({
+           		    	animation: google.maps.Animation.DROP,
+           		      position: new google.maps.LatLng(locations[count][0], locations[count][1]),
+           		      map: map,
+           		        icon:image
+           		      
+           		    });  
+         			  
         			 
         		 } else {
         			 
@@ -87,7 +102,7 @@
           		      position: new google.maps.LatLng(locations[count][0], locations[count][1]),
           		      map: map,
           	
-          		        icon:image1,
+          		         icon:image2
           		      
           		      
           		    }); 

@@ -17,8 +17,11 @@
 <script>
    function initMap() {
 	   
-	   var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-    	
+	   var image = 'yellow.png';
+	   var image1 = 'redpin.png';
+	   var image2 = 'orangepin.png';
+	   
+	   
     	 var locations = new Array(); 
     	 
     	    <c:forEach items="${matchingNames}" var="location">
@@ -28,6 +31,10 @@
     	    var latitude= ${location.latitude}; 
     	    //long property 
     	    var longitude= ${location.longitude}; 
+    	    //number killed property 
+    	    var killed = ${location.n_killed}
+    	    //number injured property
+    	    var injured = ${location.n_injured}
     	    //number killed and date
     	    var htmlContent = `
     	    <p>
@@ -47,7 +54,7 @@
     	    </p>
     	    `
     	    //temp array.push
-    	    tempArray.push(latitude,longitude,htmlContent);
+    	    tempArray.push(latitude,longitude,htmlContent,killed,injured);
     	    //Array push
     	    locations.push(tempArray);
     	    </c:forEach> 
@@ -62,14 +69,45 @@
                   zoom: 3
                 });
         	  
-        	 for (count = 0; count < locations.length; count++) {
-        		    marker = new google.maps.Marker({
-        		    	animation: google.maps.Animation.DROP,
-        		      position: new google.maps.LatLng(locations[count][0], locations[count][1]),
-        		      map: map,
-        		     /*  icon:image */
-        		      
-        		    }); 
+        	  
+        	  for (count = 0; count < locations.length; count++) {
+         		 
+         		 
+         		 if(locations[count][3] > 0){
+         			 
+         			  marker = new google.maps.Marker({
+           		    	animation: google.maps.Animation.DROP,
+           		      position: new google.maps.LatLng(locations[count][0], locations[count][1]),
+           		      map: map,
+           		        icon:image1
+           		      
+           		    });  
+         			  
+         			  
+         		 }else if (locations[count][4] == 0 && locations[count][3] == 0 ){	 
+         			 
+         			 marker = new google.maps.Marker({
+            		    	animation: google.maps.Animation.DROP,
+            		      position: new google.maps.LatLng(locations[count][0], locations[count][1]),
+            		      map: map,
+            		        icon:image
+            		      
+            		    });  
+          			  
+         			 
+         		 } else {
+         			 
+         			  marker = new google.maps.Marker({
+           		    	animation: google.maps.Animation.DROP,
+           		      position: new google.maps.LatLng(locations[count][0], locations[count][1]),
+           		      map: map,
+           	
+           		         icon:image2
+           		      
+           		      
+           		    }); 
+           		    
+         		 }
         		    
         		    google.maps.event.addListener(marker,'click', (function (marker, count) {
         		    	
