@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    <%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%> --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Add Your Connection</h1>
-<h3>${participant}</h3> 
+ <h3>${participant} check</h3> 
 <p>Existing connections, if any</p>
 <table>
 <th><td>Name</td><td>Relationship</td><td>Facebook</td><td>Twitter</td><th>
@@ -63,6 +63,6 @@
 		</div>
 		<button class="btn btn-secondary btn-sm>Submit</button>
   </form>
-  </div>
+  </div> 
 </body>
 </html>

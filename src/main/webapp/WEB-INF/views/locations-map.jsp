@@ -15,9 +15,9 @@
 <script>
    function initMap() {
 	   
-	   var image = 'yellow.png';
-	   var image1 = 'redpin.png';
-	   var image2 = 'orangepin.png';
+	   var image = '/yellow.png';
+	   var image1 = '/redpin.png';
+	   var image2 = '/orangepin.png';
     	
     	 var locations = new Array(); 
     	 

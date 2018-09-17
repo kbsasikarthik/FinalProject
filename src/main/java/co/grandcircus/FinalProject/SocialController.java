@@ -35,7 +35,7 @@ public class SocialController {
 			@RequestParam(value = "twitter", required = false) String twitter,
 			@RequestParam(value = "connectionType", required = false) String connectionType,
 			@RequestParam(value = "participant", required = false) String participant,
-			@RequestParam(value = "incidentID") Integer incidentID) {
+			@RequestParam(value = "incidentID", required = false) Integer incidentID) {
 		ModelAndView mav = new ModelAndView("participant");
 		mav.addObject("name", participant);
 		mav.addObject("incidentID", incidentID);
