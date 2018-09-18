@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.grandcircus.FinalProject.dao.IncidentDetailsDao;
+import co.grandcircus.FinalProject.dao.IncidentDao;
 import co.grandcircus.FinalProject.entity.Incident;
 import co.grandcircus.FinalProject.entity.Representative;
 
@@ -21,7 +21,7 @@ import co.grandcircus.FinalProject.entity.Representative;
 public class IncidentController {
 
 	@Autowired
-	private IncidentDetailsDao incidentDetailsDao;
+	private IncidentDao incidentDao;
 
 	@RequestMapping("/incident/{id}")
 	public ModelAndView showIncidentByID(@PathVariable("id") Integer incidentId) {
@@ -29,7 +29,7 @@ public class IncidentController {
 		ModelAndView mav = new ModelAndView("incident");
 
 		System.out.println("in Controller" + incidentId);
-		Incident incident = incidentDetailsDao.byID(incidentId);
+		Incident incident = incidentDao.byID(incidentId);
 		mav.addObject("incident", incident);
 		Double lat = incident.getLatitude();
 		Double lon = incident.getLongitude();
@@ -88,7 +88,7 @@ public class IncidentController {
 		}
 
 		mav.addObject("details", details);
-		System.out.println(incidentDetailsDao.byID(incidentId));
+		System.out.println(incidentDao.byID(incidentId));
 		mav.addObject("back", "/listresults?state="+incident.getState()+"&city="+incident.getCity_or_county());
 
 		return mav;
