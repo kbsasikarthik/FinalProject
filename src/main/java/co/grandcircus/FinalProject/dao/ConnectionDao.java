@@ -17,11 +17,14 @@ public class ConnectionDao {
 	@PersistenceContext
 	private EntityManager em;
 
-	public List<Connection> byParticipantAndIncident(String name) {
-		List<Connection> connections = em
-				.createQuery("FROM Connection WHERE participant = part AND incidentID = incidentID", Connection.class)
-				.setParameter("part", name).getResultList();
-		return connections;
+	public void create(Connection connection) {
+
+		em.persist(connection);
+
+	}
+
+	public void update(Connection connection) {
+		em.merge(connection);
 	}
 
 	public List<Connection> byConnectionName(String connectionName) {
