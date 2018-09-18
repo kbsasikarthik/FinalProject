@@ -9,9 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Projections;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.grandcircus.FinalProject.entity.Incident;
@@ -19,13 +16,17 @@ import co.grandcircus.FinalProject.entity.Incident;
 @Transactional
 @Repository
 public class IncidentDao {
+<<<<<<< Updated upstream
 //	
+=======
+
+>>>>>>> Stashed changes
 //	@Autowired
 //	private SessionFactory sessionFactory;
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 //	@Repository
 //	public interface UserRepository extends CrudRepository<Incident, Long> {
 //
@@ -66,9 +67,15 @@ public class IncidentDao {
 //				.setProjection(Projections.rowCount())
 //				.uniqueResult();
 //	}
+<<<<<<< Updated upstream
 	
 //	public List<Incident> byStateAndCity(int page, String state, String city) {
 	public List<Incident> byStateAndCity(String state, String city) {
+=======
+
+	public List<Incident> byStateAndCity(String state, String city) {
+////	public List<Incident> byStateAndCity(String state, String city) {
+>>>>>>> Stashed changes
 ////		int pageNumber = 5;
 //		int pageSize = 20;
 //
@@ -108,10 +115,11 @@ public class IncidentDao {
 	}
 
 	public List<Incident> byDateAndName(Date fromDate, Date toDate, String name) {
-		List<Incident> people = em.createQuery(
-				"FROM Incident WHERE incident_date BETWEEN :from AND :to AND participant_name Like :nam", Incident.class)
-				.setParameter("from", fromDate).setParameter("to", toDate)
-				.setParameter("nam", "%" + name + "%").getResultList();
+		List<Incident> people = em
+				.createQuery("FROM Incident WHERE incident_date BETWEEN :from AND :to AND participant_name Like :nam",
+						Incident.class)
+				.setParameter("from", fromDate).setParameter("to", toDate).setParameter("nam", "%" + name + "%")
+				.getResultList();
 		return people;
 	}
 }

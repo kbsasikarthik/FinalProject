@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Add Your Connection</h1>
- <h3>${participant} check</h3> 
+ <h3>${person} check</h3> 
 <p>Existing connections, if any</p>
 <table>
 <th><td>Name</td><td>Relationship</td><td>Facebook</td><td>Twitter</td><th>

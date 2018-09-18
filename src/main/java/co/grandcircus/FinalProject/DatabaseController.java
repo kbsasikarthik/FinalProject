@@ -1,22 +1,15 @@
 package co.grandcircus.FinalProject;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.beans.support.PagedListHolder;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,14 +21,13 @@ public class DatabaseController {
 
 	@Autowired
 	IncidentDao incidentDao;
-	
+
 	@RequestMapping("/privacy")
 	public ModelAndView showPrivacy() {
 		ModelAndView mav = new ModelAndView("privacy");
 		mav.addObject("back", "/");
 		return mav;
 	}
-		
 
 	@RequestMapping("/")
 	public ModelAndView showhome() {
@@ -43,25 +35,23 @@ public class DatabaseController {
 		mav.addObject("states", incidentDao.getStates());
 		return mav;
 	}
-	
-	
+
 	@RequestMapping("/selectCity")
 	@ResponseBody
 	public Set<String> showCities(@RequestParam String state) {
 		Set<String> cities = incidentDao.getCities(state);
 		return cities;
 	}
-	
+
 	@RequestMapping("/stateandcity")
 	public ModelAndView stateandcity(@RequestParam String state, @RequestParam String city) {
 		ModelAndView mav = new ModelAndView("redirect:/listresults");
-		mav.addObject("state",state);
-		mav.addObject("city",city);
-		
+		mav.addObject("state", state);
+		mav.addObject("city", city);
+
 		return mav;
 	}
-	
-	
+
 //	@RequestMapping("/listresults")
 //	public ModelAndView showResults @RequestParam("state") String state, @RequestParam("city") String city) {
 //		System.out.println("In controller - received - State - " + state + "City- " + city);
@@ -75,7 +65,9 @@ public class DatabaseController {
 //	}
 
 //	@RequestMapping("/listresults")
-//	public String list(Model model, Integer offset, Integer maxResults){
+
+//	public String list(Model model, Integer offset, Integer maxResults) {
+
 //		model.addAttribute("incidents", incidentDao.byStateAndCity(offset, maxResults));
 //		model.addAttribute("count", incidentDao.count());
 //		model.addAttribute("offset", offset);
@@ -111,45 +103,43 @@ public class DatabaseController {
 	}
 
 	@RequestMapping("/dateSearch/{name}")
-	public ModelAndView searchByDateandName(	
-		@RequestParam("fromDate") String startDate,
-		@RequestParam("toDate") String endDate, @PathVariable ("name") String name) throws Exception {
+	public ModelAndView searchByDateandName(@RequestParam("fromDate") String startDate,
+			@RequestParam("toDate") String endDate, @PathVariable("name") String name) throws Exception {
 		ModelAndView mav = new ModelAndView("listresultsbyname");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date fromDate = sdf.parse(startDate);
 		Date toDate = sdf.parse(endDate);
-		System.out.println("From Date - "+fromDate);
-		System.out.println("To Date - "+toDate);
+		System.out.println("From Date - " + fromDate);
+		System.out.println("To Date - " + toDate);
 		List<Incident> matchingDates = incidentDao.byDateAndName(fromDate, toDate, name);
-		String[] names=name.split(" ");
-		String firstName=names[0];
+		String[] names = name.split(" ");
+		String firstName = names[0];
 		String lastName = names[1];
 		mav.addObject("fromDate", fromDate);
 		mav.addObject("toDate", toDate);
 		mav.addObject("number", matchingDates.size());
-		mav.addObject("matchingNames", matchingDates );
-		mav.addObject("back", "/nameSearch?firstName="+firstName+"&lastName="+lastName);
-		//System.out.println(matchingDates);
+		mav.addObject("matchingNames", matchingDates);
+		mav.addObject("back", "/nameSearch?firstName=" + firstName + "&lastName=" + lastName);
+		// System.out.println(matchingDates);
 		return mav;
 	}
-	
+
 	@RequestMapping("/dateSearch/{state}/{city}")
-	public ModelAndView searchByDate(	
-		@RequestParam("fromDate") String startDate,
-		@RequestParam("toDate") String endDate, @PathVariable ("state") String state, @PathVariable("city") String city) throws Exception {
+	public ModelAndView searchByDate(@RequestParam("fromDate") String startDate, @RequestParam("toDate") String endDate,
+			@PathVariable("state") String state, @PathVariable("city") String city) throws Exception {
 		ModelAndView mav = new ModelAndView("listresults");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date fromDate = sdf.parse(startDate);
 		Date toDate = sdf.parse(endDate);
-		System.out.println("From Date - "+fromDate);
-		System.out.println("To Date - "+toDate);
+		System.out.println("From Date - " + fromDate);
+		System.out.println("To Date - " + toDate);
 		List<Incident> matchingDates = incidentDao.byDateAndLocation(fromDate, toDate, state, city);
 
 		mav.addObject("fromDate", fromDate);
 		mav.addObject("toDate", toDate);
 		mav.addObject("number", matchingDates.size());
-		mav.addObject("incidents", matchingDates );
-		mav.addObject("back", "/listresults?state="+state+"&city="+city);
+		mav.addObject("incidents", matchingDates);
+		mav.addObject("back", "/listresults?state=" + state + "&city=" + city);
 		return mav;
 	}
 
@@ -160,7 +150,7 @@ public class DatabaseController {
 		return mav;
 
 	}
-	
+
 	@RequestMapping("/about")
 	public ModelAndView showAbout() {
 		ModelAndView mav = new ModelAndView("about");
