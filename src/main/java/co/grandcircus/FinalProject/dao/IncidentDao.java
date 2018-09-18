@@ -64,11 +64,10 @@ public class IncidentDao {
 //				.uniqueResult();
 //	}
 
-	//public List<Incident> byStateAndCity(String state, String city) {
-////	public List<Incident> byStateAndCity(String state, String city) {
 
     public List<Incident> byStateAndCity(int page, String state, String city) {
 	//public List<Incident> byStateAndCity(String state, String city) {
+
 
 ////		int pageNumber = 5;
 //		int pageSize = 20;
