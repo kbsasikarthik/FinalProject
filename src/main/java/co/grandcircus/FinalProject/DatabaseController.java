@@ -85,22 +85,32 @@ public class DatabaseController {
 		
 		ModelAndView mav = new ModelAndView("listresults");
 		//List<Incident> allIncidents = incidentDao.allByStateAndCity(state, city);
-		long totalUsersCount=incidentDao.countByStateAndCity(state, city);			//total no of users
+
 		int lastPageNo=0;
-		if(totalUsersCount%40==0)
+		long totalCount=incidentDao.countByStateAndCity(state, city);
+		List<Incident> incidents;
+		if(totalCount <=40) {
+			incidents = incidentDao.allByStateAndCity(state, city);
+			lastPageNo=0;
+		}
+		else {
+			incidents = incidentDao.byStateAndCity(page, state, city);
+		
+		if(totalCount%40==0)
 	
-		lastPageNo=(int)(totalUsersCount/40+1);					// get last page No (zero based)
+		lastPageNo=(int)(totalCount/40+1);					// get last page No (zero based)
 		else
-		lastPageNo=(int)(totalUsersCount/40);
+		lastPageNo=(int)(totalCount/40);
+		}
 		System.out.println(lastPageNo);
 		mav.addObject("pageNo", page);
 		mav.addObject("lastPageNo", lastPageNo);
 		mav.addObject("state", state);
 		mav.addObject("city", city);
-		List<Incident> incidents = incidentDao.byStateAndCity(page, state, city);
+//		List<Incident> incidents = incidentDao.byStateAndCity(page, state, city);
 		mav.addObject("incidents", incidents);
 		mav.addObject("back", "/");
-		mav.addObject("numberOfItems", totalUsersCount);
+		mav.addObject("numberOfItems", totalCount);
 		return mav;
 	}
 
