@@ -1,33 +1,69 @@
 package co.grandcircus.FinalProject.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "connection")
 public class Connection {
-	
-	private String name;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	private Integer id;
+	@Column(name = "name")
+	private String connectionName;
 	private String facebook;
 	private String twitter;
 	private String connectionType;
-	private String participant;
+	@Column(name = "participant")
+	private String participantName;
+	@Column(name = "incident_id")
 	private Integer incidentID;
 
-	public Connection() {}
+	public Connection() {
+	}
 
-	public Connection(String name, String facebook, String twitter, String connectionType, String participant,
-			 Integer incidentID) {
+	public Connection(Integer id, String participantName, String facebook, String twitter, String connectionType,
+			String connectionName, Integer incidentID) {
 		super();
-		this.name = name;
+		this.id = id;
+		this.participantName = participantName;
 		this.facebook = facebook;
 		this.twitter = twitter;
 		this.connectionType = connectionType;
-		this.participant = participant;
+		this.connectionName = connectionName;
 		this.incidentID = incidentID;
 	}
 
-	public String getName() {
-		return name;
+	public Connection(String participantName, String facebook, String twitter, String connectionType,
+			String connectionName, Integer incidentID) {
+		super();
+		this.participantName = participantName;
+		this.facebook = facebook;
+		this.twitter = twitter;
+		this.connectionType = connectionType;
+		this.connectionName = connectionName;
+		this.incidentID = incidentID;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId() {
+		this.id = id;
+	}
+
+	public String getName() {
+		return participantName;
+	}
+
+	public void setName(String participantName) {
+		this.participantName = participantName;
 	}
 
 	public String getFacebook() {
@@ -55,11 +91,11 @@ public class Connection {
 	}
 
 	public String getParticipant() {
-		return participant;
+		return connectionName;
 	}
 
-	public void setParticipant(String participant) {
-		this.participant = participant;
+	public void setParticipant(String connectionName) {
+		this.connectionName = connectionName;
 	}
 
 	public Integer getIncidentID() {
@@ -72,10 +108,9 @@ public class Connection {
 
 	@Override
 	public String toString() {
-		return "Connection [name=" + name + ", facebook=" + facebook + ", twitter=" + twitter + ", connectionType="
-				+ connectionType + ", participant=" + participant + ", incidentID=" + incidentID + "]";
+		return "Connection [id=" + id + ", participantName=" + participantName + ", facebook=" + facebook + ", twitter="
+				+ twitter + ", connectionType=" + connectionType + ", connectionName=" + connectionName
+				+ ", incidentID=" + incidentID + "]";
 	}
 
 }
-
-

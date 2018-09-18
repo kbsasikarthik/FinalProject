@@ -45,7 +45,7 @@
 				<u>Names of persons involved:</u>
 				<ol>
 		<c:forEach var="name" items="${incident.names}" >
-				<p><a href="/addConnection/${name}" method="post" class="btn btn-secondary btn-sm"  id="name">Add Connection</a>&nbsp${name}</p>
+				<p><a href="/addConnection/${name}/${incident.incidentId}" method="post" class="btn btn-secondary btn-sm"  id="name">Add Connection</a>&nbsp${name}</p>
 
 				</c:forEach>
 				
