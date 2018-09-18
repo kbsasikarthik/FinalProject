@@ -24,4 +24,24 @@ public class ConnectionDao {
 		return connections;
 	}
 
+	public List<Connection> byConnectionName(String connectionName) {
+		List<Connection> connections = em
+				.createQuery("FROM Connection WHERE name Like :name", Connection.class)
+				.setParameter("name", "%" + connectionName + "%").getResultList();
+		return connections;
+	}
+	
+	public List<Connection> byFacebookName(String facebookName) {
+		List<Connection> connections = em
+				.createQuery("FROM Connection WHERE facebook =:faceName", Connection.class)
+				.setParameter("faceName", "https://www.facebook.com/"+facebookName).getResultList();
+		return connections;
+	}
+	
+	public List<Connection> byTwitterName(String twitterName) {
+		List<Connection> connections = em
+				.createQuery("FROM Connection WHERE twitter =twitterName", Connection.class)
+				.setParameter("twitterName", twitterName).getResultList();
+		return connections;
+	}
 }

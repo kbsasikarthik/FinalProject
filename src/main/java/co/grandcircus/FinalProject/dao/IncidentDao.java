@@ -16,11 +16,7 @@ import co.grandcircus.FinalProject.entity.Incident;
 @Transactional
 @Repository
 public class IncidentDao {
-<<<<<<< Updated upstream
-//	
-=======
 
->>>>>>> Stashed changes
 //	@Autowired
 //	private SessionFactory sessionFactory;
 
@@ -67,15 +63,12 @@ public class IncidentDao {
 //				.setProjection(Projections.rowCount())
 //				.uniqueResult();
 //	}
-<<<<<<< Updated upstream
+
 	
 //	public List<Incident> byStateAndCity(int page, String state, String city) {
-	public List<Incident> byStateAndCity(String state, String city) {
-=======
 
 	public List<Incident> byStateAndCity(String state, String city) {
 ////	public List<Incident> byStateAndCity(String state, String city) {
->>>>>>> Stashed changes
 ////		int pageNumber = 5;
 //		int pageSize = 20;
 //
