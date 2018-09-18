@@ -25,7 +25,7 @@
 
 
 <c:if test="${number gt 0}">
-	<h1>Found ${number} matching results for Name: ${name }</h1>
+	<h1>Found ${number} matching results for ${name }</h1>
 		<div align="center" class="w3-container" style="padding-left: 15px;padding-right: 15px;"><br>
 			<%@include file="locations-map-byname.jsp"%>
 		</div>
@@ -41,8 +41,8 @@
 				<td>TO DATE</td>
 			</tr>
 			</thead>
-			<tr><td><input type="date" name="fromDate" min="2013-01-01" max="2018-03-31" value="2013-01-01"/></td>
-			<td><input type="date" name="toDate" min="2013-01-01" max="2018-03-31" value="2018-03-31" /></td>
+			<tr><td><input type="date" name="fromDate" min="2013-01-01" max="2018-03-31"  value="${fromDate}"/></td>
+			<td><input type="date" name="toDate" min="2013-01-01" max="2018-03-31" value="${toDate}" /></td>
 			<td><input type="submit" value="Search"></tr>
 		</table>
 		</form>

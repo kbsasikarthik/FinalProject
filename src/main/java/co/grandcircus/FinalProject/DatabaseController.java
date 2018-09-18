@@ -28,7 +28,12 @@ public class DatabaseController {
 		mav.addObject("back", "/");
 		return mav;
 	}
-
+	@RequestMapping("/newhome")
+	public ModelAndView shownewhome() {
+		ModelAndView mav = new ModelAndView("newhome");
+		mav.addObject("states", incidentDao.getStates());
+		return mav;
+	}
 	@RequestMapping("/")
 	public ModelAndView showhome() {
 		ModelAndView mav = new ModelAndView("index");
@@ -93,6 +98,8 @@ public class DatabaseController {
 
 		ModelAndView mav = new ModelAndView("listresultsbyname");
 		List<Incident> matchingNames = incidentDao.byName(name);
+		mav.addObject("fromDate","2013-01-01");
+		mav.addObject("toDate","2018-03-31");
 		mav.addObject("name", name);
 		mav.addObject("number", matchingNames.size());
 		mav.addObject("matchingNames", matchingNames);
@@ -103,20 +110,30 @@ public class DatabaseController {
 	}
 
 	@RequestMapping("/dateSearch/{name}")
-	public ModelAndView searchByDateandName(@RequestParam("fromDate") String startDate,
-			@RequestParam("toDate") String endDate, @PathVariable("name") String name) throws Exception {
+	public ModelAndView searchByDateandName(@RequestParam(value="fromDate", defaultValue="2013-01-01") String fromDate,
+			@RequestParam(value="toDate", defaultValue="2018-03-31") String toDate, @PathVariable("name") String name) throws Exception {
 		ModelAndView mav = new ModelAndView("listresultsbyname");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date fromDate = sdf.parse(startDate);
-		Date toDate = sdf.parse(endDate);
-		System.out.println("From Date - " + fromDate);
-		System.out.println("To Date - " + toDate);
-		List<Incident> matchingDates = incidentDao.byDateAndName(fromDate, toDate, name);
-		String[] names = name.split(" ");
-		String firstName = names[0];
-		String lastName = names[1];
+		Date from = sdf.parse(fromDate);
+		Date to = sdf.parse(toDate);
+		System.out.println("From Date - " + from);
+		
+		System.out.println("To Date - " + to);
+		List<Incident> matchingDates = incidentDao.byDateAndName(from, to, name);
+		String[] names = null;
+		String firstName = "";
+		String lastName = "";
+
+		if(name.contains(" ")) {
+			names = name.split(" ");
+			firstName = names[0];
+			lastName = names[1];
+		}
 		mav.addObject("fromDate", fromDate);
 		mav.addObject("toDate", toDate);
+
+//		mav.addObject("fromDate", from);
+//		mav.addObject("toDate", to);
 		mav.addObject("number", matchingDates.size());
 		mav.addObject("matchingNames", matchingDates);
 		mav.addObject("back", "/nameSearch?firstName=" + firstName + "&lastName=" + lastName);
