@@ -75,13 +75,27 @@ public class DatabaseController {
 //	}
 //
 	@RequestMapping("/listresults")
-	public ModelAndView showResults(@RequestParam("state") String state, @RequestParam("city") String city) {
+	public ModelAndView showResults(@RequestParam(value="pageNo", defaultValue="1", required=false) Integer page, @RequestParam("state") String state, @RequestParam("city") String city) {
 		System.out.println("State - " + state + "City- " + city);
+		
 		ModelAndView mav = new ModelAndView("listresults");
+		//List<Incident> allIncidents = incidentDao.allByStateAndCity(state, city);
+		long totalUsersCount=incidentDao.countByStateAndCity(state, city);			//total no of users
+		int lastPageNo=0;
+		if(totalUsersCount%40==0)
+	
+		lastPageNo=(int)(totalUsersCount/40+1);					// get last page No (zero based)
+		else
+		lastPageNo=(int)(totalUsersCount/40);
+		System.out.println(lastPageNo);
+		mav.addObject("pageNo", page);
+		mav.addObject("lastPageNo", lastPageNo);
 		mav.addObject("state", state);
 		mav.addObject("city", city);
-		mav.addObject("incidents", incidentDao.byStateAndCity(state, city));
+		List<Incident> incidents = incidentDao.byStateAndCity(page, state, city);
+		mav.addObject("incidents", incidents);
 		mav.addObject("back", "/");
+		mav.addObject("numberOfItems", totalUsersCount);
 		return mav;
 	}
 
@@ -158,4 +172,5 @@ public class DatabaseController {
 		return mav;
 
 	}
+
 }
