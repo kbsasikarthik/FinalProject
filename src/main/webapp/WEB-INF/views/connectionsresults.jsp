@@ -21,7 +21,6 @@
 </head>
 <body>
 <h2>Results For Your Search by Connection</h2>
-${connections}
 <table class="table table-hover">
   <thead>
 	<tr style="font-size:150%;">

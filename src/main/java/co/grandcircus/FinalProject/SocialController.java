@@ -1,5 +1,7 @@
 package co.grandcircus.FinalProject;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,30 +19,29 @@ public class SocialController {
 	ConnectionDao connectionDao;
 
 //	@RequestMapping("/showConnection/{name}/{incidentID}")
-//	public ModelAndView showConnections(@RequestParam(value = "name", required = false) String participant,
-//			@RequestParam(value = "incidentID") Integer incidentID) {
+//	public ModelAndView showConnections(
+//			@PathVariable(value = "name", required = false) String participant,
+//			@PathVariable(value = "incidentId") Integer incidentId) {
 //		ModelAndView mav = new ModelAndView("participant");
 //		mav.addObject("name", participant);
 //		mav.addObject("incidentID", incidentID);
+//		System.out.println("showConnection Method" + participant);
 //		// get current connections for participant
-//		List<Connection> connection = connectionDao.byParticipantAndIncident(participant, incidentID);
-//		mav.addObject(connection);
+//		List<Connection> connections = connectionDao.byParticipantAndIncident(participant, incidentID);
+//		mav.addObject("connections", connections);
 //		return mav;
 //	}
 
 	@RequestMapping("/addConnection/{name}/{id}")
-	public ModelAndView showAddConnectionPage(@PathVariable(value = "name") String participantName,
+	public ModelAndView showAddConnectionPage(
+			@PathVariable(value = "name") String participantName,
 			@PathVariable(value = "id") Integer incidentId) {
-
-		System.out.println(participantName + incidentId);
-
+		System.out.println("AddConnection" + participantName + incidentId);
 		ModelAndView mav = new ModelAndView("participant");
 		mav.addObject("person", participantName);
 		mav.addObject("id", incidentId);
-
-//		mav.addObject("incidentID", incidentID);
-//		Connection connection = new Connection(participantName, facebook, twitter, connectionType, name, incidentID);
-
+		List<Connection> connections = connectionDao.byParticipantAndIncident(participantName, incidentId);
+		mav.addObject("connections", connections);
 		return mav;
 	}
 
