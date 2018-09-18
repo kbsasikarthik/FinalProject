@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Add Your Connection</h1>
- <h3>${person} check</h3> 
+ <h3>${person}</h3> 
 <p>Existing connections, if any</p>
 <table>
 <th><td>Name</td><td>Relationship</td><td>Facebook</td><td>Twitter</td><th>
@@ -27,7 +27,7 @@
 	 </table>
 <p>Add Your Own Connection</p>
 	
-	 <form action="/addConnection/${participant}/${incidentID}" method="post" class="form">
+	 <form action="/addConnection/create/${person}/${id}" method="post" class="form">
 		<div class="form-group row">
 			<label for="name" class="col-sm-2 col-form-label">Your Name:</label>
     		<div class="col-sm-10">
@@ -61,7 +61,7 @@
 				<input class="form-control" name="twitter" placeholder="@username"/>
 				</div>
 		</div>
-		<button class="btn btn-secondary btn-sm>Submit</button>
+		<button class="btn btn-secondary btn-sm" >Submit</button>
   </form>
   </div> 
 </body>
