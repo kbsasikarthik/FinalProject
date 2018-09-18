@@ -64,11 +64,11 @@ public class IncidentDao {
 //				.uniqueResult();
 //	}
 
-	
-//	public List<Incident> byStateAndCity(int page, String state, String city) {
 
-	public List<Incident> byStateAndCity(String state, String city) {
-////	public List<Incident> byStateAndCity(String state, String city) {
+    public List<Incident> byStateAndCity(int page, String state, String city) {
+	//public List<Incident> byStateAndCity(String state, String city) {
+
+
 ////		int pageNumber = 5;
 //		int pageSize = 20;
 //
@@ -78,13 +78,28 @@ public class IncidentDao {
 //				.createQuery("FROM Incident WHERE state = :stat AND city_or_county= :city", Incident.class)
 //				.setFirstResult((page) * pageSize).setMaxResults(pageSize).setParameter("stat", state).setParameter("city", city).getResultList();
 ////		
+    	System.out.println(page + " -> " + ((page) * 20));
 		List<Incident> incidents = em
 				.createQuery("FROM Incident WHERE state = :stat AND city_or_county= :city", Incident.class)
-				.setParameter("stat", state).setParameter("city", city).getResultList();
+				.setParameter("stat", state).setParameter("city", city).setFirstResult((page) * 40).setMaxResults(40).getResultList();
 //	
 //		System.out.println("Extracted incidents In Dao" + incidents);
 		return incidents;
 	}
+    
+    public  List<Incident> allByStateAndCity(String state, String city){
+    	List<Incident> incidents = em
+				.createQuery("FROM Incident WHERE state = :stat AND city_or_county= :city", Incident.class)
+				.setParameter("stat", state).setParameter("city", city).getResultList();
+    	return incidents;
+    }
+    
+    public long countByStateAndCity(String state, String city){
+    	long incidents = em
+				.createQuery("SELECT count(*) FROM Incident WHERE state = :stat AND city_or_county= :city", Long.class)
+				.setParameter("stat", state).setParameter("city", city).getSingleResult();
+    	return incidents;
+    }
 
 	public List<Incident> byName(String name) {
 		List<Incident> people = em.createQuery("FROM Incident WHERE participant_name Like :name", Incident.class)
