@@ -51,7 +51,7 @@
 	<form method="post" action="/stateandcity" id="state_form" method=POST>
 		<div class="form-group" >
 		  	<label class="sr-only" for="state">State</label>
-			<select class="form-control mb-2 mr-sm-2" id="state" name="state" >
+			<select class="form-control mb-2 mr-sm-2" id="state" name="state" required>
 			<option value="">State</option>
 		  	<c:forEach items="${ states }" var="state">
 		  		<option <c:if test="${ state eq param.state }">selected</c:if>>${ state }</option>
@@ -61,7 +61,7 @@
 		<div class="form-group" >
 
 		  	<label class="sr-only" for="city">City</label>
-			<select class="form-control mb-2 mr-sm-2" id="city" name="city">
+			<select class="form-control mb-2 mr-sm-2" id="city" name="city" required>
 			 <option value="">City</option>
 		  	<c:forEach items="${ cities }" var="city">
 		  		<option <c:if test="${ city eq param.city_or_county }">selected</c:if>>${ city }</option>

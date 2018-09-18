@@ -33,8 +33,7 @@ public class SocialController {
 //	}
 
 	@RequestMapping("/addConnection/{name}/{id}")
-	public ModelAndView showAddConnectionPage(
-			@PathVariable(value = "name") String participantName,
+	public ModelAndView showAddConnectionPage(@PathVariable(value = "name") String participantName,
 			@PathVariable(value = "id") Integer incidentId) {
 		System.out.println("AddConnection" + participantName + incidentId);
 		ModelAndView mav = new ModelAndView("participant");
