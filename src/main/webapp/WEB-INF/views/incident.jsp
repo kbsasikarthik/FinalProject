@@ -26,7 +26,7 @@
 </style>
 <body>
 <h1 align="center"><u>Incident Details</u></h1>
-<div class="container">
+<div class="w3-container">
 	<div class="row">
 		<div class="col-6 col-md-4">
 				<div class="a2a_kit a2a_kit_size_32 a2a_default_style">

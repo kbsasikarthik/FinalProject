@@ -26,7 +26,7 @@
 </head>
 
 <body>
-<div class="container" align="center">
+<div class="w3-container" align="center">
     <h2>Search results for ${city} in ${state}</h2>
     <div align="center" class="w3-container" style="padding-left: 15px;padding-right: 15px;"><br>
         <%@include file="locations-map.jsp"%>

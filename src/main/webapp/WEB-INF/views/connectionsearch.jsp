@@ -22,7 +22,7 @@
 }
 </style>
 </head>
-<body><div class="container">
+<body><div class="w3-container">
 <h1>Search by People You May Know</h1>
 <p>You may not know someone involved in gun violence but chances are you know someone who does.</p>
 <p>You can search your friends by using their name, Facebook profile or Twitter account to see if they have already claimed a connection to a incident of gun violence and see their connection to a victim.</p>

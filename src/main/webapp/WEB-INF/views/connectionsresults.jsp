@@ -13,7 +13,7 @@
 <%@include file="navbar.jsp"%>
 
 </head>
-<body><div class="container">
+<body><div class="w3-container">
 <h2>Results For Your Search by Connection</h2>
 <table class="table table-hover">
   <thead>

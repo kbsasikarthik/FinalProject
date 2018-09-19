@@ -16,7 +16,7 @@
 
 <div>
 
-<body><div class="container">
+<body><div class="w3-container">
 
 <h1>Privacy Policy</h1>
 

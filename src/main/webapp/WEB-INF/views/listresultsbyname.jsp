@@ -16,7 +16,7 @@
 
 <body>
 
-<div align="center" class="container" >
+<div align="center" class="w3-container" >
 <br>
 <c:if test="${number eq 0}">
 	<h1>Sorry, No match found for ${name}!</h1>
