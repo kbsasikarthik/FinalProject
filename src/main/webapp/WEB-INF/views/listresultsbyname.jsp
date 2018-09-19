@@ -76,7 +76,7 @@
 		</table>
 	</div>
 
-<h3>${pageNo }</h3>
+<h6 align="center">${pageNo }</h6>
 <div name="page">
   <ul class="pagination">
   <c:if test="${lastPageNo gt 0}"> 

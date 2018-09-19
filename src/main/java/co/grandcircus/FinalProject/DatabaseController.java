@@ -53,8 +53,7 @@ public class DatabaseController {
 
 	@RequestMapping("/listresults")
 	public ModelAndView showResults(@RequestParam(value="pageNo", defaultValue="1", required=false) Integer page, @RequestParam("state") String state, @RequestParam("city") String city) {
-		System.out.println("State - " + state + "City- " + city);
-		
+	
 		ModelAndView mav = new ModelAndView("listresults");
 		int lastPageNo=0;
 		long totalCount=incidentDao.countByStateAndCity(state, city);

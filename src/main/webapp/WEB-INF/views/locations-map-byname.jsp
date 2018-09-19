@@ -155,4 +155,4 @@
     align:left" >not injured</p></div>
    
 <div align="center" class="w3-container" style="padding-left: 15px;padding-right: 15px;"><br>
-    <div id="map"></div>
+    <div id="map"></div></div>
