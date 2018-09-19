@@ -35,7 +35,7 @@ public class ConnectionDao {
 
 	public List<Connection> byFacebookName(String facebookName) {
 		List<Connection> connections = em.createQuery("FROM Connection WHERE facebook =:faceName", Connection.class)
-				.setParameter("faceName", "https://www.facebook.com/" + facebookName).getResultList();
+				.setParameter("faceName", facebookName).getResultList();
 		return connections;
 	}
 
