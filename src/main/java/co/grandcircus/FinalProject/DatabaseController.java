@@ -25,21 +25,13 @@ public class DatabaseController {
 	@RequestMapping("/privacy")
 	public ModelAndView showPrivacy() {
 		ModelAndView mav = new ModelAndView("privacy");
-		mav.addObject("back", "/");
-		return mav;
-	}
-
-	@RequestMapping("/newhome")
-	public ModelAndView shownewhome() {
-		ModelAndView mav = new ModelAndView("newhome");
-		mav.addObject("states", incidentDao.getStates());
+//		mav.addObject("back", "/");
 		return mav;
 	}
 
 	@RequestMapping("/")
 	public ModelAndView showhome() {
 		ModelAndView mav = new ModelAndView("index");
-
 		mav.addObject("states", incidentDao.getStates());
 		return mav;
 	}
@@ -56,7 +48,6 @@ public class DatabaseController {
 		ModelAndView mav = new ModelAndView("redirect:/listresults");
 		mav.addObject("state", state);
 		mav.addObject("city", city);
-
 		return mav;
 	}
 
@@ -84,7 +75,7 @@ public class DatabaseController {
 		mav.addObject("state", state);
 		mav.addObject("city", city);
 		mav.addObject("incidents", incidents);
-		mav.addObject("back", "/");
+//		mav.addObject("back", "/");
 		mav.addObject("numberOfItems", totalCount);
 		mav.addObject("fromDate", "2013-01-01");
 		mav.addObject("toDate", "2018-03-31");
@@ -124,7 +115,7 @@ public class DatabaseController {
 		mav.addObject("lastPageNo", lastPageNo);
 		mav.addObject("number", totalCount);
 		mav.addObject("incidents", matchingDates);
-		mav.addObject("back", "/listresults?state=" + state + "&city=" + city);
+//		mav.addObject("back", "/listresults?state=" + state + "&city=" + city);
 		mav.addObject("url", "/dateSearch/"+state+"/"+city+"?pageNo=");
 		return mav;
 	}
@@ -133,26 +124,17 @@ public class DatabaseController {
 	public ModelAndView searchNames(@RequestParam(value="pageNo", defaultValue="1", required=false) Integer page,
 			@RequestParam("firstName") String firstName,
 			@RequestParam("lastName") String lastName) {
-		System.out.println(firstName);
-		String name="";
-		if(firstName.contains(" ") && lastName.isEmpty()) {
-			String[] names= firstName.split(" ");
-			for(int i=0; i<names.length; i++) {
-				name = name+" "+names[i];
-				
-			}
-		} else {
-			name = firstName.trim() + " " + lastName.trim();
-		}
+		
+		String name = firstName + " " + lastName;
 		ModelAndView mav = new ModelAndView("listresultsbyname");
+		List<Incident> matchingNames;
 		int lastPageNo=0;
 		long totalCount=incidentDao.countByName(name);
-		List<Incident> matchingNames;
+		
 		if(totalCount <=40) {
 			matchingNames = incidentDao.allByName(name);
 			lastPageNo=0;
-		}
-		else {
+		}else {
 			matchingNames = incidentDao.byName(page, name);
 			if(totalCount%40==0)
 				lastPageNo=(int)(totalCount/40+1);					
@@ -169,7 +151,7 @@ public class DatabaseController {
 		mav.addObject("pageNo", page);
 		mav.addObject("lastPageNo", lastPageNo);
 		mav.addObject("matchingNames", matchingNames);
-		mav.addObject("back", "/");
+//		mav.addObject("back", "/");
 		mav.addObject("numberOfItems", totalCount);
 		mav.addObject("url", "/nameSearch?firstName="+firstName+"&lastName="+lastName+"&pageNo=");
 		return mav;
@@ -214,7 +196,7 @@ public class DatabaseController {
 		mav.addObject("pageNo", page);
 		mav.addObject("lastPageNo", lastPageNo);
 		mav.addObject("matchingNames", matchingDates);
-		mav.addObject("back", "/nameSearch?firstName=" + firstName + "&lastName=" + lastName);
+//		mav.addObject("back", "/nameSearch?firstName=" + firstName + "&lastName=" + lastName);
 		mav.addObject("url", "/dateSearch/"+name+"?pageNo=");
 
 		return mav;
@@ -224,7 +206,7 @@ public class DatabaseController {
 	@RequestMapping("/about")
 	public ModelAndView showAbout() {
 		ModelAndView mav = new ModelAndView("about");
-		mav.addObject("back", "/");
+//		mav.addObject("back", "/");
 		return mav;
 
 	}
