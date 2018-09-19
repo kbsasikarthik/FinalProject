@@ -11,16 +11,12 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-//@Table(name="gun-violence-data_01-2013_03-2018")
 @Table(name = "incidents")
 public class Incident {
-//incident_id	date	state	city_or_county	address	n_killed	n_injured	gun_stolen	gun_type	incident_characteristics	latitude	n_guns_involved	notes	participant_age	participant_age_group	participant_gender	participant_name	participant_relationship	participant_status	participant_type	sources	state_house_district	state_senate_district	
-// `state_house_district` text, `state_senate_district` text)
+
 	@Id
 	private Integer incidentId;
 	@Column(name = "incident_date")
-//	private Date date;
-//	private SimpleDateFormat date;
 	private LocalDate date;
 	private String state;
 	private String city_or_county;
@@ -29,7 +25,6 @@ public class Incident {
 	private Integer n_injured;
 	private String incident_url;
 	private String source_url;
-	// private String incident_url_fields_missing;
 	private Integer congressional_district;
 	private String gun_stolen;
 	private String gun_type;
@@ -390,7 +385,6 @@ public class Incident {
 		this.n_injured = n_injured;
 		this.incident_url = incident_url;
 		this.source_url = source_url;
-//		this.incident_url_fields_missing = incident_url_fields_missing;
 		this.congressional_district = congressional_district;
 		this.gun_stolen = gun_stolen;
 		this.gun_type = gun_type;

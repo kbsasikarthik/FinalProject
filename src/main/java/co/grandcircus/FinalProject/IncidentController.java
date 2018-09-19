@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,9 @@ import co.grandcircus.FinalProject.entity.Representative;
 @Controller
 public class IncidentController {
 
+	@Value("${repdata.apikey}")
+	private String apikey;
+	
 	@Autowired
 	private IncidentDao incidentDao;
 
@@ -36,14 +40,10 @@ public class IncidentController {
 		
 		
 		RestTemplate restTemplate = new RestTemplate();	
-
-		String url = "https://openstates.org/api/v1/legislators/geo/?lat="+lat+"&long="+lon+"&apikey=239038b3-30a9-4f08-a887-90bae55dd133";
-//		opnstates.org apikey - 239038b3-30a9-4f08-a887-90bae55dd133
-
+		String url = "https://openstates.org/api/v1/legislators/geo/?lat=" + lat + "&long=" + lon + "&apikey=" + apikey;
 		ResponseEntity<Representative[]> response = restTemplate.exchange(url, HttpMethod.GET, null, Representative[].class);
 		List<Representative> result = Arrays.asList(response.getBody());
-//		List<Representative> listOfReps = result.getRepresentatives();
-		System.out.println(result);
+
 		mav.addObject("reps", result);
 		List<String> ages = incident.getAges();
 		List<String> gender = incident.getGender();
@@ -89,7 +89,7 @@ public class IncidentController {
 
 		mav.addObject("details", details);
 		System.out.println(incidentDao.byID(incidentId));
-		mav.addObject("back", "/listresults?state="+incident.getState()+"&city="+incident.getCity_or_county());
+//		mav.addObject("back", "/listresults?state="+incident.getState()+"&city="+incident.getCity_or_county());
 
 		return mav;
 

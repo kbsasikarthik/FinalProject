@@ -128,7 +128,6 @@ public class IncidentDao {
 
 
 	public Incident byID(Integer incidentId) {
-		System.out.println(incidentId + " in DAO");
 		return em.createQuery("FROM Incident WHERE incidentId = :id", Incident.class).setParameter("id", incidentId)
 				.getSingleResult();
 

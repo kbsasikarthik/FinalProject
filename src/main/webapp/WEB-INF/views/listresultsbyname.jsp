@@ -16,15 +16,16 @@
 
 <body>
 
-<div align="center" class="w3-container" >
+<div align="center" class="container" >
 <br>
 <c:if test="${number eq 0}">
 	<h1>Sorry, No match found for ${name}!</h1>
 </c:if>
-</div>
+
 
 
 <c:if test="${number gt 0}">
+
 	<h1>Found ${number} matching results for ${name }</h1>
 		<div align="center" class="w3-container" style="padding-left: 15px;padding-right: 15px;"><br>
 			<%@include file="locations-map-byname.jsp"%>
@@ -75,7 +76,7 @@
 		</table>
 	</div>
 
-<h3>${pageNo }</h3>
+<h6 align="center">${pageNo }</h6>
 <div name="page">
   <ul class="pagination">
   <c:if test="${lastPageNo gt 0}"> 
@@ -113,5 +114,6 @@
   </ul>
 </div>
 </c:if>
+</div>
 </body>
 </html>

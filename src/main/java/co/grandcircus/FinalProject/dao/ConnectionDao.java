@@ -45,12 +45,10 @@ public class ConnectionDao {
 		return connections;
 	}
 	public List<Connection> byParticipantAndIncident(String participant, Integer incidentId) {
-		System.out.println("DAO in P&I" + participant);
 		List<Connection> connections = em
 				.createQuery("FROM Connection WHERE participantName =:partName AND incidentID = :incID",
 						Connection.class)
 				.setParameter("partName", participant).setParameter("incID", incidentId).getResultList();
-		System.out.println("P&I DAO" + connections);
 		return connections;
 	}
 }

@@ -11,9 +11,13 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
 <%@include file="navbar.jsp"%>
 </head>
+
 <body>
 
 <div>
+
+<body><div class="container">
+
 <h1>Privacy Policy</h1>
 
 
@@ -118,7 +122,11 @@
             <li>By visiting this page on our website: http://www.projectaim.org/about</li>
       
         </ul> 
+
         
         </div>                               
+
+</div>                               
+
 </body>
 </html>

@@ -13,38 +13,39 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
 <style>
-.left {
-    float: left;
-    width: 300px;
-    padding: 10px;
+td {
+    white-space: nowrap;
 }
 </style>
 </head>
-<body><div class="container">
-<table class="left">
+
+<body>
+
+<div class="container">
+<table class="table table-hover">
   <thead>
-    <tr>
-      <th scope="col" width=25px>Name</th>
-      <th scope="col" width=12px>Chamber</th>
-      <th scope="col" width=12px>Party</th>
-      <th scope="col" width=20px>Email Address</th>
-      <th scope="col" width=6px>Email/</th>
-      <th scope="col" width=6px>Gmail/</th>
-      <th scope="col" width=6px>Yahoo</th>
+	<tr style="font-size:100%;">
+      <th colspan=4>Name</th>
+      <th scope="col">Chamber</th>
+      <th scope="col">Party</th>
+      <th scope="col">Email Address</th>
+      <th scope="col">Email</th>
+      <th scope="col">Gmail</th>
+      <th scope="col">Yahoo</th>
     </tr>
   </thead>
-  	<tbody>
+  <tbody>
 		<c:forEach var="rep" items="${reps}">
 			<tr>
-				<td>${rep.full_name}</td>
-				<td>${rep.chamber}</td>
-				<td>${rep.party }</td>
-				<td>${rep.email}</td>
+				<td colspan=4>${rep.full_name}</td>
+				<td scope="row">${rep.chamber}</td>
+				<td scope="row">${rep.party }</td>
+				<td scope="row">${rep.email}</td>
 				<td colspan=3>
 					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
 						<a class="a2a_button_email"></a>
-						<a class="a2a_button_google_gmail"></a>
-						<a class="a2a_button_yahoo_mail"></a>
+						<a style="margin-left: 100px;" class="a2a_button_google_gmail"></a>
+						<a style="margin-left: 100px;" class="a2a_button_yahoo_mail"></a>
 					
 					<script>
 						var a2a_config = a2a_config || {};
