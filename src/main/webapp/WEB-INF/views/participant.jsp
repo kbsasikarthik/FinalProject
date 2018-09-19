@@ -14,32 +14,32 @@
 <title>Connect to A Participant</title>
 </head>
 <body><div class="container">
-<h1>Add Your Connection To:</h1>
-<h3>${person}</h3> 
+<h2>Add Your Connection To: ${person}</h2>
 <p>Existing connections, if any</p>
  <table>
-<th><td>Name</td><td>Relationship</td><td>Facebook</td><td>Twitter</td></th>
+<th><td><b><u>Name</u></b></td><td><b><u>Relationship</u></b></td><td><b><u>Facebook</u></b></td><td><b><u>Twitter</u></b></td></th>
 	<c:forEach var="connection" items="${ connections }">
 		 <tr>
+		 	<td></td>
 		    <td>${connection.participant}</td>
 			<td>${connection.connectionType}</td>
 			<td>${connection.facebook}</td>
 			<td>${connection.twitter}</td>
 		 </tr>  
 	 </c:forEach>
-	 </table> 
-<p>Add Your Own Connection</p>
-	
+</table>
+<br> 
+<h3>Add Your Own Connection</h3>	
 	 <form action="/addConnection/create/${person}/${id}" method="post" class="form">
 		<div class="form-group row">
 			<label for="name" class="col-sm-2 col-form-label">Your Name:</label>
-    		<div class="col-sm-10">
+    		<div class="col-sm-5">
 			<input class="form-control" name="name" required minlength="2" maxlength="30"/>
 			</div>
 		</div>
 		<div class="form-group row">
 			<label for="relationship" class="col-sm-2 col-form-label">Relationship:</label>
-			<div class="col-sm-10">
+			<div class="col-sm-5">
 			    <select name="connectionType" class="custom-select" id="inputGroupSelect">
 			         <option selected>How are you connected to this victim? </option>
 			         <option value="familyMember">Family Member</option>
@@ -54,13 +54,13 @@
 		</div>
 		<div class="form-group row">
 			<label for="facebook" class="col-sm-2 col-form-label">Facebook Account:</label>
-				<div class="col-sm-10">
+				<div class="col-sm-5">
 				<input class="form-control" name="facebook" placeholder="https://www.facebook.com/yourusername"/>
 				</div>
 		</div>
 		<div class="form-group row">
 			<label for="twitter" class="col-sm-2 col-form-label">Twitter Account:</label>
-				<div class="col-sm-10">
+				<div class="col-sm-5">
 				<input class="form-control" name="twitter" placeholder="@username"/>
 				</div>
 		</div>
