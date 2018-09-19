@@ -52,10 +52,10 @@ public class SocialController {
 			@RequestParam(value = "connectionType", required = false) String connectionType,
 			@RequestParam(value = "name", required = false) String connectionName) {
 
+		System.out.println(participantName + incidentId);
 		Connection newConnection = new Connection(participantName, facebook, twitter, connectionType, connectionName,
 				incidentId);
 		connectionDao.create(newConnection);
-		System.out.println(incidentId);
 
 		return new ModelAndView("redirect:/incident/{id}");
 	}
