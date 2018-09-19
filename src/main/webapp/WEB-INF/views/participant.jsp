@@ -13,7 +13,7 @@
 <%@include file="navbar.jsp"%>
 <title>Connect to A Participant</title>
 </head>
-<body><div class="container">
+<body><div class="w3-container">
 <h2>Add Your Connection To: ${person}</h2>
 <p>Existing connections, if any</p>
  <table>
