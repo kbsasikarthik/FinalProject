@@ -130,29 +130,32 @@
    </script>      
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsys0GZf3YUkzCQt1n-qVwIjzI3ga3e5Y&callback=initMap"
     async defer></script> 
-        <div class="side-by-side" style = "
-	margin-left:298px;
-	height: 22px;
-    width: 90px;
-    background-color: red"><p 
-    style = "
-    align:left" >killed</p></div>
-   
-    <div class="side-by-side" style = "
-    margin-left: 20px;
-	height: 22px;
-    width: 90px;
-    background-color: orange"><p 
-    style = "
-    align:left" >injured</p></div>
-  
-    <div class="side-by-side" style = "
-    margin-left: 20px;
-	height: 22px;
-    width: 120px;
-    background-color: yellow"><p 
-    style = "
-    align:left" >not injured</p></div>
+    <div style="width: 800px; margin: 0 auto;">
+	        <div class="side-by-side" style = "
+		margin-left:0px;
+		height: 22px;
+	    width: 90px;
+	    background-color: red"><p 
+	    style = "
+	    align:left" >killed</p></div>
+	   
+	    <div class="side-by-side" style = "
+	    margin-left: 20px;
+		height: 22px;
+	    width: 90px;
+	    background-color: orange"><p 
+	    style = "
+	    align:left" >injured</p></div>
+	  
+	    <div class="side-by-side" style = "
+	    margin-left: 20px;
+		height: 22px;
+	    width: 120px;
+	    background-color: yellow"><p 
+	    style = "
+	    align:left" >not injured</p></div>
+    
+    </div>
    
 <div align="center" class="w3-container" style="padding-left: 15px;padding-right: 15px;"><br>
     <div id="map"></div></div>
