@@ -15,15 +15,25 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
 <%@include file="navbar.jsp"%>
+<link rel="stylesheet" href="/style.css" />
  <style>
     .side-by-side
     {
       float:left;
       padding:0px 20px;
     }
+    body {
+    background-repeat: no-repeat;
+    background-size: 100px 200px;
+    background: url("orange-ribbon.jpg");
+    background-attachment: fixed;
+    background-position: top;
+    opacity:0.5;
+    }
   </style>
 </head>
 <body>
+
 <h1 align="center">Welcome to Project A.I.M !</h1>
 <h2 align="center">(<u>A</u>wareness <u>I</u>nto <u>M</u>ovement!)</h2>
 <br>
@@ -133,5 +143,6 @@ function validate()
 };
 	
 </script>
+
 </body>
 </html>

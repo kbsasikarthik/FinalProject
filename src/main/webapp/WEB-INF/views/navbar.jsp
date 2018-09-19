@@ -19,10 +19,10 @@
         <a class="nav-link" href="/privacy">Privacy Policy</a>
       </li>
 	</ul>
-	<!-- <ul class="navbar-nav mr-right">
+	<ul class="navbar-nav mr-right">
       <li class="nav-item active">
         <a  class="nav-link" href="${back}">Back</a>
       </li>
-      </ul>-->
+      </ul>
   </div>
 </nav>
