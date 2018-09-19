@@ -9,7 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Home page</title>
+<title>Search Results by Name</title>
 <!-- Include Required Prerequisites -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -26,14 +26,11 @@
 </head>
 
 <body>
-
-<div align="center"  >
-	<br>
-	<h2>Search results for ${city} in ${state}</h2><br><br>    
-</div>
-<div align="center" class="w3-container" style="padding-left: 15px;padding-right: 15px;"><br>
-	<%@include file="locations-map.jsp"%>
-</div>
+<div class="container" align="center">
+	<h2>Search results for ${city} in ${state}</h2>  
+	<div align="center" class="w3-container" style="padding-left: 15px;padding-right: 15px;"><br>
+		<%@include file="locations-map.jsp"%>
+	</div>
 	<h4>Filter by Date Range<small>(Database starts Jan. 1, 2013)</small></h4>
 <p></p>
 <form action="/dateSearch/${state }/${city}" method=POST>
@@ -104,7 +101,6 @@
      </c:if>
   </ul>
 </div>
-
-    
+</div>  
 </body>
 </html>
