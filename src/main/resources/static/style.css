@@ -4,7 +4,9 @@ h1{
 	
 }
 
-
+div {
+    padding: 25px 50px;
+}
 .paging-nav {
   text-align: right;
   padding-top: 2px;

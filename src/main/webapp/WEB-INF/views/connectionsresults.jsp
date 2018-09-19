@@ -7,19 +7,13 @@
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>Home page</title>
+<title>Connection Results</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
 <%@include file="navbar.jsp"%>
- <style>
-    .side-by-side
-    {
-      float:left;
-      padding:0px 20px;
-    }
-  </style>
+
 </head>
-<body>
+<body><div class="container">
 <h2>Results For Your Search by Connection</h2>
 <table class="table table-hover">
   <thead>
@@ -43,5 +37,6 @@
 	</c:forEach>
 </table>
 <button class="btn btn-secondary btn-sm" onclick="window.location.href='/connectionsearch'">BACK</button>
+</div>
 </body>
 </html>

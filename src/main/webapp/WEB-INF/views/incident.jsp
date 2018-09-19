@@ -19,20 +19,28 @@
 <%@include file="navbar.jsp"%>
 </head>
 <style>
-    .side-by-side
-    {
-      float:left;
-      padding:0px 20px;
-    }
-  </style>
-<body>
+.left {
+    float: left;
+    width: 300px;
+    padding: 10px;
+}
+</style>
+<body><div class="container">
 <div class="row">
 				<div class="col-6 col-md-4">
 					<h1>Incident Details</h1>
 					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-						<a class="a2a_button_facebook"></a>
 						<a class="a2a_button_twitter"></a>
 						<p>Share</p>
+						<script>
+							var a2a_config = a2a_config || {};
+							a2a_config.templates = a2a_config.templates || {};
+							a2a_config.templates.twitter = {
+							    text: "I was impacted by gun violence on ${incident.date}. Learn more www.projectaim.org #endgunviolence #gunviolence",
+							    related: "I've been impacted by gun violence. "
+							};
+						</script>
+						<script async src="https://static.addtoany.com/menu/page.js"></script>
 					</div>
 				<table>
 					<tr><td>Date: </td><td>${incident.date}</td></tr>
@@ -73,35 +81,18 @@
 			 			src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDsys0GZf3YUkzCQt1n-qVwIjzI3ga3e5Y
 			 		  	&q=${incident.latitude}+${incident.longitude}">
 					</iframe>
-		   	 	</div>
-
-			
+		   	 	</div>	
 	</div>	
 </div>
- <div class="side-by-side"> 
-  	<div class="row">
-  		<div class="col-6">Representative information<div class="row">
-      		<div class="col-8 col-sm-6">
-       			<%@include file="show-rep.jsp"%>
-      		</div>
-      	</div>
-	</div>
-	</div>
-</div>
-<script>
-				var a2a_config = a2a_config || {};
-				a2a_config.templates = a2a_config.templates || {};
-				
-				a2a_config.templates.facebook = {
-				    app_id: "1173731342792067",
-				    redirect_uri: "http:www.projectaim.org"
-				};
-				
-				a2a_config.templates.twitter = {
-				    text: "I was impacted by gun violence on ${incident.date}. Learn more www.projectaim.org #endgunviolence #gunviolence",
-				    related: "I've been impacted by gun violence. "
-				};
-			</script>
-			<script async src="https://static.addtoany.com/menu/page.js"></script>
+	 <div class="side-by-side"> 
+	  	<div class="row">
+	  		<div align="center"><b>Representative Information</b>
+	      		<div class="left">
+	       			<%@include file="show-rep.jsp"%>
+	       		</div>
+	      	</div>
+		</div>
+	 </div>
+</div>			
 </body>
 </html>

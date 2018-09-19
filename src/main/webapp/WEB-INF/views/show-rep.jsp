@@ -12,14 +12,16 @@
 <title>Representatives</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
-
+<style>
+.left {
+    float: left;
+    width: 300px;
+    padding: 10px;
+}
+</style>
 </head>
-<body>
-
-<h1></h1>
-
-
-<table class="table table-hover">
+<body><div class="container">
+<table class="left">
   <thead>
     <tr>
       <th scope="col" width=25px>Name</th>
@@ -61,7 +63,7 @@
 		</c:forEach>
 	</tbody>
 </table>
-
+</div>
 </body>
 
 </html>
