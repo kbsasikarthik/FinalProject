@@ -1,4 +1,13 @@
-
+#index {
+    background: url(mountain.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("orange-ribbon.jpg");
+}
+img {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
 h1{
 	text-align: center;
 	
