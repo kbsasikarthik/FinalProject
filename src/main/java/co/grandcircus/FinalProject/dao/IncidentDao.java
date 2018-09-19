@@ -39,12 +39,9 @@ public class IncidentDao {
 	}
 
 	public List<Incident> byStateAndCity(int page, String state, String city) {
-    	System.out.println(page + " -> " + ((page) * 40));
 		List<Incident> incidents = em
 				.createQuery("FROM Incident WHERE state = :stat AND city_or_county= :city ORDER BY incident_date desc", Incident.class)
 				.setParameter("stat", state).setParameter("city", city).setFirstResult((page) * 40).setMaxResults(40).getResultList();
-//	
-//		System.out.println("Extracted incidents In Dao" + incidents);
 		return incidents;
 	}
     
@@ -54,7 +51,7 @@ public class IncidentDao {
 				.setParameter("stat", state).setParameter("city", city).getResultList();
     	return incidents;
     }
-    
+      
     public long countByStateAndCity(String state, String city){
     	long incidents = em
 				.createQuery("SELECT count(*) FROM Incident WHERE state = :stat AND city_or_county= :city ORDER BY incident_date desc", Long.class)
@@ -62,28 +59,58 @@ public class IncidentDao {
     	return incidents;
     }
 
-	public List<Incident> byName(String name) {
+	public List<Incident> byName(int page, String name) {
+		List<Incident> people = em.createQuery("FROM Incident WHERE participant_name Like :name ORDER BY incident_date desc", Incident.class)
+						.setParameter("name", "%" + name + "%").setFirstResult((page) * 40).setMaxResults(40).getResultList();
+		return people;
+	}
+	
+	public List<Incident> allByName(String name) {
 		List<Incident> people = em.createQuery("FROM Incident WHERE participant_name Like :name ORDER BY incident_date desc", Incident.class)
 				.setParameter("name", "%" + name + "%").getResultList();
 		return people;
 	}
+	
+    public long countByName(String name){
+    	long incidents = em
+				.createQuery("SELECT count(*) FROM Incident WHERE participant_name Like :name ORDER BY incident_date desc", Long.class) 
+				.setParameter("name", "%" + name + "%").getSingleResult();
+    	return incidents;
+    }
 
-	public List<Incident> byDateRange(Date fromDate, Date toDate) {
-		List<Incident> people = em
-				.createQuery("FROM Incident WHERE incident_date BETWEEN :from AND :to ORDER BY incident_date desc", Incident.class)
-				.setParameter("from", fromDate).setParameter("to", toDate).getResultList();
+	public List<Incident> byDateAndLocation(int page, Date fromDate, Date toDate, String state, String city) {
+		List<Incident> people = em.createQuery(
+				"FROM Incident WHERE incident_date BETWEEN :from AND :to AND state = :stat AND city_or_county= :city ORDER BY incident_date desc",
+				Incident.class).setParameter("from", fromDate).setParameter("to", toDate).setParameter("stat", state)
+				.setParameter("city", city).setFirstResult((page) * 40).setMaxResults(40).getResultList();
 		return people;
 	}
-
-	public List<Incident> byDateAndLocation(Date fromDate, Date toDate, String state, String city) {
+	
+	public List<Incident> allByDateAndLocation(Date fromDate, Date toDate, String state, String city) {
 		List<Incident> people = em.createQuery(
 				"FROM Incident WHERE incident_date BETWEEN :from AND :to AND state = :stat AND city_or_county= :city ORDER BY incident_date desc",
 				Incident.class).setParameter("from", fromDate).setParameter("to", toDate).setParameter("stat", state)
 				.setParameter("city", city).getResultList();
 		return people;
 	}
-
-	public List<Incident> byDateAndName(Date fromDate, Date toDate, String name) {
+	
+    public long countByLocationAndDate(Date fromDate, Date toDate, String state, String city){
+    	long incidents = em
+				.createQuery("SELECT count(*) FROM Incident WHERE incident_date BETWEEN :from AND :to AND state = :stat AND city_or_county= :city ORDER BY incident_date desc", Long.class)
+				.setParameter("from", fromDate).setParameter("to", toDate).setParameter("stat", state) 
+				.setParameter("city", city).getSingleResult();
+    	return incidents;
+    }
+    
+	public List<Incident> byDateAndName(int page, Date fromDate, Date toDate, String name) {
+		List<Incident> people = em
+				.createQuery("FROM Incident WHERE incident_date BETWEEN :from AND :to AND participant_name Like :nam ORDER BY incident_date desc", Incident.class)
+				.setParameter("from", fromDate).setParameter("to", toDate).setParameter("nam", "%" + name + "%")
+				.setFirstResult((page) * 40).setMaxResults(40).getResultList();
+		return people;
+	}
+	
+	public List<Incident> allByDateAndName(Date fromDate, Date toDate, String name) {
 		List<Incident> people = em
 				.createQuery("FROM Incident WHERE incident_date BETWEEN :from AND :to AND participant_name Like :nam ORDER BY incident_date desc",
 						Incident.class)
@@ -91,6 +118,14 @@ public class IncidentDao {
 				.getResultList();
 		return people;
 	}
+	
+    public long countByNameAndDate(Date fromDate, Date toDate, String name){
+    	long incidents = em
+				.createQuery("SELECT count(*) FROM Incident WHERE incident_date BETWEEN :from AND :to AND participant_name Like :nam ORDER BY incident_date desc", Long.class)
+				.setParameter("from", fromDate).setParameter("to", toDate).setParameter("nam", "%" + name + "%").getSingleResult();
+    	return incidents;
+    }
+
 
 	public Incident byID(Integer incidentId) {
 		System.out.println(incidentId + " in DAO");

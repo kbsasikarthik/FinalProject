@@ -60,35 +60,11 @@ public class DatabaseController {
 		return mav;
 	}
 
-//	@RequestMapping("/listresults")
-//	public ModelAndView showResults @RequestParam("state") String state, @RequestParam("city") String city) {
-//		System.out.println("In controller - received - State - " + state + "City- " + city);
-//		ModelAndView mav = new ModelAndView("listresults");
-//		mav.addObject("state", state);
-//		mav.addObject("city", city);
-//		List<Incident> incidents = incidentDao.byStateAndCity(state, city);
-//		mav.addObject("incidents", incidents);
-//		mav.addObject("back", "/");
-//		return mav;
-//	}
-
-//	@RequestMapping("/listresults")
-
-//	public String list(Model model, Integer offset, Integer maxResults) {
-
-//		model.addAttribute("incidents", incidentDao.byStateAndCity(offset, maxResults));
-//		model.addAttribute("count", incidentDao.count());
-//		model.addAttribute("offset", offset);
-//		return "/listresults";
-//	}
-//
 	@RequestMapping("/listresults")
 	public ModelAndView showResults(@RequestParam(value="pageNo", defaultValue="1", required=false) Integer page, @RequestParam("state") String state, @RequestParam("city") String city) {
 		System.out.println("State - " + state + "City- " + city);
 		
 		ModelAndView mav = new ModelAndView("listresults");
-		//List<Incident> allIncidents = incidentDao.allByStateAndCity(state, city);
-
 		int lastPageNo=0;
 		long totalCount=incidentDao.countByStateAndCity(state, city);
 		List<Incident> incidents;
@@ -98,46 +74,101 @@ public class DatabaseController {
 		}
 		else {
 			incidents = incidentDao.byStateAndCity(page, state, city);
-		
-		if(totalCount%40==0)
-	
-		lastPageNo=(int)(totalCount/40+1);					// get last page No (zero based)
-		else
-		lastPageNo=(int)(totalCount/40);
+			if(totalCount%40==0)
+				lastPageNo=(int)(totalCount/40+1);	
+			else
+				lastPageNo=(int)(totalCount/40);
 		}
-		System.out.println(lastPageNo);
 		mav.addObject("pageNo", page);
 		mav.addObject("lastPageNo", lastPageNo);
 		mav.addObject("state", state);
 		mav.addObject("city", city);
-//		List<Incident> incidents = incidentDao.byStateAndCity(page, state, city);
 		mav.addObject("incidents", incidents);
 		mav.addObject("back", "/");
 		mav.addObject("numberOfItems", totalCount);
+		mav.addObject("fromDate", "2013-01-01");
+		mav.addObject("toDate", "2018-03-31");
+		mav.addObject("url", "/listresults?state="+state+"&city="+city+"&pageNo=");
+		return mav;
+	}
+	
+
+	@RequestMapping("/dateSearch/{state}/{city}")
+	public ModelAndView searchByDate(
+			@RequestParam(value="pageNo", defaultValue="1", required=false) Integer page,
+			@RequestParam(value = "fromDate", defaultValue = "2013-01-01") String fromDate,
+			@RequestParam(value = "toDate", defaultValue = "2018-03-31") String toDate,
+			@PathVariable("state") String state, @PathVariable("city") String city) throws Exception {
+		ModelAndView mav = new ModelAndView("listresults");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date from = sdf.parse(fromDate);
+		Date to = sdf.parse(toDate);
+		int lastPageNo=0;
+		long totalCount=incidentDao.countByLocationAndDate(from, to, state, city);
+		List<Incident> matchingDates;
+		if(totalCount <=40) {
+			matchingDates = incidentDao.allByDateAndLocation(from, to, state, city);			
+			lastPageNo=0;
+		}
+		else {
+			matchingDates = incidentDao.byDateAndLocation(page, from, to, state, city);			
+			if(totalCount%40==0)
+				lastPageNo=(int)(totalCount/40+1);	
+			else
+				lastPageNo=(int)(totalCount/40);
+		}
+
+		mav.addObject("fromDate", fromDate);
+		mav.addObject("toDate", toDate);
+		mav.addObject("pageNo", page);
+		mav.addObject("lastPageNo", lastPageNo);
+		mav.addObject("number", totalCount);
+		mav.addObject("incidents", matchingDates);
+		mav.addObject("back", "/listresults?state=" + state + "&city=" + city);
+		mav.addObject("url", "/dateSearch/"+state+"/"+city+"?pageNo=");
 		return mav;
 	}
 
 	@RequestMapping("/nameSearch")
-	public ModelAndView searchNames(@RequestParam("firstName") String firstName,
+	public ModelAndView searchNames(@RequestParam(value="pageNo", defaultValue="1", required=false) Integer page,
+			@RequestParam("firstName") String firstName,
 			@RequestParam("lastName") String lastName) {
 		System.out.println(firstName);
 		String name = firstName + " " + lastName;
-
 		ModelAndView mav = new ModelAndView("listresultsbyname");
-		List<Incident> matchingNames = incidentDao.byName(name);
+		int lastPageNo=0;
+		long totalCount=incidentDao.countByName(name);
+		List<Incident> matchingNames;
+		if(totalCount <=40) {
+			matchingNames = incidentDao.allByName(name);
+			lastPageNo=0;
+		}
+		else {
+			matchingNames = incidentDao.byName(page, name);
+			if(totalCount%40==0)
+				lastPageNo=(int)(totalCount/40+1);					
+			else
+				lastPageNo=(int)(totalCount/40);
+		}
+
+		mav.addObject("number", totalCount);
+		mav.addObject("firstName", firstName);
+		mav.addObject("lastName", lastName);
 		mav.addObject("fromDate", "2013-01-01");
 		mav.addObject("toDate", "2018-03-31");
 		mav.addObject("name", name);
-		mav.addObject("number", matchingNames.size());
+		mav.addObject("pageNo", page);
+		mav.addObject("lastPageNo", lastPageNo);
 		mav.addObject("matchingNames", matchingNames);
-		System.out.println(incidentDao.byName(name));
 		mav.addObject("back", "/");
-
+		mav.addObject("numberOfItems", totalCount);
+		mav.addObject("url", "/nameSearch?firstName="+firstName+"&lastName="+lastName+"&pageNo=");
 		return mav;
 	}
 
 	@RequestMapping("/dateSearch/{name}")
 	public ModelAndView searchByDateandName(
+			@RequestParam(value="pageNo", defaultValue="1", required=false) Integer page,
 			@RequestParam(value = "fromDate", defaultValue = "2013-01-01") String fromDate,
 			@RequestParam(value = "toDate", defaultValue = "2018-03-31") String toDate,
 			@PathVariable("name") String name) throws Exception {
@@ -145,10 +176,20 @@ public class DatabaseController {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date from = sdf.parse(fromDate);
 		Date to = sdf.parse(toDate);
-		System.out.println("From Date - " + from);
-
-		System.out.println("To Date - " + to);
-		List<Incident> matchingDates = incidentDao.byDateAndName(from, to, name);
+		int lastPageNo=0;
+		long totalCount=incidentDao.countByNameAndDate(from, to, name);
+		List<Incident> matchingDates;
+		if(totalCount <=40) {
+			matchingDates = incidentDao.allByDateAndName(from, to, name);
+			lastPageNo=0;
+		}
+		else {
+			matchingDates = incidentDao.byDateAndName(page, from, to, name);			
+			if(totalCount%40==0)
+				lastPageNo=(int)(totalCount/40+1);	
+			else
+				lastPageNo=(int)(totalCount/40);
+		}
 		String[] names = null;
 		String firstName = "";
 		String lastName = "";
@@ -160,42 +201,16 @@ public class DatabaseController {
 		}
 		mav.addObject("fromDate", fromDate);
 		mav.addObject("toDate", toDate);
-
-//		mav.addObject("fromDate", from);
-//		mav.addObject("toDate", to);
-		mav.addObject("number", matchingDates.size());
+		mav.addObject("number", totalCount);
+		mav.addObject("pageNo", page);
+		mav.addObject("lastPageNo", lastPageNo);
 		mav.addObject("matchingNames", matchingDates);
 		mav.addObject("back", "/nameSearch?firstName=" + firstName + "&lastName=" + lastName);
-		// System.out.println(matchingDates);
+		mav.addObject("url", "/dateSearch/"+name+"?pageNo=");
+
 		return mav;
 	}
 
-	@RequestMapping("/dateSearch/{state}/{city}")
-	public ModelAndView searchByDate(@RequestParam("fromDate") String startDate, @RequestParam("toDate") String endDate,
-			@PathVariable("state") String state, @PathVariable("city") String city) throws Exception {
-		ModelAndView mav = new ModelAndView("listresults");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date fromDate = sdf.parse(startDate);
-		Date toDate = sdf.parse(endDate);
-		System.out.println("From Date - " + fromDate);
-		System.out.println("To Date - " + toDate);
-		List<Incident> matchingDates = incidentDao.byDateAndLocation(fromDate, toDate, state, city);
-
-		mav.addObject("fromDate", fromDate);
-		mav.addObject("toDate", toDate);
-		mav.addObject("number", matchingDates.size());
-		mav.addObject("incidents", matchingDates);
-		mav.addObject("back", "/listresults?state=" + state + "&city=" + city);
-		return mav;
-	}
-
-	@RequestMapping("/listresultsbyname")
-	public ModelAndView showResultsByName() {
-		ModelAndView mav = new ModelAndView("listresultsbyname");
-		mav.addObject("back", "/");
-		return mav;
-
-	}
 
 	@RequestMapping("/about")
 	public ModelAndView showAbout() {

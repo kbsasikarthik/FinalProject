@@ -73,6 +73,42 @@
 		</table>
 	</div>
 </c:if>
-
+<h3>${pageNo }</h3>
+<div name="page">
+  <ul class="pagination">
+  <c:if test="${lastPageNo gt 0}"> 
+   <c:if test="${pageNo ne 0}">
+     <li class="page-item">
+      <a class="page-link" href="${url}1">First Page</a>
+    </li>
+       <li class="page-item"> 
+      <a class="page-link" href="${url}${pageNo - 1}">&laquo;</a>
+    </li> </c:if>
+    <li class="page-item active">
+      <a class="page-link"  href="${url}${pageNo + 0}">${pageNo + 0}</a>
+    </li> 
+    <c:if test="${pageNo + 1 le lastPageNo}">
+    <li class="page-item">
+      <a class="page-link" href="${url}${pageNo + 1}">${pageNo + 1}</a>
+    </li> </c:if>
+     <c:if test="${pageNo + 2 le lastPageNo}">
+    <li class="page-item">
+      <a class="page-link" href="${url}${pageNo + 2}">${pageNo + 2}</a>
+    </li></c:if>
+    <c:if test="${pageNo + 3 le lastPageNo}">
+    <li class="page-item">
+      <a class="page-link" href="${url}${pageNo + 3}">${pageNo + 3}</a>
+    </li> </c:if>
+    <c:if test="${pageNo + 4 le lastPageNo}">
+    <li class="page-item">
+      <a class="page-link" href="${url}${pageNo+ 4}">${pageNo + 4}</a>
+    </li> </c:if>
+    <li class="page-item">
+      <a class="page-link" href="${url}${lastPageNo}">Last Page</a>
+    </li>
+    
+     </c:if>
+  </ul>
+</div>
 </body>
 </html>

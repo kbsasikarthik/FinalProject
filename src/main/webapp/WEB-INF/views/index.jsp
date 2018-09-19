@@ -29,20 +29,19 @@
 <br>
 <h2></h2>
 
-<form action="/nameSearch" method="post">
+<form action="/nameSearch" method="post" onsubmit="return validate();">
 <div class="side-by-side">
 <h3>Enter name to Get Started </h3>
 		<div class="form-group row">
 			<!--  <label for="firstName" class="col-sm-2 col-form-label">First Name:</label>-->
-    		<input class="form-control mr-sm-2" name= "firstName" type="text" placeholder="First Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!">
+    		<input class="form-control mr-sm-2" name= "firstName" id= "firstName" type="text" placeholder="First Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!">
 		</div>
 		<div class="form-group row">
 		
 			<!-- <label for="lastName" class="col-sm-2 col-form-label">Last Name:</label>-->
-			<input class="form-control mr-sm-2" name= "lastName" type="text" placeholder="Last Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!">
+			<input class="form-control mr-sm-2" name= "lastName" id= "lastName" type="text" placeholder="Last Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!">
 		</div>
 		<button>Search</button>
-		
 </div>
 </form>
 
@@ -117,6 +116,19 @@ citiesdropdown.addEventListener("change", function(){
 	request.send(citiesdropdown.value);
 	
 });
+
+function validate()
+{
+    var a = document.getElementById("firstName");
+    var b = document.getElementById("lastName");
+    if(a.value.length<=0 && b.value.length<=0)
+       {
+    	alert("Both first and last name cannot be empty!");
+    	return false;
+       }
+    else
+    	return true;
+};
 	
 </script>
 </body>

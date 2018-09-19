@@ -38,9 +38,9 @@
 <p></p>
 <form action="/dateSearch/${state }/${city}" method=POST>
 	<table>
-		<thead><strong><tr><td>FROM DATE</td><td>TO DATE</td></tr></strong></thead>
-		<tr><td><input type="date" name="fromDate" min="2013-01-01" max="2018-03-31" value="2013-01-01"/></td>
-		<td><input type="date" name="toDate" min="2013-01-01" max="2018-03-31" value="2018-03-31" /></td>
+		<thead><tr><td>FROM DATE</td><td>TO DATE</td></tr></thead>
+		<tr><td><input type="date" name="fromDate" min="2013-01-01" max="2018-03-31"  value="${fromDate}"/></td>
+		<td><input type="date" name="toDate" min="2013-01-01" max="2018-03-31" value="${toDate}" /></td>
 		<td><input type="submit" value="Search"></tr>
 	</table>
 </form>
@@ -66,44 +66,45 @@
     	</tr>
 	</c:forEach>
 </table>
+</div>
 <h3>${pageNo }</h3>
 <div name="page">
   <ul class="pagination">
   <c:if test="${lastPageNo gt 0}"> 
    <c:if test="${pageNo ne 0}">
      <li class="page-item">
-      <a class="page-link" href="/listresults?state=${state}&city=${city}&pageNo=1">First Page</a>
+      <a class="page-link" href="${url}1">First Page</a>
     </li>
     <li class="page-item"> 
-      <a class="page-link" href="/listresults?state=${state}&city=${city}&pageNo=${pageNo - 1}">&laquo;</a>
+      <a class="page-link" href="${url}${pageNo - 1}">&laquo;</a>
     </li> </c:if>
     <li class="page-item active">
-      <a class="page-link"  href="/listresults?state=${state}&city=${city}&pageNo=${pageNo + 0}">${pageNo + 0}</a>
+      <a class="page-link"  href="${url}${pageNo + 0}">${pageNo + 0}</a>
     </li> 
     <c:if test="${pageNo + 1 le lastPageNo}">
     <li class="page-item">
-      <a class="page-link" href="/listresults?state=${state}&city=${city}&pageNo=${pageNo + 1}">${pageNo + 1}</a>
+      <a class="page-link" href="${url}${pageNo + 1}">${pageNo + 1}</a>
     </li> </c:if>
      <c:if test="${pageNo + 2 le lastPageNo}">
     <li class="page-item">
-      <a class="page-link" href="/listresults?state=${state}&city=${city}&pageNo=${pageNo + 2}">${pageNo + 2}</a>
+      <a class="page-link" href="${url}${pageNo + 2}">${pageNo + 2}</a>
     </li></c:if>
     <c:if test="${pageNo + 3 le lastPageNo}">
     <li class="page-item">
-      <a class="page-link" href="/listresults?state=${state}&city=${city}&pageNo=${pageNo + 3}">${pageNo + 3}</a>
+      <a class="page-link" href="${url}${pageNo + 3}">${pageNo + 3}</a>
     </li> </c:if>
     <c:if test="${pageNo + 4 le lastPageNo}">
     <li class="page-item">
-      <a class="page-link" href="/listresults?state=${state}&city=${city}&pageNo=${pageNo+ 4}">${pageNo + 4}</a>
+      <a class="page-link" href="${url}${pageNo+ 4}">${pageNo + 4}</a>
     </li> </c:if>
     <li class="page-item">
-      <a class="page-link" href="/listresults?state=${state}&city=${city}&pageNo=${lastPageNo}">Last Page</a>
+      <a class="page-link" href="${url}${lastPageNo}">Last Page</a>
     </li>
     
      </c:if>
   </ul>
 </div>
-</div>
+
     
 </body>
 </html>
