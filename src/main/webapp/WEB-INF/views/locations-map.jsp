@@ -132,7 +132,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsys0GZf3YUkzCQt1n-qVwIjzI3ga3e5Y&callback=initMap"
     async defer></script> 
     <div class="side-by-side" style = "
-	margin-left: 155px;
+	margin-left: 140px;
 	height: 22px;
     width: 90px;
     background-color: red"><p 
