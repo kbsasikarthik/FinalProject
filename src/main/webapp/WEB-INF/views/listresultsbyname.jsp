@@ -25,6 +25,7 @@
 
 
 <c:if test="${number gt 0}">
+
 	<h1>Found ${number} matching results for ${name }</h1>
 		<div align="center" class="w3-container" style="padding-left: 15px;padding-right: 15px;"><br>
 			<%@include file="locations-map-byname.jsp"%>

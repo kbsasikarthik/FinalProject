@@ -2,8 +2,8 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 400px;
-        width: 650px;
+        height: 500px;
+        width: 800px;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -11,6 +11,12 @@
         margin: 0;
         padding: 0;
       }
+      
+       .side-by-side
+    {
+      float:left;
+      padding:0px 20px;
+    }
 </style>
 
 
@@ -124,4 +130,29 @@
    </script>      
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsys0GZf3YUkzCQt1n-qVwIjzI3ga3e5Y&callback=initMap"
     async defer></script> 
+        <div class="side-by-side" style = "
+	margin-left: 140px;
+	height: 22px;
+    width: 90px;
+    background-color: red"><p 
+    style = "
+    align:left" >killed</p></div>
+   
+    <div class="side-by-side" style = "
+    margin-left: 20px;
+	height: 22px;
+    width: 90px;
+    background-color: orange"><p 
+    style = "
+    align:left" >injured</p></div>
+  
+    <div class="side-by-side" style = "
+    margin-left: 20px;
+	height: 22px;
+    width: 120px;
+    background-color: yellow"><p 
+    style = "
+    align:left" >not injured</p></div>
+   
+<div align="center" class="w3-container" style="padding-left: 15px;padding-right: 15px;"><br>
     <div id="map"></div>
