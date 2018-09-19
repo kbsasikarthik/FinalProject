@@ -17,72 +17,136 @@
 <%@include file="navbar.jsp"%>
 </head>
 <body>
-<h1>Meet the Team</h1>
-         <div class="range range-xs-center offset-top-30">
-              <div class="cell-xs-8">
-                <div class="unit unit-spacing-lg unit-sm unit-sm-horizontal">
-                  <div class="unit-left"><img src="https://s8.postimg.cc/64zi64gr9/Screen_Shot_2018-09-14_at_9.45.03_AM.png" alt="" height="90" width="90" class="img-circle"/></div>
-                  <div class="unit-body text-sm-left">
-                    <div>
-                      <h5 class="text-primary">Stan Bradbury</h5>
+
+<br>
+<br>
+<br>
+
+</div>
+
+<div class="w3-container w3-red" align="center">
+ <h1>Meet Our Team</h1></div> 
+
+<div class="container" align="justify" >
+ <p>Our group had many ideas for a final project but decided to build a social education tool that can be used to bring awareness to an issue that we are passionate about. Given the number of gun related incidents in the United States each year, we felt there was a need for more education around the subject. Project A.I.M. uses over 260 thousand gun related incidents from the Kaggle gun violence database, that list each incident given filtered search parameters by city, state, name or date range. We map this information using the Google Maps API indicating incident severity with color coded pins, from yellow to red. After you select an incident you have the option of adding your connection to our database and or  emailing your local representative using the OpenStates API with Gmail and Yahoo. 
+ You can also add your connection by electing to share this information with your friends on Social Media.</p>
+ </div>
+ <br>
+ <br>
+ 
+            <div class="container">
+                    <div class="row">
+                        <div class="heading-title text-center">
+                    
+              
+                        </div>
+ 
+                        <div class="col-md-3 col-sm-3">
+                            <div class="team-member">
+                                <div class="team-img" align="center">
+                                   <img src="https://i.postimg.cc/PqKbFF1r/Stan.png" alt="" height="180" width="180" class="img-circle"/>
+                                </div>
+                                <div class="team-hover">
+                                    <div class="desk">
+                                      
+                                    
+                                    </div>
+                                    <div class="s-link">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                    
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="team-title" align="center">
+                                <h5>Stan Bradbury</h5>
+                               <a href="https://www.linkedin.com/in/stan-bradbury/"><img src="https://i.postimg.cc/y843FJLT/linkedin.png"  width="30" height="30" /></a>
+                                <a href="https://github.com/StandenB"><img src="https://i.postimg.cc/J4BBD35n/github.png"  width="30" height="30" /></a>
+                          
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <div class="team-member">
+                                <div class="team-img" align="center">
+                                   <img src="https://i.postimg.cc/hGKbsqz5/Sasi-.png" alt="" height="180" width="180" class="img-circle"/>
+                                </div>
+                                <div class="team-hover">
+                                    <div class="desk">
+                                       
+                                    </div>
+                                    <div class="s-link">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-title" align="center">
+                                <h5>Sasikaladevi Kumarasamy</h5>
+                                <a href="https://www.linkedin.com/in/sasikaladevi/"><img src="https://i.postimg.cc/y843FJLT/linkedin.png"  width="30" height="30" /></a>
+                                <a href="https://github.com/kbsasikarthik"><img src="https://i.postimg.cc/J4BBD35n/github.png"  width="30" height="30" /></a>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <div class="team-member">
+                                <div class="team-img" align="center">
+                                    <img src="https://i.postimg.cc/3RRjMCZj/ran.png" alt="" height="180" width="180" class="img-circle"/>
+                                </div>
+                                <div class="team-hover">
+                                    <div class="desk">
+                                      
+                                  
+                                    </div>
+                                    <div class="s-link">
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-title" align="center">
+                                <h5>Cameron Barnes</h5>
+                                <a href="https://www.linkedin.com/in/cameron-barnes-detroit"><img src="https://i.postimg.cc/y843FJLT/linkedin.png"  width="30" height="30" /></a>
+                                <a href="https://github.com/cameronindetroit"><img src="https://i.postimg.cc/J4BBD35n/github.png"  width="30" height="30" /></a>
+               
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-3">
+                            <div class="team-member">
+                                <div class="team-img" align="center">
+                                   <img src="https://i.postimg.cc/jq1cb9mD/Jo_Randa.png  " alt="" height="180" width="180" class="img-circle"/>
+                                </div>
+                                <div class="team-hover">
+                                    <div class="desk">
+                          
+                                    
+                                    </div>
+                                    <div class="s-link">
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-title" align="center">
+                                <h5>JoRanda Chapman</h5>
+                                
+                                <a href="https://www.linkedin.com/in/jorandac"><img src="https://i.postimg.cc/y843FJLT/linkedin.png"  width="30" height="30" /></a>
+                                <a href="https://github.com/jorandac"><img src="https://i.postimg.cc/J4BBD35n/github.png"  width="30" height="30" /></a>
+                                
+                                <!-- <img src="https://i.postimg.cc/J4BBD35n/github.png"alt="" height="30" width="30">
+                                <img src="https://i.postimg.cc/y843FJLT/linkedin.png" alt="" height="30" width="30"> -->
+                             
+                            </div>
+                        </div>
+
                     </div>
-                      <div class="offset-top-4">
-                        <div class="text-dark offset-top-0"></div>
-                      </div>
-                    <p class="offset-top-10">.</p>
-                  </div>
-                </div>       
-              </div>
-            </div>
-            <div class="range range-xs-center offset-top-30">
-              <div class="cell-xs-8">
-                <div class="unit unit-spacing-lg unit-sm unit-sm-horizontal">
-                  <div class="unit-left"><img src="https://s8.postimg.cc/40f550rz9/Screen_Shot_2018-09-14_at_9.44.54_AM.png" alt="" height="90" width="90" class="img-circle"/></div>
-                  <div class="unit-body text-sm-left">
-                    <div>
-                      <h5 class="text-primary">Sasi Kumarasamy </h5>
-                    </div>
-                      <div class="offset-top-4">
-                        <div class="text-dark offset-top-0"></div>
-                      </div>
-                    <p class="offset-top-10"></p>
-                  </div>
-                </div>       
-              </div>
-            </div>
-            
-            <div class="range range-xs-center offset-top-30">
-              <div class="cell-xs-8">
-                <div class="unit unit-spacing-lg unit-sm unit-sm-horizontal">
-                  <div class="unit-left"><img src="https://s8.postimg.cc/3nnqyv4kl/Screen_Shot_2018-09-14_at_9.44.40_AM.png" alt="" height="90" width="100" class="img-circle"/></div>
-                  <div class="unit-body text-sm-left">
-                    <div>
-                      <h5 class="text-primary">Cameron Barnes</h5>
-                    </div>
-                      <div class="offset-top-4">
-                        <div class="text-dark offset-top-0"></div>
-                      </div>
-                    <p class="offset-top-10"></p>
-                  </div>
-                </div>       
-              </div>
-            </div>
-            <div class="range range-xs-center offset-top-30">
-              <div class="cell-xs-8">
-                <div class="unit unit-spacing-lg unit-sm unit-sm-horizontal">
-                  <div class="unit-left"><img src="https://s8.postimg.cc/vnruj4kvp/IMG_7482.jpg" alt="" height="90" width="100" class="img-circle"/></div>
-                  <div class="unit-body text-sm-left">
-                    <div>
-                      <h5 class="text-primary">JoRanda Chapman</h5>
-                    </div>
-                      <div class="offset-top-4">
-                        <div class="text-dark offset-top-0"></div>
-                      </div>
-                    <p class="offset-top-10"></p>
-                  </div>
-                </div>       
-              </div>
-            </div>
-            
+
+                </div>
+    
       </body>
       </html> 
