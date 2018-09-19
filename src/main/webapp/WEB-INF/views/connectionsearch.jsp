@@ -10,7 +10,17 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
 <%@include file="navbar.jsp"%>
- 
+<style>
+.namemargin {
+	margin-left:93px;
+}
+.facebookmargin {
+	margin-left: 10px;
+}
+.twittermargin {
+	margin-left: 26px;
+}
+</style>
 </head>
 <body><div class="container">
 <h1>Search by People You May Know</h1>
@@ -19,25 +29,22 @@
 	<p><form class="form-inline" action="/connectionNameSearch" method="post">
 	<div class="form-group row">
 		<label for="connectionName" class="col-form-label"><b>Search by Name:</b></label>
-   		<input style="display: inline;" class="form-control mb-2 mr-sm-2 mb-sm-0" name= "connectName" type="text" placeholder="Connection Name" title="Please enter only alphabets!">
-	</div>
-	<button class="btn btn-secondary btn-sm">SUBMIT</button>
+   		<input style="display: inline;" class="namemargin" name= "connectName" type="text" placeholder="Connection Name" title="Please enter only alphabets!">
+	<button class="btn btn-secondary btn-sm">SUBMIT</button></div>
 </form></p>
 
 <p><form class="form-inline" action="/facebookSearch" method="post">
 	<div class="form-group row">
-		<label for="facebookName" class="col-form-label"><b>Search by Facebook Profile:</b></label>
-   		<input class="form-control mr-sm-2" name="facebookName" type="text" placeholder="ex: https://www.facebook.com/username">
-	</div>
-	<button class="btn btn-secondary btn-sm">SUBMIT</button>
+		<div width: 150px><label for="facebookName" class="col-form-label"><b>Search by Facebook Profile:</b></label></div>
+   		<input class="facebookmargin" name="facebookName" type="text" placeholder="ex: https://www.facebook.com/username">
+	<button &nbsp class="btn btn-secondary btn-sm">SUBMIT</button></div>
 </form></p>
 
 <p><form class="form-inline" action="/twitterSearch" method="post">
 	<div class="form-group row">
 		<label for="twitterName" class="col-form-label"><b>Search by Twitter Profile:</b></label>
-   		<input class="form-control mr-sm-2" name="twitterName" type="text" placeholder="ex: @twittername">
-	</div>
-	<button class="btn btn-secondary btn-sm">SUBMIT</button>
+   		<input class="twittermargin" name="twitterName" type="text" placeholder="ex: @twittername">
+	<button class="btn btn-secondary btn-sm">SUBMIT</button></div>
 </form></p>
 </div>
 </body>
