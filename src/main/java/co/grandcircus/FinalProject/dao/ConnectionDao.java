@@ -44,7 +44,6 @@ public class ConnectionDao {
 				.setParameter("twitterName", twitterName).getResultList();
 		return connections;
 	}
-
 	public List<Connection> byParticipantAndIncident(String participant, Integer incidentId) {
 		System.out.println("DAO in P&I" + participant);
 		List<Connection> connections = em

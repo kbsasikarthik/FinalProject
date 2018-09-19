@@ -61,7 +61,9 @@
 		<c:forEach var="incident" items="${matchingNames }">
 			<tr class="table-warning">
 			<td><c:forEach var="name" items="${incident.names }">
-					<a href=/incident/${incident.incidentId}>${name }</a>
+			<ol>
+					<p><a href=/incident/${incident.incidentId}>${name }</a></p>
+			</ol>
 				</c:forEach></td>
 			<td>${incident.date}</td>
 			<td>${incident.address}</td>
@@ -72,7 +74,7 @@
 
 		</table>
 	</div>
-</c:if>
+
 <h3>${pageNo }</h3>
 <div name="page">
   <ul class="pagination">
@@ -110,5 +112,6 @@
      </c:if>
   </ul>
 </div>
+</c:if>
 </body>
 </html>

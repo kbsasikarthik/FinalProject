@@ -134,7 +134,16 @@ public class DatabaseController {
 			@RequestParam("firstName") String firstName,
 			@RequestParam("lastName") String lastName) {
 		System.out.println(firstName);
-		String name = firstName + " " + lastName;
+		String name="";
+		if(firstName.contains(" ") && lastName.isEmpty()) {
+			String[] names= firstName.split(" ");
+			for(int i=0; i<names.length; i++) {
+				name = name+" "+names[i];
+				
+			}
+		} else {
+			name = firstName.trim() + " " + lastName.trim();
+		}
 		ModelAndView mav = new ModelAndView("listresultsbyname");
 		int lastPageNo=0;
 		long totalCount=incidentDao.countByName(name);

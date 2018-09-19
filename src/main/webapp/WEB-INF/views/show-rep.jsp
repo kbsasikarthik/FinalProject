@@ -40,10 +40,10 @@
 				<td>${rep.email}</td>
 				<td colspan=3>
 					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-						<a class="a2a_button_email"></a><>
+						<a class="a2a_button_email"></a>
 						<a class="a2a_button_google_gmail"></a>
 						<a class="a2a_button_yahoo_mail"></a>
-					</div>
+					
 					<script>
 						var a2a_config = a2a_config || {};
 						a2a_config.templates = a2a_config.templates || {};
@@ -53,22 +53,15 @@
 						    body: "Dear ${rep.full_name}, I knew someone who was involved in an incident in your district. I urge you to stand up to the gun lobby and take action to reduce the impact of gun violence in our lives. "
 						};
 					</script>
-					<script async src="https://static.addtoany.com/menu/page.js"></script>	
 					
+					<script async src="https://static.addtoany.com/menu/page.js"></script>	
+				</div>
+				</td>	
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
-			<script>
-			var a2a_config = a2a_config || {};
-			a2a_config.templates = a2a_config.templates || {};
-			a2a_config.templates.email = {
-			    to:"${rep.email}",
-				subject: "I was impacted by gun violence on ${incident.date} in your district",
-			    body: "Dear ${rep.full_name}, I knew someone who was involved in an incident in your district. I urge you to stand up to the gun lobby and take action to reduce the impact of gun violence in our lives. "
-			};
-			</script>
-			<script async src="https://static.addtoany.com/menu/page.js"></script>
+
 </body>
 
 </html>

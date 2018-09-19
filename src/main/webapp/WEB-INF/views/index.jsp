@@ -24,11 +24,13 @@
   </style>
 </head>
 <body>
-<h1 align="center">Welcome to Team A.I.M !</h1>
-<h2 align="center">(<u>A</u>wareness <u>I</u>n <u>M</u>ovement!)</h2>
+<h1 align="center">Welcome to Project A.I.M !</h1>
+<h2 align="center">(<u>A</u>wareness <u>I</u>nto <u>M</u>ovement!)</h2>
 <br>
 <h2></h2>
-
+<h5 align="center">Our mission is to make people aware of the extent of gun violence and it's impact on people you know.</h5>
+<h5 align="center"> Please feel free to search for gun violence incidents, add your connection to any victims and share via social media.
+</h5><br>
 <form action="/nameSearch" method="post" onsubmit="return validate();">
 <div class="side-by-side">
 <h3>Enter name to Get Started </h3>
@@ -73,11 +75,11 @@
 
 <div class="jumbotron">
   <h4 class="alert-heading"><%=
-		Arrays.asList("How many have to die before we will give up these dangerous toys?",
-				"Not everybody needs a gun , to get things done.",
-				"Know guns, know peace, know safety. No guns, no peace, no safety.",
-				"You don’t spread democracy with a barrel of a gun.",
-				"An armed man is a citizen. A disarmed man is a subject.")
+		Arrays.asList("\"How many have to die before we will give up these dangerous toys?\"",
+				"\"Not everybody needs a gun , to get things done.\"",
+				"\"Know guns, know peace, know safety. No guns, no peace, no safety.\"",
+				"\"You don\'t spread democracy with a barrel of a gun.\"",
+				"\"An armed man is a citizen. A disarmed man is a subject.\"")
 		.get(new Random().nextInt(5))
 	%></h4>
 

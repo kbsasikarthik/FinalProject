@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">A.I.M.</a>
+  <a class="navbar-brand">A.I.M.</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,10 +19,10 @@
         <a class="nav-link" href="/privacy">Privacy Policy</a>
       </li>
 	</ul>
-	<ul class="navbar-nav mr-right">
+	<!-- <ul class="navbar-nav mr-right">
       <li class="nav-item active">
         <a  class="nav-link" href="${back}">Back</a>
       </li>
-      </ul>
+      </ul>-->
   </div>
 </nav>
