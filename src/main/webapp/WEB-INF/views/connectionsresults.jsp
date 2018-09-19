@@ -42,6 +42,6 @@
     	</tr>
 	</c:forEach>
 </table>
-<button class="btn btn-secondary btn-sm" href="/connectionsearch">BACK</button>
+<button class="btn btn-secondary btn-sm" onclick="window.location.href='/connectionsearch'">BACK</button>
 </body>
 </html>

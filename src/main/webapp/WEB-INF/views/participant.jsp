@@ -71,7 +71,7 @@
 				<input class="form-control" name="twitter" placeholder="@username"/>
 				</div>
 		</div>
-		<button class="btn btn-secondary btn-sm" >Submit</button>
+		<button type="button" class="btn btn-secondary btn-sm" >Submit</button>
   </form>
   </div> 
 </body>

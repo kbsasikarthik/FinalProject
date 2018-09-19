@@ -22,21 +22,21 @@
 <h1>Search by People You May Know</h1>
 <p>You may not know someone involved in gun violence but chances are you know someone who does.</p>
 <p>You can search your friends by using their name, Facebook profile or Twitter account to see if they have already claimed a connection to a incident of gun violence and see their connection to a victim.</p>
-<form action="/connectionNameSearch" method="post">
+<form class="form-inline" action="/connectionNameSearch" method="post">
 	<div class="form-group row">
 		<label for="connectionName" class="col-sm-2 col-form-label"><b>Search by Name:</b></label>
-   		<input class="form-control mr-sm-2" name= "connectName" type="text" placeholder="Connection Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!">
+   		<input style="display: inline;" class="form-control mr-sm-2" name= "connectName" type="text" placeholder="Connection Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!">
 	</div>
 	<button class="btn btn-secondary btn-sm">SUBMIT</button>
 </form>
-<form action="/facebookSearch" method="post">
+<form class="form-inline" action="/facebookSearch" method="post">
 	<div class="form-group row">
 		<label for="facebookName" class="col-sm-2 col-form-label"><b>Search by Facebook Profile:</b></label>
    		<input class="form-control mr-sm-2" name="facebookName" type="text" placeholder="ex: https://www.facebook.com/username">
 	</div>
 	<button class="btn btn-secondary btn-sm">SUBMIT</button>
 </form>
-<form action="/twitterSearch" method="post">
+<form class="form-inline" action="/twitterSearch" method="post">
 	<div class="form-group row">
 		<label for="twitterName" class="col-sm-2 col-form-label"><b>Search by Twitter Profile:</b></label>
    		<input class="form-control mr-sm-2" name="twitterName" type="text" placeholder="ex: @twittername">

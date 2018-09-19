@@ -14,46 +14,44 @@ import co.grandcircus.FinalProject.entity.Connection;
 @Repository
 public class ConnectionDao {
 
-	@PersistenceContext
-	private EntityManager em;
+    @PersistenceContext
+    private EntityManager em;
 
-	public void create(Connection connection) {
+    public void create(Connection connection) {
 
-		em.persist(connection);
+        em.persist(connection);
 
-	}
+    }
 
-	public void update(Connection connection) {
-		em.merge(connection);
-	}
+    public void update(Connection connection) {
+        em.merge(connection);
+    }
 
-	public List<Connection> byConnectionName(String connectionName) {
-		List<Connection> connections = em
-				.createQuery("FROM Connection WHERE name Like :name", Connection.class)
-				.setParameter("name", "%" + connectionName + "%").getResultList();
-		return connections;
-	}
-	
-	public List<Connection> byFacebookName(String facebookName) {
-		List<Connection> connections = em
-				.createQuery("FROM Connection WHERE facebook =:faceName", Connection.class)
-				.setParameter("faceName", "https://www.facebook.com/"+facebookName).getResultList();
-		return connections;
-	}
-	
-	public List<Connection> byTwitterName(String twitterName) {
-		List<Connection> connections = em
-				.createQuery("FROM Connection WHERE twitter =twitterName", Connection.class)
-				.setParameter("twitterName", twitterName).getResultList();
-		return connections;
-	}
+    public List<Connection> byConnectionName(String connectionName) {
+        List<Connection> connections = em.createQuery("FROM Connection WHERE name Like :name", Connection.class)
+                .setParameter("name", "%" + connectionName + "%").getResultList();
+        return connections;
+    }
 
-	public List<Connection> byParticipantAndIncident(String participant, Integer incidentId) {
-		System.out.println("DAO in P&I" + participant);
-		List<Connection> connections = em
-				.createQuery("FROM Connection WHERE participantName =:partName AND incidentId = incID", Connection.class)
-				.setParameter("partName", participant).setParameter("incIN", incidentId).getResultList();
-		System.out.println("P&I DAO" + connections);
-		return connections;
-	}
+    public List<Connection> byFacebookName(String facebookName) {
+        List<Connection> connections = em.createQuery("FROM Connection WHERE facebook =:faceName", Connection.class)
+                .setParameter("faceName", "https://www.facebook.com/" + facebookName).getResultList();
+        return connections;
+    }
+
+    public List<Connection> byTwitterName(String twitterName) {
+        List<Connection> connections = em.createQuery("FROM Connection WHERE twitter =:twitterName", Connection.class)
+                .setParameter("twitterName", twitterName).getResultList();
+        return connections;
+    }
+
+    public List<Connection> byParticipantAndIncident(String participant, Integer incidentId) {
+        System.out.println("DAO in P&I" + participant);
+        List<Connection> connections = em
+                .createQuery("FROM Connection WHERE participantName =:partName AND incidentID = :incID",
+                        Connection.class)
+                .setParameter("partName", participant).setParameter("incID", incidentId).getResultList();
+        System.out.println("P&I DAO" + connections);
+        return connections;
+    }
 }
