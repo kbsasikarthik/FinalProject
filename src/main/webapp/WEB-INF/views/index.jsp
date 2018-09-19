@@ -16,33 +16,25 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/united/bootstrap.min.css" />
 <%@include file="navbar.jsp"%>
 <link rel="stylesheet" href="/style.css" />
- <style>
-    .side-by-side
-    {
-      float:left;
-      padding:0px 20px;
-    }
-    body {
-    background-repeat: no-repeat;
-    background-size: 100px 200px;
-    background: url("orange-ribbon.jpg");
-    background-attachment: fixed;
-    background-position: top;
-    opacity:0.5;
-    }
-  </style>
 </head>
 <body>
 
-<h1 align="center">Welcome to Project A.I.M !</h1>
+<br>
+
+
+
+<h1 align="center"><img src="https://i.postimg.cc/4NXJHdFr/header.png" alt="Header" class="responsive"></h1>
 <h2 align="center">(<u>A</u>wareness <u>I</u>nto <u>M</u>ovement!)</h2>
 <br>
 <h2></h2>
 <h5 align="center">Our mission is to make people aware of the extent of gun violence and it's impact on people you know.</h5>
 <h5 align="center"> Please feel free to search for gun violence incidents, add your connection to any victims and share via social media.
-</h5><br>
-<form action="/nameSearch" method="post" onsubmit="return validate();">
-<div class="side-by-side">
+</h5>
+<div align="center">
+<!-- <div class="container"> -->
+<div class="row">
+  <div class="col-sm-6" style=background:#eb5e21><form action="/nameSearch" method="post" onsubmit="return validate();">
+<div align="center">
 <h3>Enter name to Get Started </h3>
 		<div class="form-group row">
 			<!--  <label for="firstName" class="col-sm-2 col-form-label">First Name:</label>-->
@@ -55,9 +47,10 @@
 		</div>
 		<button>Search</button>
 </div>
-</form>
-
- <div class="side-by-side">
+</form></div>
+  
+  
+  <div class="col-sm-6" style=background:#eb5e21><div align="center">
  <h3>Select a State to Get Started</h3>
 	<form method="post" action="/stateandcity" id="state_form" method=POST>
 		<div class="form-group" >
@@ -67,10 +60,9 @@
 		  	<c:forEach items="${ states }" var="state">
 		  		<option <c:if test="${ state eq param.state }">selected</c:if>>${ state }</option>
 		  	</c:forEach>
-		  	</select>
+		  	</select> 
 		 </div>	
 		<div class="form-group" >
-
 		  	<label class="sr-only" for="city">City</label>
 			<select class="form-control mb-2 mr-sm-2" id="city" name="city" required>
 			 <option value="">City</option>
@@ -81,9 +73,12 @@
 		 </div>
 		 <button action = "submit">Submit</button>
 	</form>
+</div></div>
+</div>
 </div>
 
-<div class="jumbotron">
+
+<div class="jumbotron" align="center"> 
   <h4 class="alert-heading"><%=
 		Arrays.asList("\"How many have to die before we will give up these dangerous toys?\"",
 				"\"Not everybody needs a gun , to get things done.\"",

@@ -12,6 +12,8 @@
 <%@include file="navbar.jsp"%>
 </head>
 <body>
+
+<div>
 <h1>Privacy Policy</h1>
 
 
@@ -115,6 +117,8 @@
 <ul>
             <li>By visiting this page on our website: http://www.projectaim.org/about</li>
       
-        </ul>                                
+        </ul> 
+        
+        </div>                               
 </body>
 </html>
