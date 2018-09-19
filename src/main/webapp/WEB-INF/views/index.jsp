@@ -21,9 +21,7 @@
 
 <br>
 
-
-
-<h1 align="center"><img src="https://i.postimg.cc/4NXJHdFr/header.png" alt="Header" class="responsive"></h1>
+<h1 align="center"><img src="https://i.postimg.cc/4NXJHdFr/header.png" alt="Header" style='width:100%'></h1>
 <h2 align="center">(<u>A</u>wareness <u>I</u>nto <u>M</u>ovement!)</h2>
 <br>
 <h2></h2>
@@ -33,14 +31,16 @@
 <div align="center">
 <!-- <div class="container"> -->
 <div class="row">
-  <div class="col-sm-6" style=background:#eb5e21><form action="/nameSearch" method="post" onsubmit="return validate();">
-<div align="center">
+  <div class="col-md-6"  style=background:#eb5e21><form action="/nameSearch" method="post" onsubmit="return validate();" style='width:100%'>
+
+
+<div align="center" >
 <h3>Enter name to Get Started </h3>
-		<div class="form-group row">
+		<div class="form-group row" >
 			<!--  <label for="firstName" class="col-sm-2 col-form-label">First Name:</label>-->
-    		<input class="form-control mr-sm-2" name= "firstName" id= "firstName" type="text" placeholder="First Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!">
+    		<input class="form-control mr-sm-2" name= "firstName" id= "firstName" type="text" placeholder="First Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!" style='width:100%'>
 		</div>
-		<div class="form-group row">
+		<div class="form-group row" >
 		
 			<!-- <label for="lastName" class="col-sm-2 col-form-label">Last Name:</label>-->
 			<input class="form-control mr-sm-2" name= "lastName" id= "lastName" type="text" placeholder="Last Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!">
@@ -50,7 +50,7 @@
 </form></div>
   
   
-  <div class="col-sm-6" style=background:#eb5e21><div align="center">
+  <div class="col-md-6" style=background:#eb5e21><div align="center" style='width:100%'>
  <h3>Select a State to Get Started</h3>
 	<form method="post" action="/stateandcity" id="state_form" method=POST>
 		<div class="form-group" >
@@ -76,7 +76,6 @@
 </div></div>
 </div>
 </div>
-
 
 <div class="jumbotron" align="center"> 
   <h4 class="alert-heading"><%=
@@ -139,5 +138,8 @@ function validate()
 	
 </script>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
