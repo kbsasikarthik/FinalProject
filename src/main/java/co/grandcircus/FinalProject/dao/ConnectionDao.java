@@ -18,9 +18,7 @@ public class ConnectionDao {
     private EntityManager em;
 
     public void create(Connection connection) {
-
         em.persist(connection);
-
     }
 
     public void update(Connection connection) {

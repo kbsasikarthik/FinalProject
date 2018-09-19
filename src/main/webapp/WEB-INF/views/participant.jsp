@@ -24,17 +24,17 @@
 <h1>Add Your Connection To:</h1>
 <h3>${person}</h3> 
 <p>Existing connections, if any</p>
-<table>
-<th><td>Name</td><td>Relationship</td><td>Facebook</td><td>Twitter</td><th>
+ <table>
+<th><td>Name</td><td>Relationship</td><td>Facebook</td><td>Twitter</td></th>
 	<c:forEach var="connection" items="${ connections }">
 		 <tr>
-		    <td>${connection.name}</td>
+		    <td>${connection.participant}</td>
 			<td>${connection.connectionType}</td>
 			<td>${connection.facebook}</td>
 			<td>${connection.twitter}</td>
 		 </tr>  
 	 </c:forEach>
-	 </table>
+	 </table> 
 <p>Add Your Own Connection</p>
 	
 	 <form action="/addConnection/create/${person}/${id}" method="post" class="form">
@@ -71,8 +71,8 @@
 				<input class="form-control" name="twitter" placeholder="@username"/>
 				</div>
 		</div>
-		<button type="button" class="btn btn-secondary btn-sm" >Submit</button>
+		<button  class="btn btn-secondary btn-sm" >Submit</button>
   </form>
-  </div> 
+
 </body>
 </html>
