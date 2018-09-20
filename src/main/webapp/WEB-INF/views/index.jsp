@@ -26,49 +26,39 @@
 <!-- <div class="w3-container">  -->
 <!-- <div align="center"> -->
 <div class="row">
-  <div class="col-md-6"  style=background:#eb5e21><form action="/nameSearch" method="post" onsubmit="return validate();" style='width:100%'>
-<div align="center" >
+  <div align="center" class="col-md-6"  style=background:#eb5e21>
+  <form action="/nameSearch" method="post" onsubmit="return validate();" style='width:100%'>
 <h3>Enter name to Get Started </h3>
-        <div class="form-group row" >
             <!--  <label for="firstName" class="col-sm-2 col-form-label">First Name:</label>-->
-            <input class="form-control -md-5" name= "firstName" id= "firstName" type="text" placeholder="First Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!" style='width:100%'>
-        </div>
-        <div class="form-group row" >
-        
+            <input style="margin-bottom:2%" align="center" class="form-control -md-5" name= "firstName" id= "firstName" type="text" placeholder="First Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!" style='width:100%'>
             <!-- <label for="lastName" class="col-sm-2 col-form-label">Last Name:</label>-->
-            <input class="form-control md-5" name= "lastName" id= "lastName" type="text" placeholder="Last Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!">
-        </div>
-        <button>Search</button>
-</div>
+            <input align="center" class="form-control md-5" name= "lastName" id= "lastName" type="text" placeholder="Last Name" pattern="[a-zA-Z]*" title="Please enter only alphabets!">
+        <button style="margin-top:2%" align="center">Search</button>
 </form></div>
   
   
-  <div class="col-md-6" style=background:#eb5e21><div align="center" style='width:100%'>
- <h3>Select a State to Get Started</h3>
-    <form method="post" action="/stateandcity" id="state_form" method=POST>
-        <div class="form-group" >
-            <label class="sr-only" for="state">State</label>
-            <select class="form-control mb-2" id="state" name="state" required>
+  <div align="center"  class="col-md-6" style=background:#eb5e21>
+    <form method="post" action="/stateandcity" id="state_form" method="post">
+     <h3>Select a State to Get Started</h3>
+    
+            <label align="center" class="sr-only" for="state">State</label>
+            <select align="center" 
+            class="form-control mb-2" id="state" name="state" required>
             <option value="">State</option>
             <c:forEach items="${ states }" var="state">
                 <option <c:if test="${ state eq param.state }">selected</c:if>>${ state }</option>
             </c:forEach>
             </select> 
-         </div>   
-        <div class="form-group" >
-            <label class="sr-only" for="city">City</label>
+            <label align="center" class="sr-only" for="city">City</label>
             <select class="form-control mb-2" id="city" name="city" required>
              <option value="">City</option>
             <c:forEach items="${ cities }" var="city">
                 <option <c:if test="${ city eq param.city_or_county }">selected</c:if>>${ city }</option>
             </c:forEach>
             </select>
-         </div>
-         <button action = "submit">Submit</button>
+         <button align="center" action= "submit">Submit</button>
     </form>
 </div></div>
-</div>
-</div>
 <div class="jumbotron" align="center"> 
   <h4 class="alert-heading"><%=
         Arrays.asList("\"How many have to die before we will give up these dangerous toys?\"",
